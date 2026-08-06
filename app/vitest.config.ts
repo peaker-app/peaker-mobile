@@ -22,7 +22,7 @@ export default defineConfig({
         "src/types/**",
         "src/shims/**",
         "src/components/ui/**",
-        "src/app/dev/**",
+        "src/components/features/peaks/PeakMapView.tsx",
         "src/main.tsx",
         "src/vite-env.d.ts",
       ],

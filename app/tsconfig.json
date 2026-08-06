@@ -17,7 +17,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "next-intl": ["./src/shims/next-intl.ts"],
-      "next/image": ["./src/shims/next-image.tsx"]
+      "next/image": ["./src/shims/next-image.tsx"],
+      "next/dynamic": ["./src/shims/next-dynamic.tsx"]
     }
   },
   "include": [

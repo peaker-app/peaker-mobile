@@ -2,7 +2,10 @@
   "portalRoot": "../../peaker-web/portal",
   "notes": {
     "src/lib/api/endpoints.ts": "allowedGatewayPrefixes e isAllowedGatewayPath eran la allowlist del BFF y en movil no se usan. Se conservan para no divergir del origen.",
-    "src/components/forms": "Los tests de forms/ son propios de movil: el portal no los tiene, asi que no se vendorizan."
+    "src/components/forms": "Los tests de forms/ son propios de movil: el portal no los tiene, asi que no se vendorizan.",
+    "src/components/features/auth": "ConfirmTokenForm, SignOutButton y PasswordField.test.tsx son propios de movil y no existen en el portal: no se vendorizan.",
+    "src/app/[locale]/(public)/peaks/searchParams.ts": "Se copia en la ruta literal del portal, con corchetes y parentesis, aunque en movil no exista enrutado por ficheros: es lo que permite que PeakFilters y PeakPagination conserven su import byte-identico y que este script compare el mismo path en los dos repos.",
+    "src/components/features/peaks": "PeakActions.test.tsx, PeakPagination.test.tsx, PeakMap.test.tsx, PeakFiltersSheet.tsx y MapListSwitcher.tsx son propios de movil y no existen en el portal: no se vendorizan. FeaturedPeaks.tsx tampoco, porque es un Server Component async de SC-01, excluida de paridad."
   },
   "files": [
     {
@@ -138,19 +141,29 @@
       "path": "src/test/IntlWrapper.tsx"
     },
     {
-      "path": "messages/en.json"
+      "path": "messages/en.json",
+      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "sourceSha256": "7f6f8efd5f279a595aa9ae76a2236f3edddfc6ab871bf2dcc2ef30cdb240cba7"
     },
     {
-      "path": "messages/es.json"
+      "path": "messages/es.json",
+      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "sourceSha256": "636761498b4318641f6651d67e55ed0a422048b89b7c36ba7104d2b89225c3a5"
     },
     {
-      "path": "messages/zh.json"
+      "path": "messages/zh.json",
+      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "sourceSha256": "c569237752376e9ba3ed863b0df75ce63eb0a08f8e207d78b35448d66f670419"
     },
     {
-      "path": "messages/fr.json"
+      "path": "messages/fr.json",
+      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "sourceSha256": "34d187b746bdb6f357c076d8ebb73cf20dce22b7d1fdb1475cbbbc0d41924c2d"
     },
     {
-      "path": "messages/ar.json"
+      "path": "messages/ar.json",
+      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "sourceSha256": "e9d424580463faff4768353d0dfe080df3c5d4a82703d4ce4701f3cfe6935593"
     },
     {
       "path": "scripts/check-messages.mjs"
@@ -235,6 +248,120 @@
     },
     {
       "path": "src/components/forms/VisibilitySelect.tsx"
+    },
+    {
+      "path": "src/components/features/auth/PasswordField.tsx"
+    },
+    {
+      "path": "src/components/features/auth/PasswordStrengthMeter.tsx"
+    },
+    {
+      "path": "src/components/features/auth/RegisterForm.tsx"
+    },
+    {
+      "path": "src/components/features/auth/RegisterForm.test.tsx"
+    },
+    {
+      "path": "src/components/features/auth/ResendConfirmationCard.tsx"
+    },
+    {
+      "path": "src/components/features/auth/ResendConfirmationCard.test.tsx"
+    },
+    {
+      "path": "src/components/features/auth/LoginForm.tsx",
+      "divergence": "No hay route handler en movil: fetch('/api/auth/login') pasa a signIn() de lib/auth/session capturando ApiError, mas una rama para el fallo de red que el BFF no tenia (MOBILE.md §6 B3).",
+      "sourceSha256": "8cc8c6b4c3e5dbdd8328fe831e17ef1019fbbdf78f1839dd2b38183781e10eea"
+    },
+    {
+      "path": "src/components/features/auth/LoginForm.test.tsx",
+      "divergence": "Sigue a LoginForm: mock de @/lib/auth/session en lugar de stub de fetch, mas un caso de fallo de red.",
+      "sourceSha256": "f71bc5e46dd529fc3c897f0b2a3aecffaac7e9ef6d2150e28aafcae76c27f44e"
+    },
+    {
+      "path": "src/components/features/auth/ConfirmEmailView.tsx",
+      "divergence": "useSessionState viene del store de sesion (forma {status, session}); HeaderAuthActions es React Query sobre el BFF y no se vendoriza (MOBILE.md §6 B3).",
+      "sourceSha256": "3f7b6e353c11e9418fa076b6f7f97d8caddf995377764a7d7621c3565768b34b"
+    },
+    {
+      "path": "src/components/features/auth/ConfirmEmailView.test.tsx",
+      "divergence": "Sigue a ConfirmEmailView: mock del store de sesion y renderWithProviders en lugar del wrapper propio con QueryClient.",
+      "sourceSha256": "c54536b5df79e810288fe67d3ade7936daeccc70155e85177a535a42b472b702"
+    },
+    {
+      "path": "src/app/[locale]/(public)/peaks/searchParams.ts"
+    },
+    {
+      "path": "src/app/[locale]/(public)/peaks/searchParams.test.ts"
+    },
+    {
+      "path": "src/components/features/peaks/PeakCard.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakCard.test.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakSearchInput.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakSearchInput.test.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakFilters.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakFilters.test.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakPagination.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakFactsList.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakFactsList.test.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakMap.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakMapView.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/AddToCollectionDialog.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/AddToCollectionDialog.test.tsx"
+    },
+    {
+      "path": "src/components/layout/Breadcrumb.tsx"
+    },
+    {
+      "path": "src/components/layout/Breadcrumb.test.tsx"
+    },
+    {
+      "path": "src/components/features/peaks/PeakActions.tsx",
+      "divergence": "useSessionState viene del store de sesion (forma {status, session}); HeaderAuthActions es React Query sobre el BFF y no se vendoriza (MOBILE.md §3.1).",
+      "sourceSha256": "59bd6f800f40538fe309149d00066de270205a8c146535192ca37511c4a78123"
+    },
+    {
+      "path": "src/components/features/peaks/LocationPicker.tsx",
+      "divergence": "Capacitor 4+ ya no parchea navigator.geolocation: locate() pasa por lib/native/geolocation, que elige plugin nativo o navegador segun plataforma (MOBILE.md §6 B4).",
+      "sourceSha256": "3b76edf67944f8606acb06650d67bac6080018f1a655d30efcaa2ee503b2f67c"
+    },
+    {
+      "path": "src/components/features/peaks/LocationPicker.test.tsx",
+      "divergence": "Sigue a LocationPicker: mock de @/lib/native/geolocation en lugar de redefinir navigator.geolocation.",
+      "sourceSha256": "892d61a5a05b259c9b636c07214e5b935a98125c7682438394f1c83501ca21af"
+    },
+    {
+      "path": "src/components/features/peaks/NearbyPeaksView.tsx",
+      "divergence": "Conmutador Mapa/Lista de FRONTEND.md SC-03 §6: en un telefono las dos columnas no caben y el mapa atrapa el gesto de scroll. El panel por defecto es la lista, asi que Leaflet solo se descarga cuando se pide.",
+      "sourceSha256": "24f7ce2d2878a0c643fc9310c81cf295b5cde4d49a423bbd367b30e233a58a44"
+    },
+    {
+      "path": "src/components/features/peaks/NearbyPeaksView.test.tsx",
+      "divergence": "Sigue a NearbyPeaksView: el caso del mapa pulsa antes el conmutador, mas dos casos nuevos del propio conmutador.",
+      "sourceSha256": "662f35a27cb84828585d088d78a13ae0ae495e98ae2d32c398b9df75f87f053c"
     }
   ]
 }

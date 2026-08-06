@@ -42,7 +42,6 @@ const unshimmedNextModules = [
   "next-intl/server",
   "next-intl/navigation",
   "next-intl/routing",
-  "next/dynamic",
   "next/headers",
   "next/link",
   "next/navigation",
@@ -51,13 +50,24 @@ const unshimmedNextModules = [
 ].map((name) => ({
   name,
   message:
-    "Módulo de Next sin equivalente en móvil. Solo 'next-intl' y 'next/image' están aliasados a src/shims (MOBILE.md §3.1).",
+    "Módulo de Next sin equivalente en móvil. Solo 'next-intl', 'next/image' y 'next/dynamic' están aliasados a src/shims (MOBILE.md §3.1.1).",
 }));
+
+const vendoredNextPlugin = {
+  rules: {
+    "no-img-element": { create: () => ({}) },
+  },
+};
 
 const eslintConfig = defineConfig([
   js.configs.recommended,
   ...tseslint.configs.recommended,
   reactHooks.configs.flat["recommended-latest"],
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    plugins: { "@next/next": vendoredNextPlugin },
+    linterOptions: { reportUnusedDisableDirectives: "off" },
+  },
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -112,13 +122,6 @@ const eslintConfig = defineConfig([
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
-    },
-  },
-  {
-    files: ["src/app/dev/**/*.tsx"],
-    rules: {
-      "react/jsx-no-literals": "off",
-      "no-restricted-syntax": "off",
     },
   },
   {
