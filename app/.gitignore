@@ -1,0 +1,50 @@
+# dependencies
+/node_modules
+
+# build
+/dist
+*.tsbuildinfo
+
+# testing
+/coverage
+/test-results
+/playwright-report
+/blob-report
+/playwright/.cache
+
+# env files
+.env*
+!.env.example
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Android: el proyecto de `cap add android` se versiona; sus artefactos de build no
+/android/build
+/android/app/build
+/android/.gradle
+/android/.idea
+/android/local.properties
+/android/captures
+*.iml
+
+# iOS (B7): el proyecto se versiona; Pods y build no
+/ios/App/Pods
+/ios/App/build
+/ios/App/output
+/ios/DerivedData
+xcuserdata
+
+# firma: nunca en el repositorio, van como secretos de CI (MOBILE.md §8)
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+key.properties

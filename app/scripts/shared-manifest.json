@@ -1,0 +1,240 @@
+{
+  "portalRoot": "../../peaker-web/portal",
+  "notes": {
+    "src/lib/api/endpoints.ts": "allowedGatewayPrefixes e isAllowedGatewayPath eran la allowlist del BFF y en movil no se usan. Se conservan para no divergir del origen.",
+    "src/components/forms": "Los tests de forms/ son propios de movil: el portal no los tiene, asi que no se vendorizan."
+  },
+  "files": [
+    {
+      "path": "src/lib/cn.ts"
+    },
+    {
+      "path": "src/lib/cn.test.ts"
+    },
+    {
+      "path": "src/lib/format.ts"
+    },
+    {
+      "path": "src/lib/format.test.ts"
+    },
+    {
+      "path": "src/lib/countries.ts"
+    },
+    {
+      "path": "src/lib/countries.test.ts"
+    },
+    {
+      "path": "src/lib/peakName.ts"
+    },
+    {
+      "path": "src/lib/peakName.test.ts"
+    },
+    {
+      "path": "src/lib/peakImage.ts"
+    },
+    {
+      "path": "src/lib/peakImage.test.ts"
+    },
+    {
+      "path": "src/lib/number.ts"
+    },
+    {
+      "path": "src/lib/number.test.ts"
+    },
+    {
+      "path": "src/lib/map.ts",
+      "divergence": "process.env.NEXT_PUBLIC_* no existe en Vite: import.meta.env.VITE_*.",
+      "sourceSha256": "e79af68448e17b02dd134800bbb3b7fe3f72a582b71b1e0f6a24ce7f0bd961a8"
+    },
+    {
+      "path": "src/lib/map.test.ts",
+      "divergence": "Sigue a map.ts: vi.stubEnv en lugar de mutar process.env.",
+      "sourceSha256": "a8ca20b16070a72c7768f6063257f253029f34e70419183c161fc0055c1e3aaf"
+    },
+    {
+      "path": "src/lib/collections/label.ts"
+    },
+    {
+      "path": "src/lib/collections/label.test.ts"
+    },
+    {
+      "path": "src/lib/profile/avatar.ts"
+    },
+    {
+      "path": "src/lib/profile/avatar.test.ts"
+    },
+    {
+      "path": "src/lib/ascents/photos.ts"
+    },
+    {
+      "path": "src/lib/ascents/photos.test.ts"
+    },
+    {
+      "path": "src/lib/ascents/submitAscent.ts"
+    },
+    {
+      "path": "src/lib/ascents/submitAscent.test.ts"
+    },
+    {
+      "path": "src/lib/auth/validation.ts"
+    },
+    {
+      "path": "src/lib/auth/validation.test.ts"
+    },
+    {
+      "path": "src/lib/auth/accessToken.ts",
+      "divergence": "Buffer.from(payload,\"base64url\") no existe en el WebView: atob normalizado + TextDecoder (MOBILE.md §6 B2.3).",
+      "sourceSha256": "6fa24c149e63bb541667baba514c1cc4944798bf37faabd2c5ca12ab1f5df70d"
+    },
+    {
+      "path": "src/lib/auth/accessToken.test.ts"
+    },
+    {
+      "path": "src/lib/auth/nextPath.ts"
+    },
+    {
+      "path": "src/lib/auth/nextPath.test.ts"
+    },
+    {
+      "path": "src/lib/api/endpoints.ts"
+    },
+    {
+      "path": "src/lib/api/endpoints.test.ts"
+    },
+    {
+      "path": "src/lib/api/problem.ts"
+    },
+    {
+      "path": "src/lib/api/problem.test.ts"
+    },
+    {
+      "path": "src/hooks/useDebouncedValue.ts"
+    },
+    {
+      "path": "src/hooks/usePagedQuery.ts"
+    },
+    {
+      "path": "src/hooks/useProblemToast.ts"
+    },
+    {
+      "path": "src/hooks/useDebouncedValue.test.ts"
+    },
+    {
+      "path": "src/hooks/usePagedQuery.test.ts"
+    },
+    {
+      "path": "src/hooks/useProblemToast.test.tsx"
+    },
+    {
+      "path": "src/types/api.ts"
+    },
+    {
+      "path": "src/i18n/config.ts"
+    },
+    {
+      "path": "src/i18n/config.test.ts"
+    },
+    {
+      "path": "src/test/IntlWrapper.tsx"
+    },
+    {
+      "path": "messages/en.json"
+    },
+    {
+      "path": "messages/es.json"
+    },
+    {
+      "path": "messages/zh.json"
+    },
+    {
+      "path": "messages/fr.json"
+    },
+    {
+      "path": "messages/ar.json"
+    },
+    {
+      "path": "scripts/check-messages.mjs"
+    },
+    {
+      "path": "scripts/check-rtl.mjs"
+    },
+    {
+      "path": "scripts/check-problem-detail.mjs"
+    },
+    {
+      "path": "src/components/ui/Alert.tsx"
+    },
+    {
+      "path": "src/components/ui/AlertDialog.tsx"
+    },
+    {
+      "path": "src/components/ui/Badge.tsx"
+    },
+    {
+      "path": "src/components/ui/Button.tsx"
+    },
+    {
+      "path": "src/components/ui/Card.tsx"
+    },
+    {
+      "path": "src/components/ui/Dialog.tsx"
+    },
+    {
+      "path": "src/components/ui/Input.tsx"
+    },
+    {
+      "path": "src/components/ui/Label.tsx"
+    },
+    {
+      "path": "src/components/ui/RadioGroup.tsx"
+    },
+    {
+      "path": "src/components/ui/Select.tsx"
+    },
+    {
+      "path": "src/components/ui/Sheet.tsx"
+    },
+    {
+      "path": "src/components/ui/Skeleton.tsx"
+    },
+    {
+      "path": "src/components/ui/Slider.tsx"
+    },
+    {
+      "path": "src/components/ui/Textarea.tsx"
+    },
+    {
+      "path": "src/components/feedback/ConfirmDialog.test.tsx"
+    },
+    {
+      "path": "src/components/feedback/ConfirmDialog.tsx"
+    },
+    {
+      "path": "src/components/feedback/EmptyState.test.tsx"
+    },
+    {
+      "path": "src/components/feedback/EmptyState.tsx"
+    },
+    {
+      "path": "src/components/feedback/ErrorState.test.tsx"
+    },
+    {
+      "path": "src/components/feedback/ErrorState.tsx"
+    },
+    {
+      "path": "src/components/feedback/Pagination.test.tsx"
+    },
+    {
+      "path": "src/components/feedback/Pagination.tsx"
+    },
+    {
+      "path": "src/components/forms/CountrySelect.tsx"
+    },
+    {
+      "path": "src/components/forms/FormField.tsx"
+    },
+    {
+      "path": "src/components/forms/VisibilitySelect.tsx"
+    }
+  ]
+}
