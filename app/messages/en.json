@@ -441,7 +441,14 @@
       "missingToken": "This link has no token. Open the most recent email we sent you.",
       "goToDashboard": "Go to my activity",
       "goToLogin": "Sign in",
-      "requestNew": "Request a new link"
+      "requestNew": "Request a new link",
+      "manual": {
+        "title": "Confirm it by hand",
+        "body": "If the link didn't open the app, paste it here — or paste just the token it carries.",
+        "label": "Confirmation link or token",
+        "help": "It's in the last email we sent you. It expires 24 hours after it was sent and works only once.",
+        "submit": "Confirm my email"
+      }
     },
     "resend": {
       "title": "Confirm your email",
@@ -453,7 +460,8 @@
       "cooldown": "You can ask for another link in <time>{value}</time>.",
       "cooldownDisabled": "The button is disabled until the countdown ends.",
       "alreadyConfirmed": "Your email is already confirmed.",
-      "goToDashboard": "Go to my activity"
+      "goToDashboard": "Go to my activity",
+      "enterToken": "I already have the link: enter it"
     }
   },
   "dashboard": {

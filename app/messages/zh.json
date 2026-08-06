@@ -441,7 +441,14 @@
       "missingToken": "该链接缺少令牌。请打开我们最近发送给你的邮件。",
       "goToDashboard": "查看我的活动",
       "goToLogin": "登录",
-      "requestNew": "获取新链接"
+      "requestNew": "获取新链接",
+      "manual": {
+        "title": "手动完成验证",
+        "body": "如果链接没有打开应用，请把链接粘贴到这里，或只粘贴其中的令牌。",
+        "label": "验证链接或令牌",
+        "help": "它在我们最近发送给你的邮件里。链接自发送起 24 小时后失效，且只能使用一次。",
+        "submit": "验证我的邮箱"
+      }
     },
     "resend": {
       "title": "验证你的邮箱",
@@ -453,7 +460,8 @@
       "cooldown": "<time>{value}</time> 后可再次获取链接。",
       "cooldownDisabled": "倒计时结束前按钮不可用。",
       "alreadyConfirmed": "你的邮箱已完成验证。",
-      "goToDashboard": "查看我的活动"
+      "goToDashboard": "查看我的活动",
+      "enterToken": "我已经有链接了：直接输入"
     }
   },
   "dashboard": {

@@ -22,7 +22,7 @@ describe("TabBar", () => {
       "/dashboard",
       "/dashboard/ascents/new",
       "/dashboard/collections",
-      "/dashboard/settings/profile",
+      "/dashboard/settings/account",
     ]);
   });
 

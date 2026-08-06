@@ -441,7 +441,14 @@
       "missingToken": "Este enlace no lleva token. Abre el último correo que te hemos enviado.",
       "goToDashboard": "Ir a mi actividad",
       "goToLogin": "Entrar",
-      "requestNew": "Pedir un enlace nuevo"
+      "requestNew": "Pedir un enlace nuevo",
+      "manual": {
+        "title": "Confírmalo a mano",
+        "body": "Si el enlace no abrió la aplicación, pégalo aquí, o pega solo el token que lleva dentro.",
+        "label": "Enlace o token de confirmación",
+        "help": "Está en el último correo que te hemos enviado. Caduca a las 24 horas y solo sirve una vez.",
+        "submit": "Confirmar mi correo"
+      }
     },
     "resend": {
       "title": "Confirma tu correo",
@@ -453,7 +460,8 @@
       "cooldown": "Podrás pedir otro enlace en <time>{value}</time>.",
       "cooldownDisabled": "El botón está deshabilitado hasta que acabe la cuenta atrás.",
       "alreadyConfirmed": "Tu correo ya está confirmado.",
-      "goToDashboard": "Ir a mi actividad"
+      "goToDashboard": "Ir a mi actividad",
+      "enterToken": "Ya tengo el enlace: introducirlo"
     }
   },
   "dashboard": {

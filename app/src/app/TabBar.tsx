@@ -20,7 +20,7 @@ const tabs: readonly Tab[] = [
   { href: "/peaks", labelKey: "peaks", Icon: SearchIcon },
   { href: "/dashboard", labelKey: "dashboard", Icon: MountainIcon },
   { href: "/dashboard/collections", labelKey: "collections", Icon: LibraryIcon },
-  { href: "/dashboard/settings/profile", labelKey: "profile", Icon: UserIcon },
+  { href: "/dashboard/settings/account", labelKey: "account", Icon: UserIcon },
 ];
 
 const tabClass = (isActive: boolean): string =>

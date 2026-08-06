@@ -441,7 +441,14 @@
       "missingToken": "Ce lien ne contient aucun jeton. Ouvrez le dernier e-mail que nous vous avons envoyé.",
       "goToDashboard": "Voir mon activité",
       "goToLogin": "Se connecter",
-      "requestNew": "Demander un nouveau lien"
+      "requestNew": "Demander un nouveau lien",
+      "manual": {
+        "title": "Confirmer à la main",
+        "body": "Si le lien n'a pas ouvert l'application, collez-le ici, ou collez seulement le jeton qu'il contient.",
+        "label": "Lien ou jeton de confirmation",
+        "help": "Il se trouve dans le dernier e-mail que nous vous avons envoyé. Il expire 24 heures après l'envoi et ne fonctionne qu'une fois.",
+        "submit": "Confirmer mon e-mail"
+      }
     },
     "resend": {
       "title": "Confirmez votre e-mail",
@@ -453,7 +460,8 @@
       "cooldown": "Vous pourrez demander un autre lien dans <time>{value}</time>.",
       "cooldownDisabled": "Le bouton est désactivé jusqu'à la fin du compte à rebours.",
       "alreadyConfirmed": "Votre e-mail est déjà confirmé.",
-      "goToDashboard": "Voir mon activité"
+      "goToDashboard": "Voir mon activité",
+      "enterToken": "J'ai déjà le lien : le saisir"
     }
   },
   "dashboard": {
