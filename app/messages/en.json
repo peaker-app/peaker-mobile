@@ -275,7 +275,8 @@
       "pendingPhotos": {
         "title": "{count, plural, one {# photo couldn't be uploaded} other {# photos couldn't be uploaded}}",
         "body": "The ascent was saved. You can add them again below."
-      }
+      },
+      "viewPublic": "See the public page"
     },
     "photos": {
       "heading": "Photos",
@@ -287,7 +288,10 @@
       "confirmBody": "It will be removed from the ascent and from our image storage. This can't be undone.",
       "confirmAction": "Delete photo",
       "deleted": "Photo deleted.",
-      "empty": "No photos yet. Add the ones you took on the summit."
+      "empty": "No photos yet. Add the ones you took on the summit.",
+      "takePhoto": "Take a photo",
+      "chooseFromGallery": "Choose from gallery",
+      "pickerDenied": "We couldn't open the camera or your gallery. Check the app permissions."
     },
     "danger": {
       "heading": "Danger zone",
@@ -528,7 +532,10 @@
       "moveDown": "Move photo {index} later",
       "tooLarge": "{name} is over {size} MB.",
       "unsupported": "{name} isn't a JPEG, PNG or WebP image.",
-      "tooMany": "You can only attach {max} photos."
+      "tooMany": "You can only attach {max} photos.",
+      "takePhoto": "Take a photo",
+      "chooseFromGallery": "Choose from gallery",
+      "pickerDenied": "We couldn't open the camera or your gallery. Check the app permissions."
     },
     "companions": {
       "label": "Companions",

@@ -302,7 +302,8 @@
       "pendingPhotos": {
         "title": "{count, plural, one {# photo n'a pas pu être envoyée} other {# photos n'ont pas pu être envoyées}}",
         "body": "L'ascension a bien été enregistrée. Vous pouvez les ajouter de nouveau ci-dessous."
-      }
+      },
+      "viewPublic": "Voir la page publique"
     },
     "photos": {
       "heading": "Photos",
@@ -314,7 +315,10 @@
       "confirmBody": "Elle sera retirée de l'ascension et de notre stockage d'images. Cette action est irréversible.",
       "confirmAction": "Supprimer la photo",
       "deleted": "Photo supprimée.",
-      "empty": "Pas encore de photos. Ajoutez celles prises au sommet."
+      "empty": "Pas encore de photos. Ajoutez celles prises au sommet.",
+      "takePhoto": "Prendre une photo",
+      "chooseFromGallery": "Choisir dans la galerie",
+      "pickerDenied": "Impossible d'ouvrir l'appareil photo ou la galerie. Vérifie les autorisations de l'application."
     },
     "danger": {
       "heading": "Zone de danger",
@@ -638,7 +642,10 @@
       "moveDown": "Reculer la photo {index}",
       "tooLarge": "{name} dépasse {size} Mo.",
       "unsupported": "{name} n'est pas une image JPEG, PNG ou WebP.",
-      "tooMany": "Vous ne pouvez joindre que {max} photos."
+      "tooMany": "Vous ne pouvez joindre que {max} photos.",
+      "takePhoto": "Prendre une photo",
+      "chooseFromGallery": "Choisir dans la galerie",
+      "pickerDenied": "Impossible d'ouvrir l'appareil photo ou la galerie. Vérifie les autorisations de l'application."
     },
     "companions": {
       "label": "Compagnons",

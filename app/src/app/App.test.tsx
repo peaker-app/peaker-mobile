@@ -95,6 +95,34 @@ describe("App", () => {
     ).toBeInTheDocument();
   });
 
+  it("app_publicAscentRoute_doesNotRequireASession", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          id: "a-1",
+          userId: "u-1",
+          peakId: "peak-1",
+          peakName: "Aneto",
+          peakAltitudeMeters: 3404,
+          ascentDate: "2026-07-20",
+          companions: null,
+          routeNotes: null,
+          conditions: { snow: null, wind: null, trail: null },
+          visibility: "Public",
+          photos: [],
+        }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      ),
+    );
+    goTo("/ascents/a-1");
+
+    render(<App />);
+
+    expect(
+      await screen.findByRole("heading", { level: 1, name: "Aneto" }),
+    ).toBeInTheDocument();
+  });
+
   it("app_nearbyRoute_neverFallsIntoThePeakDetail", async () => {
     goTo("/peaks/nearby");
 

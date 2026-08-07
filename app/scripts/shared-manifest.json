@@ -5,7 +5,9 @@
     "src/components/forms": "Los tests de forms/ son propios de movil: el portal no los tiene, asi que no se vendorizan.",
     "src/components/features/auth": "ConfirmTokenForm, SignOutButton y PasswordField.test.tsx son propios de movil y no existen en el portal: no se vendorizan.",
     "src/app/[locale]/(public)/peaks/searchParams.ts": "Se copia en la ruta literal del portal, con corchetes y parentesis, aunque en movil no exista enrutado por ficheros: es lo que permite que PeakFilters y PeakPagination conserven su import byte-identico y que este script compare el mismo path en los dos repos.",
-    "src/components/features/peaks": "PeakActions.test.tsx, PeakPagination.test.tsx, PeakMap.test.tsx, PeakFiltersSheet.tsx y MapListSwitcher.tsx son propios de movil y no existen en el portal: no se vendorizan. FeaturedPeaks.tsx tampoco, porque es un Server Component async de SC-01, excluida de paridad."
+    "src/components/features/peaks": "PeakActions.test.tsx, PeakPagination.test.tsx, PeakMap.test.tsx, PeakFiltersSheet.tsx y MapListSwitcher.tsx son propios de movil y no existen en el portal: no se vendorizan. FeaturedPeaks.tsx tampoco, porque es un Server Component async de SC-01, excluida de paridad.",
+    "src/stores": "preferences.ts y emailConfirmation.ts NO se vendorizan: el portal los escribe con zustand y persist sobre localStorage, prohibido en movil. Se reescriben sobre useSyncExternalStore y @capacitor/preferences conservando la API estatica (getState/setState), que es lo que permite que MyAscentsList, RegisterAscentForm, UnconfirmedEmailBanner y listAndTable.test.tsx entren byte-identicos (MOBILE.md §6 B5).",
+    "src/components/features/dashboard": "Solo se vendoriza UnconfirmedEmailBanner.tsx. DashboardGreeting, DashboardStats y RecentAscents son Server Components async y su equivalente movil vive en src/app/dashboard/. dashboard.test.tsx los prueba con serverFetch y next-intl/server, asi que tampoco se vendoriza: el banner lleva test propio de movil."
   },
   "files": [
     {
@@ -142,27 +144,27 @@
     },
     {
       "path": "messages/en.json",
-      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b).",
       "sourceSha256": "7f6f8efd5f279a595aa9ae76a2236f3edddfc6ab871bf2dcc2ef30cdb240cba7"
     },
     {
       "path": "messages/es.json",
-      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b).",
       "sourceSha256": "636761498b4318641f6651d67e55ed0a422048b89b7c36ba7104d2b89225c3a5"
     },
     {
       "path": "messages/zh.json",
-      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b).",
       "sourceSha256": "c569237752376e9ba3ed863b0df75ce63eb0a08f8e207d78b35448d66f670419"
     },
     {
       "path": "messages/fr.json",
-      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b).",
       "sourceSha256": "34d187b746bdb6f357c076d8ebb73cf20dce22b7d1fdb1475cbbbc0d41924c2d"
     },
     {
       "path": "messages/ar.json",
-      "divergence": "Claves propias de movil para el pegado manual del token de confirmacion (auth.confirmEmail.manual.*, auth.resend.enterToken): sin deep link, que llega en B7, SC-09 no es demostrable en el emulador (MOBILE.md §6 B3).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b).",
       "sourceSha256": "e9d424580463faff4768353d0dfe080df3c5d4a82703d4ce4701f3cfe6935593"
     },
     {
@@ -362,6 +364,95 @@
       "path": "src/components/features/peaks/NearbyPeaksView.test.tsx",
       "divergence": "Sigue a NearbyPeaksView: el caso del mapa pulsa antes el conmutador, mas dos casos nuevos del propio conmutador.",
       "sourceSha256": "662f35a27cb84828585d088d78a13ae0ae495e98ae2d32c398b9df75f87f053c"
+    },
+    {
+      "path": "src/components/features/ascents/AscentCard.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/AscentCard.test.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/AscentTable.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/MyAscentsList.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/VisibilityBadge.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/ConditionsSummary.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/ConditionsSummary.test.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/PhotoGallery.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/PhotoGallery.test.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/listAndTable.test.tsx"
+    },
+    {
+      "path": "src/components/features/dashboard/UnconfirmedEmailBanner.tsx"
+    },
+    {
+      "path": "src/components/features/profile/StatsGrid.tsx"
+    },
+    {
+      "path": "src/components/features/profile/StatsGrid.test.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/AscentForm.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/RegisterAscentForm.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/RegisterAscentForm.test.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/EditAscentForm.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/EditAscentForm.test.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/PeakSearchCombobox.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/PeakSearchCombobox.test.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/ConditionsPicker.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/VisibilityRadioGroup.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/SubmitProgress.tsx"
+    },
+    {
+      "path": "src/components/features/ascents/PhotoUploader.tsx",
+      "divergence": "El <input type=file capture=environment> se sustituye por dos botones sobre lib/native/camera: la camara nativa redimensiona antes de que CapacitorHttp convierta el fichero a base64 para cruzar el puente (MOBILE.md §6 B5).",
+      "sourceSha256": "4f8e9401bf0218149651ae820fa7699a2729c1fe603277b25ebc74ab8a063db4"
+    },
+    {
+      "path": "src/components/features/ascents/PhotoManager.tsx",
+      "divergence": "Misma sustitucion que PhotoUploader en la zona de subida de SC-14; el resto, incluido el borrado sin optimismo y router.refresh(), no cambia.",
+      "sourceSha256": "0c851adf0dc5e1bc5fb082822f613ccc1501a061f25c85d6a9b31951112c182c"
+    },
+    {
+      "path": "src/components/features/ascents/PhotoManager.test.tsx",
+      "divergence": "Sigue a PhotoManager: mock de @/lib/native/camera, rotulo «Take a photo» en lugar de «Add photo» y dos casos nuevos de subida por el picker.",
+      "sourceSha256": "fc2ec28d27ac4f3adac8193113ca1d6b14281c7e2bbe6c3f8e3e76d9e1afcfe9"
+    },
+    {
+      "path": "src/components/features/ascents/uploaderAndProgress.test.tsx",
+      "divergence": "Sigue a PhotoUploader: mock del picker, y cinco casos nuevos que el <input type=file> no permitia cubrir (ambas fuentes, huecos restantes, permiso denegado y cancelacion).",
+      "sourceSha256": "620701aee005f08059863e46b90bdee5198816ed63ef7bd0f9e3e558b8f3fc9f"
     }
   ]
 }

@@ -302,7 +302,8 @@
       "pendingPhotos": {
         "title": "{count, plural, other {有 # 张照片上传失败}}",
         "body": "登顶记录已保存，你可以在下方重新添加这些照片。"
-      }
+      },
+      "viewPublic": "查看公开页面"
     },
     "photos": {
       "heading": "照片",
@@ -314,7 +315,10 @@
       "confirmBody": "该照片将从登顶记录和图片存储中移除，此操作无法撤销。",
       "confirmAction": "删除照片",
       "deleted": "照片已删除。",
-      "empty": "还没有照片。添加你在山顶拍的照片吧。"
+      "empty": "还没有照片。添加你在山顶拍的照片吧。",
+      "takePhoto": "拍照",
+      "chooseFromGallery": "从相册选择",
+      "pickerDenied": "无法打开相机或相册。请检查应用权限。"
     },
     "danger": {
       "heading": "危险操作",
@@ -638,7 +642,10 @@
       "moveDown": "将第 {index} 张照片后移",
       "tooLarge": "{name} 超过 {size} MB。",
       "unsupported": "{name} 不是 JPEG、PNG 或 WebP 图片。",
-      "tooMany": "最多只能附加 {max} 张照片。"
+      "tooMany": "最多只能附加 {max} 张照片。",
+      "takePhoto": "拍照",
+      "chooseFromGallery": "从相册选择",
+      "pickerDenied": "无法打开相机或相册。请检查应用权限。"
     },
     "companions": {
       "label": "同行者",

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { queryClient } from "./queryClient";
+import { ownerScopes, queryClient } from "./queryClient";
 
 const retryDelay = () => {
   const { retryDelay: delay } = queryClient.getDefaultOptions().queries ?? {};
@@ -29,5 +29,17 @@ describe("queryClient", () => {
 
   it("mutations_byDefault_doNotRetry", () => {
     expect(queryClient.getDefaultOptions().mutations?.retry).toBe(false);
+  });
+
+  it("catalogueData_isCachedForHalfAMinute", () => {
+    expect(queryClient.getDefaultOptions().queries?.staleTime).toBe(30_000);
+  });
+
+  it("ownerData_isNeverServedStale", () => {
+    for (const scope of ownerScopes) {
+      expect(queryClient.getQueryDefaults([scope, "anything"]).staleTime).toBe(
+        0,
+      );
+    }
   });
 });
