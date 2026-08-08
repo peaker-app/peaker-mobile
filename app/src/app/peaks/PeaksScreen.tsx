@@ -6,6 +6,7 @@ import {
 } from "@/app/[locale]/(public)/peaks/searchParams";
 import { PeakFiltersSheet } from "@/components/features/peaks/PeakFiltersSheet";
 import { PeakSearchInput } from "@/components/features/peaks/PeakSearchInput";
+import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { usePagedQuery } from "@/hooks/usePagedQuery";
 import { Link } from "@/i18n/navigation";
@@ -16,8 +17,10 @@ import { PeakResults } from "./PeakResults";
 export const PeaksScreen = () => {
   const t = useTranslations("peaks");
   const nav = useTranslations("nav");
+  const danger = useTranslations("settings.account.danger");
   const [params] = useSearchParams();
   const query = parsePeakQuery(Object.fromEntries(params));
+  const accountDeleted = params.get("deleted") === "1";
 
   const results = usePagedQuery<PeakListItemResponse>(
     ["peaks", "catalogue"],
@@ -37,6 +40,7 @@ export const PeaksScreen = () => {
 
   return (
     <main className="flex flex-1 flex-col gap-4 p-6">
+      {accountDeleted ? <Alert role="status">{danger("deleted")}</Alert> : null}
       <h1 className="text-xl leading-relaxed font-semibold text-start">
         {t("title")}
       </h1>

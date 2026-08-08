@@ -19,7 +19,21 @@ export interface LocationPickerProps {
   onChange: (origin: Origin) => void;
 }
 
-type LocateStatus = "idle" | "locating" | "denied" | "unsupported" | "located";
+type LocateStatus =
+  | "idle"
+  | "locating"
+  | "denied"
+  | "servicesDisabled"
+  | "unsupported"
+  | "located";
+
+const messageKeys = {
+  locating: "locating",
+  denied: "permissionDenied",
+  servicesDisabled: "servicesDisabled",
+  unsupported: "unsupported",
+  located: "located",
+} as const;
 
 export const LocationPicker = ({ origin, onChange }: LocationPickerProps) => {
   const t = useTranslations("peaks.nearby");
@@ -58,16 +72,7 @@ export const LocationPicker = ({ origin, onChange }: LocationPickerProps) => {
     }
   };
 
-  const statusMessage =
-    status === "locating"
-      ? t("locating")
-      : status === "denied"
-        ? t("permissionDenied")
-        : status === "unsupported"
-          ? t("unsupported")
-          : status === "located"
-            ? t("located")
-            : "";
+  const statusMessage = status === "idle" ? "" : t(messageKeys[status]);
 
   return (
     <div className="flex flex-col gap-3">

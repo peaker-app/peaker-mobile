@@ -6,6 +6,10 @@ const config: CapacitorConfig = {
   webDir: "dist",
   plugins: {
     CapacitorHttp: { enabled: true },
+    SplashScreen: {
+      launchAutoHide: false,
+      showSpinner: false,
+    },
   },
   server: {
     androidScheme: "https",

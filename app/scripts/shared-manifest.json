@@ -148,27 +148,27 @@
     },
     {
       "path": "messages/en.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
       "sourceSha256": "7f6f8efd5f279a595aa9ae76a2236f3edddfc6ab871bf2dcc2ef30cdb240cba7"
     },
     {
       "path": "messages/es.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
       "sourceSha256": "636761498b4318641f6651d67e55ed0a422048b89b7c36ba7104d2b89225c3a5"
     },
     {
       "path": "messages/zh.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
       "sourceSha256": "c569237752376e9ba3ed863b0df75ce63eb0a08f8e207d78b35448d66f670419"
     },
     {
       "path": "messages/fr.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
       "sourceSha256": "34d187b746bdb6f357c076d8ebb73cf20dce22b7d1fdb1475cbbbc0d41924c2d"
     },
     {
       "path": "messages/ar.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b).",
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
       "sourceSha256": "e9d424580463faff4768353d0dfe080df3c5d4a82703d4ce4701f3cfe6935593"
     },
     {
@@ -351,7 +351,7 @@
     },
     {
       "path": "src/components/features/peaks/LocationPicker.tsx",
-      "divergence": "Capacitor 4+ ya no parchea navigator.geolocation: locate() pasa por lib/native/geolocation, que elige plugin nativo o navegador segun plataforma (MOBILE.md §6 B4).",
+      "divergence": "Capacitor 4+ ya no parchea navigator.geolocation: locate() pasa por lib/native/geolocation, que elige plugin nativo o navegador segun plataforma (MOBILE.md §6 B4). B7a anade el estado servicesDisabled, que geolocation.ts distingue por los codigos OS-PLUG-GLOC-0007/0009/0017, y sustituye el ternario anidado por un mapa de claves.",
       "sourceSha256": "3b76edf67944f8606acb06650d67bac6080018f1a655d30efcaa2ee503b2f67c"
     },
     {
@@ -409,7 +409,9 @@
       "path": "src/components/features/profile/StatsGrid.test.tsx"
     },
     {
-      "path": "src/components/features/ascents/AscentForm.tsx"
+      "path": "src/components/features/ascents/AscentForm.tsx",
+      "divergence": "beforeunload es inerte en un WebView: se sustituye por useUnsavedChanges, que publica el estado sucio al store que consulta el boton atras de Android (B7a).",
+      "sourceSha256": "cf99dc5ad0dbe33d49e0edc2d5ed14b7dce71d4fc136d11825b8cf4993a54b07"
     },
     {
       "path": "src/components/features/ascents/RegisterAscentForm.tsx"
@@ -517,7 +519,7 @@
     },
     {
       "path": "src/components/features/settings/AvatarUploader.tsx",
-      "divergence": "El <input type=file> se sustituye por dos botones sobre lib/native/camera, como PhotoUploader en B5b: el puente convierte cada fichero de un FormData a base64, y un avatar admite hasta 5 MB (MOBILE.md §6 B6).",
+      "divergence": "El <input type=file> se sustituye por dos botones sobre lib/native/camera, como PhotoUploader en B5b: el puente convierte cada fichero de un FormData a base64, y un avatar admite hasta 5 MB (MOBILE.md §6 B6). B7a devuelve llamador a settings.profile.avatar.change, huerfana desde B6b: el encabezado dice «Cambiar la foto» cuando ya hay una.",
       "sourceSha256": "b8496d032c1b0959a7cb65acc827121ac5f4de648ce6c7ce93dd53a4d6cfb3b5"
     },
     {

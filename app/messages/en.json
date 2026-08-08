@@ -188,6 +188,7 @@
       "useMyLocation": "Use my location",
       "locating": "Locating…",
       "permissionDenied": "We couldn't get your location. Enter the coordinates by hand.",
+      "servicesDisabled": "Location services are off. Turn them on in your device settings, or enter the coordinates by hand.",
       "unsupported": "This browser can't share your location. Enter the coordinates by hand.",
       "located": "Location set.",
       "latitude": "Latitude",
@@ -560,6 +561,8 @@
     "submitting": "Saving…",
     "cancel": "Cancel",
     "unsavedChanges": "You have unsaved changes.",
+    "leaveTitle": "Leave without saving?",
+    "leaveConfirm": "Discard changes",
     "emailNotConfirmed": {
       "title": "Confirm your email before logging an ascent",
       "body": "We've kept everything you typed. Confirm your address and try again.",
@@ -760,7 +763,8 @@
         },
         "confirmPrompt": "Type {name} to confirm.",
         "confirmLabel": "Confirmation",
-        "confirmAction": "Close my account"
+        "confirmAction": "Close my account",
+        "deleted": "Your account is closed. Thanks for climbing with us."
       }
     }
   }

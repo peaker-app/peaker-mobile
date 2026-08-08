@@ -35,7 +35,7 @@ export const TabBar = () => {
   return (
     <nav
       aria-label={t("label")}
-      className="sticky bottom-0 flex items-stretch border-t bg-card pb-[env(safe-area-inset-bottom)]"
+      className="safe-bottom flex shrink-0 items-stretch border-t bg-card"
     >
       {tabs.slice(0, 2).map(({ href, labelKey, Icon }) => (
         <NavLink key={href} to={href} end className={({ isActive }) => tabClass(isActive)}>

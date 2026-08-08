@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from "react-router";
+import { Navigate, Route, Routes, useLocation } from "react-router";
+import { useAppUrlOpen } from "./useAppUrlOpen";
 import { NotFoundScreen } from "./NotFoundScreen";
 import { RequireAnonymous } from "./RequireAnonymous";
 import { RequireSession } from "./RequireSession";
@@ -23,9 +24,15 @@ import { PeakDetailScreen } from "./peaks/PeakDetailScreen";
 import { PeaksScreen } from "./peaks/PeaksScreen";
 import { ProfileSettingsScreen } from "./dashboard/settings/ProfileSettingsScreen";
 
+const IndexRedirect = () => {
+  const { search } = useLocation();
+
+  return <Navigate to={`/peaks${search}`} replace />;
+};
+
 const shellRoutes = (
   <Route element={<TabShell />}>
-    <Route index element={<Navigate to="/peaks" replace />} />
+    <Route index element={<IndexRedirect />} />
     <Route path="peaks" element={<PeaksScreen />} />
     <Route path="peaks/nearby" element={<NearbyPeaksScreen />} />
     <Route path="peaks/:id" element={<PeakDetailScreen />} />
@@ -70,10 +77,14 @@ const authRoutes = (
   </Route>
 );
 
-export const AppRoutes = () => (
-  <Routes>
-    {shellRoutes}
-    {authRoutes}
-    <Route path="*" element={<NotFoundScreen />} />
-  </Routes>
-);
+export const AppRoutes = () => {
+  useAppUrlOpen();
+
+  return (
+    <Routes>
+      {shellRoutes}
+      {authRoutes}
+      <Route path="*" element={<NotFoundScreen />} />
+    </Routes>
+  );
+};

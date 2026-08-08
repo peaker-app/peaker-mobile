@@ -22,6 +22,10 @@
   --ring: oklch(0.42 0.09 165);
   --radius: 0.625rem;
   --font-peaker-sans: system-ui, sans-serif;
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -70,6 +74,19 @@
   --color-ring: var(--ring);
   --font-sans: var(--font-peaker-sans);
   --radius-md: var(--radius);
+}
+
+@utility safe-top {
+  padding-top: var(--safe-area-inset-top);
+}
+
+@utility safe-bottom {
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+
+@utility safe-x {
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
 }
 
 @layer base {

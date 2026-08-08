@@ -4,6 +4,7 @@ import { Geolocation as GeolocationPlugin } from "@capacitor/geolocation";
 export type LocateOutcome =
   | { status: "located"; latitude: number; longitude: number }
   | { status: "denied" }
+  | { status: "servicesDisabled" }
   | { status: "unsupported" };
 
 export interface Locator {
@@ -39,6 +40,22 @@ const positionOptions: PositionOptions = {
 
 const denied: LocateOutcome = { status: "denied" };
 
+const servicesDisabled: LocateOutcome = { status: "servicesDisabled" };
+
+const servicesDisabledCodes: readonly string[] = [
+  "OS-PLUG-GLOC-0007",
+  "OS-PLUG-GLOC-0009",
+  "OS-PLUG-GLOC-0017",
+];
+
+const codeOf = (error: unknown): string =>
+  typeof error === "object" && error !== null && "code" in error
+    ? String((error as { code: unknown }).code)
+    : "";
+
+const failureOf = (error: unknown): LocateOutcome =>
+  servicesDisabledCodes.includes(codeOf(error)) ? servicesDisabled : denied;
+
 const isGranted = (snapshot: PermissionSnapshot): boolean =>
   snapshot.location === "granted" || snapshot.coarseLocation === "granted";
 
@@ -63,8 +80,8 @@ export const createNativeLocator = (plugin: NativeGeolocation): Locator => ({
       }
 
       return located((await plugin.getCurrentPosition(positionOptions)).coords);
-    } catch {
-      return denied;
+    } catch (error) {
+      return failureOf(error);
     }
   },
 });

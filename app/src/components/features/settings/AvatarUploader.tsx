@@ -47,7 +47,7 @@ export const AvatarUploader = ({
   return (
     <section className="flex flex-col gap-3">
       <h2 className="text-lg leading-relaxed font-semibold text-start">
-        {t("heading")}
+        {avatarUrl ? t("change") : t("heading")}
       </h2>
 
       <div className="flex flex-wrap items-center gap-4">

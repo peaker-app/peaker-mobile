@@ -188,6 +188,7 @@
       "useMyLocation": "Usar mi ubicación",
       "locating": "Localizando…",
       "permissionDenied": "No hemos podido obtener tu ubicación. Escribe las coordenadas a mano.",
+      "servicesDisabled": "La ubicación está desactivada. Actívala en los ajustes del dispositivo o introduce las coordenadas a mano.",
       "unsupported": "Este navegador no puede compartir tu ubicación. Escribe las coordenadas a mano.",
       "located": "Ubicación fijada.",
       "latitude": "Latitud",
@@ -670,6 +671,8 @@
     "submitting": "Guardando…",
     "cancel": "Cancelar",
     "unsavedChanges": "Tienes cambios sin guardar.",
+    "leaveTitle": "¿Salir sin guardar?",
+    "leaveConfirm": "Descartar los cambios",
     "emailNotConfirmed": {
       "title": "Confirma tu correo antes de registrar una ascensión",
       "body": "Hemos conservado todo lo que has escrito. Confirma tu dirección y vuelve a intentarlo.",
@@ -760,7 +763,8 @@
         },
         "confirmPrompt": "Escribe {name} para confirmar.",
         "confirmLabel": "Confirmación",
-        "confirmAction": "Dar de baja mi cuenta"
+        "confirmAction": "Dar de baja mi cuenta",
+        "deleted": "Tu cuenta está cerrada. Gracias por acompañarnos en la montaña."
       }
     }
   }

@@ -188,6 +188,7 @@
       "useMyLocation": "Utiliser ma position",
       "locating": "Localisation…",
       "permissionDenied": "Nous n'avons pas pu obtenir votre position. Saisissez les coordonnées à la main.",
+      "servicesDisabled": "La localisation est désactivée. Activez-la dans les réglages de votre appareil ou saisissez les coordonnées à la main.",
       "unsupported": "Ce navigateur ne peut pas partager votre position. Saisissez les coordonnées à la main.",
       "located": "Position définie.",
       "latitude": "Latitude",
@@ -670,6 +671,8 @@
     "submitting": "Enregistrement…",
     "cancel": "Annuler",
     "unsavedChanges": "Vous avez des modifications non enregistrées.",
+    "leaveTitle": "Quitter sans enregistrer ?",
+    "leaveConfirm": "Abandonner les modifications",
     "emailNotConfirmed": {
       "title": "Confirmez votre e-mail avant d'enregistrer une ascension",
       "body": "Nous avons conservé tout ce que vous avez saisi. Confirmez votre adresse et réessayez.",
@@ -760,7 +763,8 @@
         },
         "confirmPrompt": "Saisissez {name} pour confirmer.",
         "confirmLabel": "Confirmation",
-        "confirmAction": "Clôturer mon compte"
+        "confirmAction": "Clôturer mon compte",
+        "deleted": "Votre compte est fermé. Merci d'avoir grimpé avec nous."
       }
     }
   }

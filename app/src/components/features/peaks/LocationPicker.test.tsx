@@ -60,6 +60,24 @@ describe("LocationPicker", () => {
     expect(screen.getByLabelText("Latitude")).toBeEnabled();
   });
 
+  it("locationPicker_servicesDisabled_saysHowToFixItInsteadOfBlamingThePermission", async () => {
+    locate.mockResolvedValue({ status: "servicesDisabled" });
+
+    render(<LocationPicker onChange={() => undefined} />, {
+      wrapper: IntlWrapper,
+    });
+    await userEvent.click(
+      screen.getByRole("button", { name: "Use my location" }),
+    );
+
+    expect(
+      screen.getByText(
+        "Location services are off. Turn them on in your device settings, or enter the coordinates by hand.",
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getByLabelText("Latitude")).toBeEnabled();
+  });
+
   it("locationPicker_withoutGeolocationSupport_explainsAndFallsBack", async () => {
     locate.mockResolvedValue({ status: "unsupported" });
 

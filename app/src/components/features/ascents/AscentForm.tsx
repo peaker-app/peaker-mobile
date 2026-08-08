@@ -1,7 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
+import { useUnsavedChanges } from "@/app/unsavedChanges";
 import { FormField } from "@/components/forms/FormField";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
@@ -82,16 +83,7 @@ export const AscentForm = ({
     setValues((current) => ({ ...current, [key]: value }));
   };
 
-  useEffect(() => {
-    if (!touched || submitting) {
-      return;
-    }
-
-    const warn = (event: BeforeUnloadEvent) => event.preventDefault();
-    window.addEventListener("beforeunload", warn);
-
-    return () => window.removeEventListener("beforeunload", warn);
-  }, [touched, submitting]);
+  useUnsavedChanges(touched && !submitting);
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

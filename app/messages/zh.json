@@ -188,6 +188,7 @@
       "useMyLocation": "使用我的位置",
       "locating": "定位中…",
       "permissionDenied": "无法获取你的位置，请手动输入坐标。",
+      "servicesDisabled": "定位服务已关闭。请在设备设置中开启，或手动输入坐标。",
       "unsupported": "此浏览器无法共享你的位置，请手动输入坐标。",
       "located": "位置已确定。",
       "latitude": "纬度",
@@ -670,6 +671,8 @@
     "submitting": "保存中…",
     "cancel": "取消",
     "unsavedChanges": "你有尚未保存的修改。",
+    "leaveTitle": "要放弃未保存的修改吗？",
+    "leaveConfirm": "放弃修改",
     "emailNotConfirmed": {
       "title": "记录登顶前请先验证邮箱",
       "body": "你填写的内容已保留。验证邮箱后再试一次即可。",
@@ -760,7 +763,8 @@
         },
         "confirmPrompt": "输入 {name} 以确认。",
         "confirmLabel": "确认",
-        "confirmAction": "注销我的账户"
+        "confirmAction": "注销我的账户",
+        "deleted": "你的账号已注销。感谢与我们一同攀登。"
       }
     }
   }

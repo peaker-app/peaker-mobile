@@ -77,10 +77,42 @@ describe("createNativeLocator", () => {
     await expect(locator.locate()).resolves.toEqual({ status: "denied" });
   });
 
-  it("nativeLocator_locationServicesOff_isReportedAsDeniedNotAsUnsupported", async () => {
+  it("nativeLocator_failureWithoutACode_isReportedAsDeniedNotAsUnsupported", async () => {
     const locator = createNativeLocator(
       plugin({
-        checkPermissions: () => Promise.reject(new Error("location disabled")),
+        checkPermissions: () => Promise.reject(new Error("vaya")),
+      }),
+    );
+
+    await expect(locator.locate()).resolves.toEqual({ status: "denied" });
+  });
+
+  it.each([
+    ["OS-PLUG-GLOC-0007", "los servicios de ubicacion estan apagados"],
+    ["OS-PLUG-GLOC-0009", "el usuario rechazo encenderlos"],
+    ["OS-PLUG-GLOC-0017", "red y ubicacion apagadas"],
+  ])(
+    "nativeLocator_%s_isToldApartFromAPlainRefusal",
+    async (code) => {
+      const locator = createNativeLocator(
+        plugin({
+          checkPermissions: () => Promise.reject(Object.assign(new Error("off"), { code })),
+        }),
+      );
+
+      await expect(locator.locate()).resolves.toEqual({
+        status: "servicesDisabled",
+      });
+    },
+  );
+
+  it("nativeLocator_permissionDeniedCode_staysDenied", async () => {
+    const locator = createNativeLocator(
+      plugin({
+        checkPermissions: () =>
+          Promise.reject(
+            Object.assign(new Error("denied"), { code: "OS-PLUG-GLOC-0003" }),
+          ),
       }),
     );
 
