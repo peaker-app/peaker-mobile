@@ -1,5 +1,22 @@
 apply plugin: 'com.android.application'
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('keystore.properties')
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.withInputStream { keystoreProperties.load(it) }
+}
+
+def signingSetting = { String key, String variable ->
+    def value = keystoreProperties.getProperty(key) ?: System.getenv(variable)
+    return value?.trim() ? value.trim() : null
+}
+
+def releaseStore = signingSetting('storeFile', 'ANDROID_KEYSTORE_PATH')
+def signRelease = releaseStore != null
+
+def appVersion = new groovy.json.JsonSlurper()
+        .parseText(file('../../package.json').text).version
+
 android {
     namespace = "app.peaker.mobile"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -7,8 +24,8 @@ android {
         applicationId "app.peaker.mobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode Integer.parseInt(System.getenv('ANDROID_VERSION_CODE') ?: '1')
+        versionName appVersion
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,10 +33,23 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            if (signRelease) {
+                storeFile file(releaseStore)
+                storePassword signingSetting('storePassword', 'ANDROID_KEYSTORE_PASSWORD')
+                keyAlias signingSetting('keyAlias', 'ANDROID_KEY_ALIAS')
+                keyPassword signingSetting('keyPassword', 'ANDROID_KEY_PASSWORD')
+            }
+        }
+    }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (signRelease) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 }

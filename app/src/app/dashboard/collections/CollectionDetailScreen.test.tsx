@@ -6,7 +6,7 @@ import { MemoryRouter, Route, Routes } from "react-router";
 import { IntlProvider } from "use-intl";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { defaultLocale } from "@/i18n/config";
-import { messages } from "@/i18n/messages";
+import { dictionaries } from "@/test/dictionaries";
 import { queryClient } from "@/lib/queryClient";
 import { jsonResponse } from "@/test/authHarness";
 import type {
@@ -81,7 +81,7 @@ const renderScreen = (route = "/dashboard/collections/c1") => {
   const Wrapper = ({ children }: { children: ReactNode }) => (
     <IntlProvider
       locale={defaultLocale}
-      messages={messages[defaultLocale]}
+      messages={dictionaries[defaultLocale]}
       timeZone="UTC"
     >
       <QueryClientProvider client={queryClient}>

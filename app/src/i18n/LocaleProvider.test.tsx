@@ -81,7 +81,9 @@ describe("LocaleProvider", () => {
 
     await userEvent.click(screen.getByRole("button", { name: "arabic" }));
 
-    expect(document.documentElement).toHaveAttribute("dir", "rtl");
+    await vi.waitFor(() => {
+      expect(document.documentElement).toHaveAttribute("dir", "rtl");
+    });
     expect(storeLocale).toHaveBeenCalledWith("ar");
   });
 

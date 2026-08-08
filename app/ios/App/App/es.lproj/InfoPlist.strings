@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "Peaker usa la cámara para que puedas fotografiar la cumbre al registrar una ascensión.";
+"NSPhotoLibraryUsageDescription" = "Peaker necesita tu galería para que puedas adjuntar fotos a una ascensión o poner tu foto de perfil.";
+"NSLocationWhenInUseUsageDescription" = "Peaker usa tu ubicación para listar las montañas más cercanas a ti.";

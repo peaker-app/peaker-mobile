@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["PENDIENTE-B7B-TEAM-ID.app.peaker.mobile"],
+        "components": [
+          {
+            "/": "/confirm-email*",
+            "comment": "Confirmacion de correo, el mismo alcance que el intent-filter de Android"
+          }
+        ]
+      }
+    ]
+  }
+}

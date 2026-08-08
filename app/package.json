@@ -15,8 +15,9 @@
     "check:messages": "node scripts/check-messages.mjs",
     "check:rtl": "node scripts/check-rtl.mjs",
     "check:detail": "node scripts/check-problem-detail.mjs",
+    "check:store": "node scripts/check-store.mjs",
     "check:shared": "node scripts/sync-shared.mjs",
-    "verify": "npm run typecheck && npm run lint && npm run check:messages && npm run check:rtl && npm run check:detail && npm run test:coverage"
+    "verify": "npm run typecheck && npm run lint && npm run check:messages && npm run check:rtl && npm run check:detail && npm run check:store && npm run test:coverage"
   },
   "overrides": {
     "uuid": "^11.1.1"
@@ -29,6 +30,7 @@
     "@capacitor/core": "^8.5.0",
     "@capacitor/device": "^8.0.3",
     "@capacitor/geolocation": "^8.2.1",
+    "@capacitor/ios": "^8.5.0",
     "@capacitor/preferences": "^8.0.1",
     "@capacitor/splash-screen": "^8.0.2",
     "@hookform/resolvers": "^5.5.7",

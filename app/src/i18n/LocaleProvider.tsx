@@ -9,11 +9,16 @@ import {
 import { IntlProvider } from "use-intl";
 import { getDirection, type Locale } from "./config";
 import { resolveInitialLocale, storeLocale } from "./locale";
-import { messages } from "./messages";
+import { loadMessages, type Messages } from "./messages";
 
 export interface LocaleSetting {
   locale: Locale;
   setLocale: (locale: Locale) => void;
+}
+
+interface ActiveLocale {
+  locale: Locale;
+  messages: Messages;
 }
 
 const LocaleContext = createContext<LocaleSetting | undefined>(undefined);
@@ -33,33 +38,38 @@ const applyDocumentDirection = (locale: Locale): void => {
   document.documentElement.dir = getDirection(locale);
 };
 
+const activate = async (locale: Locale): Promise<ActiveLocale> => ({
+  locale,
+  messages: await loadMessages(locale),
+});
+
 export const LocaleProvider = ({ children }: { children: ReactNode }) => {
-  const [locale, setResolved] = useState<Locale>();
+  const [active, setActive] = useState<ActiveLocale>();
 
   useEffect(() => {
-    void resolveInitialLocale().then(setResolved);
+    void resolveInitialLocale().then(activate).then(setActive);
   }, []);
 
   useEffect(() => {
-    if (locale) {
-      applyDocumentDirection(locale);
+    if (active) {
+      applyDocumentDirection(active.locale);
     }
-  }, [locale]);
+  }, [active]);
 
   const setLocale = useCallback((next: Locale) => {
-    setResolved(next);
+    void activate(next).then(setActive);
     void storeLocale(next);
   }, []);
 
-  if (!locale) {
+  if (!active) {
     return null;
   }
 
   return (
-    <LocaleContext value={{ locale, setLocale }}>
+    <LocaleContext value={{ locale: active.locale, setLocale }}>
       <IntlProvider
-        locale={locale}
-        messages={messages[locale]}
+        locale={active.locale}
+        messages={active.messages}
         timeZone={Intl.DateTimeFormat().resolvedOptions().timeZone}
       >
         {children}

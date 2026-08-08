@@ -5,7 +5,7 @@ import { MemoryRouter, Route, Routes } from "react-router";
 import { IntlProvider } from "use-intl";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { defaultLocale } from "@/i18n/config";
-import { messages } from "@/i18n/messages";
+import { dictionaries } from "@/test/dictionaries";
 import { jsonResponse } from "@/test/authHarness";
 import type {
   AscentSummaryResponse,
@@ -74,7 +74,7 @@ const renderScreen = (route = "/climbers/ana") => {
   const Wrapper = ({ children }: { children: ReactNode }) => (
     <IntlProvider
       locale={defaultLocale}
-      messages={messages[defaultLocale]}
+      messages={dictionaries[defaultLocale]}
       timeZone="UTC"
     >
       <QueryClientProvider client={client}>

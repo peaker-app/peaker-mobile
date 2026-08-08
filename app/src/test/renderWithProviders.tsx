@@ -4,7 +4,7 @@ import type { ReactElement, ReactNode } from "react";
 import { MemoryRouter } from "react-router";
 import { IntlProvider } from "use-intl";
 import { defaultLocale, type Locale } from "@/i18n/config";
-import { messages } from "@/i18n/messages";
+import { dictionaries } from "@/test/dictionaries";
 
 export interface ProviderOptions {
   locale?: Locale;
@@ -21,7 +21,7 @@ export const renderWithProviders = (
   });
 
   const Wrapper = ({ children }: { children: ReactNode }) => (
-    <IntlProvider locale={locale} messages={messages[locale]} timeZone="UTC">
+    <IntlProvider locale={locale} messages={dictionaries[locale]} timeZone="UTC">
       <QueryClientProvider client={client}>
         <MemoryRouter initialEntries={[route]}>{children}</MemoryRouter>
       </QueryClientProvider>

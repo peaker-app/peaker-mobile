@@ -1,4 +1,13 @@
-# App Links — fichero de verificación
+# App Links y Universal Links — ficheros de verificación
+
+Dos ficheros con el mismo destino y el mismo problema: `assetlinks.json` para Android y
+`apple-app-site-association` —**sin extensión**, y servido como `application/json`— para iOS.
+Ambos declaran la misma ruta, `/confirm-email`, que es el alcance que también declara el
+`intent-filter`.
+
+El de iOS necesita además el **Team ID** de la cuenta de Apple Developer en `appIDs`, y que el
+target active la capacidad *Associated Domains* con `applinks:<dominio>`. Las dos cosas llegan con
+la cuenta de pago, que es decisión del usuario (§4).
 
 `assetlinks.json` **no lo sirve esta aplicación**. Android lo descarga de
 `https://<dominio>/.well-known/assetlinks.json` con el dominio que declara el `intent-filter` de
