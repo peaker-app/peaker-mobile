@@ -698,7 +698,10 @@
         "confirmRemoveBody": "Tu perfil mostrará tus iniciales en su lugar. Puedes subir otra cuando quieras.",
         "confirmRemoveAction": "Quitar la foto",
         "removed": "Foto quitada.",
-        "uploaded": "Foto actualizada."
+        "uploaded": "Foto actualizada.",
+        "takePhoto": "Hacer una foto",
+        "chooseFromGallery": "Elegir de la galería",
+        "pickerDenied": "No hemos podido abrir la cámara ni la galería. Revisa los permisos de la aplicación."
       },
       "data": {
         "heading": "Tus datos",

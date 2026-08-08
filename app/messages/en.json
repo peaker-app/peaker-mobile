@@ -698,7 +698,10 @@
         "confirmRemoveBody": "Your profile will show your initials instead. You can upload a new one whenever you want.",
         "confirmRemoveAction": "Remove photo",
         "removed": "Photo removed.",
-        "uploaded": "Photo updated."
+        "uploaded": "Photo updated.",
+        "takePhoto": "Take a photo",
+        "chooseFromGallery": "Choose from gallery",
+        "pickerDenied": "We couldn't open the camera or the gallery. Check the app permissions."
       },
       "data": {
         "heading": "Your details",

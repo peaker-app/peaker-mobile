@@ -1,20 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
 import { useTranslations } from "use-intl";
 import { Button } from "@/components/ui/Button";
-import { shouldRetry } from "@/hooks/usePagedQuery";
 import { Link } from "@/i18n/navigation";
-import { apiFetch } from "@/lib/api/client";
-import { endpoints } from "@/lib/api/endpoints";
-import type { ProfileResponse } from "@/types/api";
+import { useOwnProfile } from "@/lib/profile/useOwnProfile";
 
 export const DashboardGreeting = () => {
   const t = useTranslations("dashboard.greeting");
-
-  const profile = useQuery({
-    queryKey: ["profile", "me"],
-    queryFn: () => apiFetch<ProfileResponse>(endpoints.profiles.me),
-    retry: shouldRetry,
-  });
+  const profile = useOwnProfile();
 
   return (
     <header className="flex flex-col gap-3">

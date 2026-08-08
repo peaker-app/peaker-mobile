@@ -1,7 +1,12 @@
 import { QueryClient } from "@tanstack/react-query";
 import { shouldRetry } from "@/hooks/usePagedQuery";
 
-export const ownerScopes = ["ascent", "ascents", "profile"] as const;
+export const ownerScopes = [
+  "ascent",
+  "ascents",
+  "profile",
+  "collections",
+] as const;
 
 export const queryClient = new QueryClient({
   defaultOptions: {

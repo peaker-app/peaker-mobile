@@ -698,7 +698,10 @@
         "confirmRemoveBody": "Votre profil affichera vos initiales à la place. Vous pourrez en téléverser une autre quand vous voudrez.",
         "confirmRemoveAction": "Retirer la photo",
         "removed": "Photo retirée.",
-        "uploaded": "Photo mise à jour."
+        "uploaded": "Photo mise à jour.",
+        "takePhoto": "Prendre une photo",
+        "chooseFromGallery": "Choisir dans la galerie",
+        "pickerDenied": "Nous n'avons pas pu ouvrir l'appareil photo ni la galerie. Vérifiez les autorisations de l'application."
       },
       "data": {
         "heading": "Vos informations",

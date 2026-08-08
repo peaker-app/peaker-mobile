@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_GATEWAY_URL?: string;
+  readonly VITE_SITE_URL?: string;
   readonly VITE_MAP_TILE_URL?: string;
   readonly VITE_MAP_ATTRIBUTION?: string;
 }

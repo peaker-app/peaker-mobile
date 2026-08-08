@@ -4,16 +4,12 @@ import {
   toQueryString,
   type PeakQuery,
 } from "@/app/[locale]/(public)/peaks/searchParams";
+import { PagedErrorState } from "@/app/PagedErrorState";
 import { EmptyState } from "@/components/feedback/EmptyState";
-import { ErrorState } from "@/components/feedback/ErrorState";
 import { PeakCard } from "@/components/features/peaks/PeakCard";
 import { PeakPagination } from "@/components/features/peaks/PeakPagination";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { usePagedQuery } from "@/hooks/usePagedQuery";
-import { useProblemMessage } from "@/hooks/useProblemToast";
-import { useRouter } from "@/i18n/navigation";
-import { ApiError } from "@/lib/api/client";
-import { hasCode, isRetryable } from "@/lib/api/problem";
 import type { PagedResponse, PeakListItemResponse } from "@/types/api";
 
 export type PeakPageQuery = ReturnType<
@@ -25,8 +21,6 @@ export interface PeakResultsProps {
   results: PeakPageQuery;
 }
 
-const outOfRangeCode = "Pagination.PageOutOfRange";
-
 const PeakResultsSkeleton = () => (
   <ul className="grid grid-cols-1 gap-3">
     {Array.from({ length: pageSize }, (_unused, index) => (
@@ -36,39 +30,6 @@ const PeakResultsSkeleton = () => (
     ))}
   </ul>
 );
-
-const PeakResultsError = ({
-  query,
-  error,
-  onRetry,
-}: {
-  query: PeakQuery;
-  error: unknown;
-  onRetry: () => void;
-}) => {
-  const toMessage = useProblemMessage();
-  const router = useRouter();
-
-  const problem = error instanceof ApiError ? error.problem : undefined;
-  const backToFirstPage = problem && hasCode(problem, outOfRangeCode);
-  const transient = !problem || isRetryable(problem);
-
-  if (backToFirstPage) {
-    return (
-      <ErrorState
-        message={toMessage(error)}
-        onRetry={() => router.push(`/peaks${toQueryString(query)}`)}
-      />
-    );
-  }
-
-  return (
-    <ErrorState
-      message={toMessage(error)}
-      onRetry={transient ? onRetry : undefined}
-    />
-  );
-};
 
 const PeakResultsList = ({
   query,
@@ -107,9 +68,9 @@ export const PeakResults = ({ query, results }: PeakResultsProps) => {
 
   if (results.isError) {
     return (
-      <PeakResultsError
-        query={query}
+      <PagedErrorState
         error={results.error}
+        firstPagePath={`/peaks${toQueryString(query)}`}
         onRetry={() => void results.refetch()}
       />
     );

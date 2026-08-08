@@ -1,11 +1,11 @@
 import { Navigate, Route, Routes } from "react-router";
 import { NotFoundScreen } from "./NotFoundScreen";
-import { PlaceholderScreen } from "./PlaceholderScreen";
 import { RequireAnonymous } from "./RequireAnonymous";
 import { RequireSession } from "./RequireSession";
 import { TabShell } from "./TabShell";
 import { AccountScreen } from "./account/AccountScreen";
 import { PublicAscentScreen } from "./ascents/PublicAscentScreen";
+import { PublicProfileScreen } from "./climbers/PublicProfileScreen";
 import { AuthLayout } from "./auth/AuthLayout";
 import { ConfirmEmailScreen } from "./auth/ConfirmEmailScreen";
 import { LoginScreen } from "./auth/LoginScreen";
@@ -16,24 +16,12 @@ import { AscentDetailScreen } from "./dashboard/ascents/AscentDetailScreen";
 import { EditAscentScreen } from "./dashboard/ascents/EditAscentScreen";
 import { MyAscentsScreen } from "./dashboard/ascents/MyAscentsScreen";
 import { NewAscentScreen } from "./dashboard/ascents/NewAscentScreen";
+import { CollectionDetailScreen } from "./dashboard/collections/CollectionDetailScreen";
+import { CollectionsScreen } from "./dashboard/collections/CollectionsScreen";
 import { NearbyPeaksScreen } from "./peaks/NearbyPeaksScreen";
 import { PeakDetailScreen } from "./peaks/PeakDetailScreen";
 import { PeaksScreen } from "./peaks/PeaksScreen";
-
-const pending: readonly { path: string; titleKey: string }[] = [
-  { path: "climbers/:slug", titleKey: "profile" },
-  { path: "dashboard/collections", titleKey: "collections" },
-  { path: "dashboard/collections/:id", titleKey: "collections" },
-  { path: "dashboard/settings/profile", titleKey: "profile" },
-];
-
-const pendingRoutes = pending.map(({ path, titleKey }) => (
-  <Route
-    key={path}
-    path={path}
-    element={<PlaceholderScreen titleKey={titleKey} />}
-  />
-));
+import { ProfileSettingsScreen } from "./dashboard/settings/ProfileSettingsScreen";
 
 const shellRoutes = (
   <Route element={<TabShell />}>
@@ -42,6 +30,7 @@ const shellRoutes = (
     <Route path="peaks/nearby" element={<NearbyPeaksScreen />} />
     <Route path="peaks/:id" element={<PeakDetailScreen />} />
     <Route path="ascents/:id" element={<PublicAscentScreen />} />
+    <Route path="climbers/:slug" element={<PublicProfileScreen />} />
     <Route element={<RequireSession />}>
       <Route path="dashboard" element={<DashboardScreen />} />
       <Route path="dashboard/ascents" element={<MyAscentsScreen />} />
@@ -51,8 +40,16 @@ const shellRoutes = (
         path="dashboard/ascents/:id/edit"
         element={<EditAscentScreen />}
       />
+      <Route path="dashboard/collections" element={<CollectionsScreen />} />
+      <Route
+        path="dashboard/collections/:id"
+        element={<CollectionDetailScreen />}
+      />
+      <Route
+        path="dashboard/settings/profile"
+        element={<ProfileSettingsScreen />}
+      />
       <Route path="dashboard/settings/account" element={<AccountScreen />} />
-      {pendingRoutes}
     </Route>
   </Route>
 );

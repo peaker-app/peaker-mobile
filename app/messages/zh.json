@@ -698,7 +698,10 @@
         "confirmRemoveBody": "你的主页将改为显示姓名首字母。你随时可以重新上传。",
         "confirmRemoveAction": "移除照片",
         "removed": "照片已移除。",
-        "uploaded": "照片已更新。"
+        "uploaded": "照片已更新。",
+        "takePhoto": "拍照",
+        "chooseFromGallery": "从相册选择",
+        "pickerDenied": "无法打开相机或相册。请检查应用权限。"
       },
       "data": {
         "heading": "你的资料",
