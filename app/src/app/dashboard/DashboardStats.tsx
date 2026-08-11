@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { shouldRetry } from "@/hooks/usePagedQuery";
 import { useProblemMessage } from "@/hooks/useProblemToast";
-import { ApiError, apiFetch } from "@/lib/api/client";
+import { apiFetch } from "@/lib/api/client";
 import { endpoints } from "@/lib/api/endpoints";
+import { isProfilePending } from "@/lib/profile/isProfilePending";
 import type { ProfileStatsResponse } from "@/types/api";
 
 const cardCount = 4;
@@ -20,9 +21,6 @@ const StatsSkeleton = () => (
     ))}
   </div>
 );
-
-const isProfilePending = (error: unknown): boolean =>
-  error instanceof ApiError && error.problem.status === 404;
 
 export const DashboardStats = () => {
   const t = useTranslations("dashboard");

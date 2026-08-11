@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { useProblemMessage } from "@/hooks/useProblemToast";
 import { Link } from "@/i18n/navigation";
-import { ApiError } from "@/lib/api/client";
+import { isProfilePending } from "@/lib/profile/isProfilePending";
 import { useOwnProfile } from "@/lib/profile/useOwnProfile";
 import type { ProfileResponse } from "@/types/api";
 
@@ -19,9 +19,6 @@ const ProfileSettingsSkeleton = () => (
     <Skeleton className="h-40 w-full" />
   </div>
 );
-
-const isProfilePending = (error: unknown): boolean =>
-  error instanceof ApiError && error.problem.status === 404;
 
 const ProfileSettings = ({ profile }: { profile: ProfileResponse }) => {
   const t = useTranslations("settings.profile");
