@@ -147,4 +147,26 @@ describe("restoreSession", () => {
 
     expect((await session.restoreSession()).status).toBe("anonymous");
   });
+
+  it("restoreSession_startingWithoutNetwork_settlesInsteadOfHangingTheGate", async () => {
+    const { session, tokenStore } = await loadAuth();
+    await tokenStore.persistTokens(tokens());
+    vi.spyOn(globalThis, "fetch").mockRejectedValue(
+      new TypeError("Failed to fetch"),
+    );
+
+    expect((await session.restoreSession()).status).toBe("anonymous");
+  });
+
+  it("restoreSession_startingWithoutNetwork_doesNotThrowAwayTheStoredSession", async () => {
+    const { session, tokenStore } = await loadAuth();
+    await tokenStore.persistTokens(tokens({ refreshToken: "stored" }));
+    vi.spyOn(globalThis, "fetch").mockRejectedValue(
+      new TypeError("Failed to fetch"),
+    );
+
+    await session.restoreSession();
+
+    await expect(tokenStore.readRefreshToken()).resolves.toBe("stored");
+  });
 });

@@ -39,3 +39,7 @@ Peaker 是为登山者准备的登顶日志。
 
 使用你的语言
 中文、英文、西班牙文、法文和阿拉伯文，并完整支持从右到左的排版。
+
+## privacyPolicyUrl
+
+https://[PENDIENTE-dominio]/zh/legal/privacy

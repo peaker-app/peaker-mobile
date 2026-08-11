@@ -9,6 +9,7 @@ import { ApiError, apiFetch } from "@/lib/api/client";
 import { endpoints } from "@/lib/api/endpoints";
 import { hasCode } from "@/lib/api/problem";
 import { dashboardPath } from "@/lib/auth/nextPath";
+import { forgetTokenInUrl } from "@/lib/auth/tokenUrl";
 import { useSessionState } from "@/lib/auth/session";
 
 type ConfirmState = "pending" | "success" | "already" | "error" | "missingToken";
@@ -27,6 +28,7 @@ export const ConfirmEmailView = ({ token }: { token?: string }) => {
     }
 
     requested.current = true;
+    forgetTokenInUrl();
 
     const confirm = async () => {
       try {

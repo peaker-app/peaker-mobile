@@ -39,3 +39,7 @@ Peaker
 
 بلغتك
 العربية والإنجليزية والإسبانية والفرنسية والصينية، مع دعم كامل للكتابة من اليمين إلى اليسار.
+
+## privacyPolicyUrl
+
+https://[PENDIENTE-dominio]/ar/legal/privacy

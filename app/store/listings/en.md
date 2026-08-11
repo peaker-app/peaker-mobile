@@ -39,3 +39,7 @@ Choose what the rest of the world sees. Every ascent is public or private, one b
 
 IN YOUR LANGUAGE
 English, Spanish, French, Chinese and Arabic, with full right-to-left support.
+
+## privacyPolicyUrl
+
+https://[PENDIENTE-dominio]/en/legal/privacy

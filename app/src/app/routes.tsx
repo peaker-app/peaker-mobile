@@ -19,6 +19,7 @@ import { MyAscentsScreen } from "./dashboard/ascents/MyAscentsScreen";
 import { NewAscentScreen } from "./dashboard/ascents/NewAscentScreen";
 import { CollectionDetailScreen } from "./dashboard/collections/CollectionDetailScreen";
 import { CollectionsScreen } from "./dashboard/collections/CollectionsScreen";
+import { LegalScreen } from "./legal/LegalScreen";
 import { NearbyPeaksScreen } from "./peaks/NearbyPeaksScreen";
 import { PeakDetailScreen } from "./peaks/PeakDetailScreen";
 import { PeaksScreen } from "./peaks/PeaksScreen";
@@ -38,6 +39,10 @@ const shellRoutes = (
     <Route path="peaks/:id" element={<PeakDetailScreen />} />
     <Route path="ascents/:id" element={<PublicAscentScreen />} />
     <Route path="climbers/:slug" element={<PublicProfileScreen />} />
+    <Route path="legal/notice" element={<LegalScreen id="notice" />} />
+    <Route path="legal/privacy" element={<LegalScreen id="privacy" />} />
+    <Route path="legal/cookies" element={<LegalScreen id="cookies" />} />
+    <Route path="legal/terms" element={<LegalScreen id="terms" />} />
     <Route element={<RequireSession />}>
       <Route path="dashboard" element={<DashboardScreen />} />
       <Route path="dashboard/ascents" element={<MyAscentsScreen />} />

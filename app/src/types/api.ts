@@ -199,9 +199,13 @@ export interface RegisterAscentRequest {
   wind: WindCondition | null;
   trail: TrailCondition | null;
   visibility: Visibility | null;
+  clientAscentId?: string;
 }
 
-export type UpdateAscentRequest = Omit<RegisterAscentRequest, "peakId">;
+export type UpdateAscentRequest = Omit<
+  RegisterAscentRequest,
+  "peakId" | "clientAscentId"
+>;
 
 export type CollectionKind = "WantToClimb" | "Custom";
 

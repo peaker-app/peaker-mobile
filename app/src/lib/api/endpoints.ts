@@ -6,10 +6,14 @@ export const endpoints = {
     logout: "auth/logout",
     confirmEmail: "auth/email/confirm",
     resendConfirmation: "auth/email/resend",
+    forgotPassword: "auth/password/forgot",
+    resetPassword: "auth/password/reset",
+    exportMyData: "auth/me/export",
     deleteAccount: "auth/me",
   },
   profiles: {
     me: "profiles/me",
+    myExport: "profiles/me/export",
     myStats: "profiles/me/stats",
     mySlug: "profiles/me/slug",
     myAvatar: "profiles/me/avatar",
@@ -24,6 +28,7 @@ export const endpoints = {
   },
   ascents: {
     root: "ascents",
+    myExport: "ascents/me/export",
     byId: (id: string) => `ascents/${id}`,
     byUser: (userId: string) => `ascents/by-user/${userId}`,
     photos: (id: string) => `ascents/${id}/photos`,

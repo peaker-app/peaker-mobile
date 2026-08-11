@@ -62,7 +62,14 @@
   },
   "footer": {
     "tagline": "Explorez les montagnes du monde entier et consignez vos ascensions.",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "legalHeading": "Mentions",
+    "legal": {
+      "notice": "Mentions légales",
+      "privacy": "Confidentialité",
+      "cookies": "Cookies",
+      "terms": "Conditions d'utilisation"
+    }
   },
   "units": {
     "meters": "{value} m",
@@ -180,7 +187,9 @@
       "label": "Carte des sommets",
       "textualAlternative": "La carte est décorative : chaque sommet est listé ci-dessous avec ses coordonnées.",
       "zoomIn": "Zoomer",
-      "zoomOut": "Dézoomer"
+      "zoomOut": "Dézoomer",
+      "consentRequired": "La carte est chargée depuis OpenStreetMap, qui verra votre adresse IP.",
+      "loadMap": "Charger la carte"
     },
     "nearby": {
       "title": "Sommets près de vous",
@@ -421,7 +430,8 @@
       "signIn": "Se connecter",
       "emailTaken": "Cette adresse e-mail est déjà enregistrée.",
       "emailTakenAction": "Connectez-vous plutôt",
-      "rateLimited": "Trop de tentatives. Patientez une minute avant de réessayer."
+      "rateLimited": "Trop de tentatives. Patientez une minute avant de réessayer.",
+      "acceptTerms": "Je confirme avoir au moins 14 ans et j'accepte les <terms>Conditions d'utilisation</terms> et la <privacy>Politique de confidentialité</privacy>."
     },
     "login": {
       "title": "Se connecter",
@@ -564,7 +574,7 @@
       "NotFound": "Nous n'avons pas trouvé ce sommet.",
       "LatitudeOutOfRange": "La latitude doit être comprise entre -90 et 90.",
       "LongitudeOutOfRange": "La longitude doit être comprise entre -180 et 180.",
-      "RadiusOutOfRange": "Le rayon doit être compris entre 1 et 200 km.",
+      "RadiusOutOfRange": "Le rayon doit être compris entre 1 et 50 km.",
       "AltitudeRangeInvalid": "L'altitude minimale ne peut pas dépasser l'altitude maximale.",
       "CountryCodeInvalid": "Ce pays n'est pas valide.",
       "RegionTooLong": "Ce nom de région est trop long."
@@ -764,8 +774,30 @@
         "confirmPrompt": "Saisissez {name} pour confirmer.",
         "confirmLabel": "Confirmation",
         "confirmAction": "Clôturer mon compte",
-        "deleted": "Votre compte est fermé. Merci d'avoir grimpé avec nous."
+        "deleted": "Votre compte est fermé. Merci d'avoir grimpé avec nous.",
+        "passwordPrompt": "Saisissez votre mot de passe pour confirmer."
       }
+    }
+  },
+  "offline": {
+    "banner": "Vous êtes hors ligne. Les nouvelles ascensions sont enregistrées ici et envoyées au retour du réseau.",
+    "list": {
+      "pending": "En attente d'envoi",
+      "rejected": "Non envoyée",
+      "photos": "{count, plural, one {# photo} other {# photos}}"
+    },
+    "detail": {
+      "pending": {
+        "title": "En attente de connexion",
+        "body": "Cette ascension est enregistrée sur votre appareil et sera envoyée d'elle-même dès le retour du réseau."
+      },
+      "rejected": {
+        "title": "Impossible d'envoyer cette ascension",
+        "body": "Le serveur l'a refusée, elle ne sera donc pas réessayée. Vérifiez les données et enregistrez-la à nouveau."
+      },
+      "photosDropped": "{count, plural, one {# photo n'a pas pu être enregistrée sur l'appareil} other {# photos n'ont pas pu être enregistrées sur l'appareil}}. Ajoutez-les à nouveau une fois l'ascension envoyée.",
+      "discard": "Abandonner cette ascension",
+      "photosPending": "{count, plural, one {# photo en attente d'envoi} other {# photos en attente d'envoi}}"
     }
   }
 }

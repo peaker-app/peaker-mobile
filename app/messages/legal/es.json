@@ -1,0 +1,214 @@
+{
+  "legal": {
+    "common": {
+      "updated": "Última actualización: {date}.",
+      "authoritative": "La versión en español de estos textos es la auténtica. Las traducciones se ofrecen para facilitar la lectura; en caso de discrepancia prevalece el español.",
+      "holder": "Titular",
+      "taxId": "NIF",
+      "address": "Domicilio",
+      "contact": "Contacto"
+    },
+    "notice": {
+      "title": "Aviso legal",
+      "sections": [
+        {
+          "heading": "1. Datos identificativos",
+          "body": [
+            "En cumplimiento del artículo 10 de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico, se hacen constar los datos del titular de este sitio web:",
+            "Titular: {holder}. NIF: {taxId}. Domicilio: {address}. Correo de contacto: {email}."
+          ]
+        },
+        {
+          "heading": "2. Objeto",
+          "body": [
+            "Peaker es una plataforma que permite consultar un catálogo mundial de montañas y registrar ascensiones. El acceso al catálogo es libre; registrar ascensiones exige crear una cuenta.",
+            "El uso del sitio atribuye la condición de usuario e implica la aceptación de este aviso legal y de las condiciones de uso."
+          ]
+        },
+        {
+          "heading": "3. Propiedad intelectual e industrial",
+          "body": [
+            "El código, el diseño y los elementos gráficos del sitio pertenecen al titular. Los datos del catálogo de montañas proceden de Wikidata y se utilizan conforme a su licencia. Las fotografías de las fichas de pico proceden de Wikimedia Commons y conservan la licencia y la atribución de sus autores.",
+            "El contenido que sube cada usuario —fotografías, notas de ruta y datos de sus ascensiones— sigue siendo suyo. Las condiciones de la licencia que concede a Peaker para mostrarlo están en las condiciones de uso."
+          ]
+        },
+        {
+          "heading": "4. Exclusión de responsabilidad",
+          "body": [
+            "La información del catálogo procede de fuentes externas y puede contener errores u omisiones. Peaker no garantiza su exactitud ni su vigencia.",
+            "La montaña entraña riesgos. La información de este sitio es orientativa y no sustituye a la preparación, la formación ni al criterio propio. El titular no responde de las decisiones que se tomen a partir de ella.",
+            "No se responde de los contenidos publicados por los usuarios ni de los sitios de terceros enlazados desde aquí."
+          ]
+        },
+        {
+          "heading": "5. Legislación aplicable",
+          "body": [
+            "Este aviso legal se rige por la legislación española. Para cualquier controversia serán competentes los juzgados y tribunales que correspondan conforme a la normativa aplicable en materia de consumidores y usuarios."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "sections": [
+        {
+          "heading": "1. Responsable del tratamiento",
+          "body": [
+            "Responsable: {holder}. NIF: {taxId}. Domicilio: {address}. Correo: {email}."
+          ]
+        },
+        {
+          "heading": "2. Qué datos tratamos y para qué",
+          "body": [
+            "Cuenta: correo electrónico, nombre de usuario y contraseña, esta última guardada siempre cifrada de forma irreversible. Finalidad: crear y mantener tu cuenta. Base jurídica: ejecución del contrato (art. 6.1.b del RGPD).",
+            "Perfil: nombre a mostrar, dirección de tu perfil, biografía, país y foto de perfil, si los rellenas. Finalidad: mostrar tu perfil público de montañero. Base jurídica: ejecución del contrato.",
+            "Ascensiones: fecha, acompañantes, notas de ruta, condiciones, visibilidad y fotografías. Finalidad: registrar y mostrar tus ascensiones según la visibilidad que elijas. Base jurídica: ejecución del contrato.",
+            "Seguridad: registramos los intentos fallidos de inicio de sesión y los envíos de correo, pero guardamos solo un resumen criptográfico del identificador y de la dirección IP, nunca su valor. Finalidad: evitar el abuso y la fuerza bruta. Base jurídica: interés legítimo (art. 6.1.f)."
+          ]
+        },
+        {
+          "heading": "3. Quién más accede a tus datos",
+          "body": [
+            "Cloudinary: aloja y entrega tus fotografías. Antes de subirlas las recodificamos y eliminamos sus metadatos, incluidas las coordenadas GPS que suelen llevar las fotos de cumbre.",
+            "Proveedor de correo del dominio: envía los correos de confirmación y de recuperación de contraseña.",
+            "OpenStreetMap: al cargar el mapa, tu navegador solicita los mosaicos a sus servidores y estos reciben tu dirección IP. Por eso el mapa no se carga hasta que lo consientes.",
+            "Wikimedia Commons: al mostrar la fotografía de una montaña, tu navegador la solicita a sus servidores.",
+            "Have I Been Pwned: al elegir una contraseña comprobamos que no aparezca en filtraciones conocidas. Solo enviamos los cinco primeros caracteres del resumen criptográfico de la contraseña, lo que no permite reconstruirla ni identificarte.",
+            "No vendemos tus datos ni los cedemos con fines publicitarios."
+          ]
+        },
+        {
+          "heading": "4. Cuánto tiempo los conservamos",
+          "body": [
+            "Tu cuenta y tu contenido, mientras la cuenta esté activa.",
+            "Los registros de seguridad, treinta días. Las sesiones cerradas, noventa días. Los enlaces de confirmación y de recuperación ya usados o caducados, treinta días.",
+            "Al darte de baja borramos tu perfil, tus ascensiones y tus fotografías, y sustituimos tu correo por un seudónimo irreversible. Conservamos esa fila seudonimizada de forma indefinida por un motivo concreto: impedir que otra persona se registre con tu correo o con tu nombre de usuario."
+          ]
+        },
+        {
+          "heading": "5. Tus derechos",
+          "body": [
+            "Puedes acceder a tus datos y descargarlos en un fichero desde Ajustes de cuenta, rectificarlos desde tu perfil, y suprimirlos dándote de baja. También puedes limitar quién ve tu contenido marcando tu perfil o cada ascensión como privados.",
+            "Si consideras que no atendemos correctamente tus derechos, puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es)."
+          ]
+        },
+        {
+          "heading": "6. Menores",
+          "body": [
+            "Peaker no está dirigido a menores de 14 años. Al registrarte declaras tener al menos esa edad, que es el umbral fijado por el artículo 7 de la Ley Orgánica 3/2018."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Política de cookies",
+      "sections": [
+        {
+          "heading": "1. Qué usamos y por qué",
+          "body": [
+            "Peaker no utiliza cookies de publicidad, de analítica ni de seguimiento. No hay perfilado ni terceros que te rastreen entre sitios.",
+            "Las cookies que usamos son estrictamente necesarias para que el sitio funcione o guardan una preferencia que tú has elegido, así que están exentas del deber de consentimiento previo del artículo 22.2 de la LSSI."
+          ]
+        },
+        {
+          "heading": "2. Relación de cookies y almacenamiento",
+          "body": [
+            "peaker_at — propia, técnica. Mantiene tu sesión iniciada. Caduca a los 15 minutos.",
+            "peaker_rt — propia, técnica. Permite renovar la sesión sin volver a escribir la contraseña. Caduca a los 30 días.",
+            "NEXT_LOCALE — propia, de preferencia. Recuerda el idioma que has elegido. Caduca al año.",
+            "peaker_cc — propia, técnica. Recuerda tu decisión sobre el mapa de terceros. Caduca a los 6 meses.",
+            "peaker-preferences — almacenamiento local del navegador. Recuerda si prefieres ver tus ascensiones como tarjetas o como tabla.",
+            "peaker-email-confirmation — almacenamiento local del navegador. Recuerda cuándo puedes volver a pedir el correo de confirmación."
+          ]
+        },
+        {
+          "heading": "3. El mapa de terceros",
+          "body": [
+            "El mapa usa los mosaicos de OpenStreetMap. Cargarlo hace que tu navegador se conecte a servidores ajenos a Peaker, que reciben tu dirección IP. No es una cookie, pero sí una comunicación a un tercero, así que te pedimos permiso antes.",
+            "Si lo rechazas, el sitio funciona igual: donde iría el mapa aparece un botón para cargarlo puntualmente."
+          ]
+        },
+        {
+          "heading": "4. Cómo cambiar tu decisión",
+          "body": [
+            "En cualquier momento, desde el enlace «Preferencias de cookies» del pie de página. Retirar el permiso es tan sencillo como darlo.",
+            "También puedes borrar las cookies desde la configuración de tu navegador. Si borras las técnicas, se cerrará tu sesión."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Condiciones de uso",
+      "sections": [
+        {
+          "heading": "1. Aceptación",
+          "body": [
+            "Estas condiciones regulan el uso de Peaker. Al crear una cuenta las aceptas de forma expresa. Si no estás de acuerdo, no uses el servicio.",
+            "Podemos modificarlas; si el cambio es relevante te lo comunicaremos y te pediremos que las aceptes de nuevo."
+          ]
+        },
+        {
+          "heading": "2. Tu cuenta",
+          "body": [
+            "Debes tener al menos 14 años y facilitar datos veraces. Tu nombre de usuario es tu identidad pública y aparece en la dirección de tu perfil.",
+            "Eres responsable de tu contraseña y de lo que ocurra en tu cuenta. Avísanos si sospechas de un acceso no autorizado.",
+            "Puedes darte de baja cuando quieras. La baja borra tu contenido, pero no libera tu correo ni tu nombre de usuario: nadie podrá registrarse con ellos después."
+          ]
+        },
+        {
+          "heading": "3. Tu contenido",
+          "body": [
+            "Conservas la titularidad de todo lo que subes: fotografías, notas y datos de tus ascensiones.",
+            "Al publicarlo nos concedes una licencia mundial, no exclusiva, gratuita y revocable, limitada a alojar, reproducir y mostrar ese contenido dentro de Peaker con la visibilidad que tú hayas elegido. No lo usaremos para otra cosa ni lo cederemos a terceros con fines publicitarios.",
+            "Al borrar un contenido o darte de baja, esa licencia se extingue.",
+            "Garantizas que tienes derecho a subir lo que subes y que no vulnera derechos de terceros ni la intimidad de las personas que aparezcan."
+          ]
+        },
+        {
+          "heading": "4. Conducta prohibida",
+          "body": [
+            "Publicar contenido ilícito, difamatorio, que incite al odio o que vulnere derechos de terceros.",
+            "Suplantar a otra persona o registrar cuentas de forma automatizada.",
+            "Intentar acceder a cuentas ajenas, sondear la seguridad del servicio o degradarlo con peticiones masivas.",
+            "Extraer el contenido de forma sistemática para reutilizarlo fuera de Peaker."
+          ]
+        },
+        {
+          "heading": "5. Suspensión",
+          "body": [
+            "Podemos suspender o cerrar una cuenta que incumpla estas condiciones. Cuando sea razonable te avisaremos antes y te explicaremos el motivo."
+          ]
+        },
+        {
+          "heading": "6. Disponibilidad y responsabilidad",
+          "body": [
+            "Peaker se ofrece «tal cual». Procuramos que esté disponible y que los datos sean correctos, pero no garantizamos que no haya interrupciones ni errores.",
+            "La información sobre montañas es orientativa y no sustituye a la preparación ni al criterio propio en actividades de montaña."
+          ]
+        },
+        {
+          "heading": "7. Legislación aplicable",
+          "body": [
+            "Estas condiciones se rigen por la legislación española, sin perjuicio de los derechos que la normativa de consumidores reconozca al usuario."
+          ]
+        }
+      ]
+    },
+    "banner": {
+      "title": "Cookies y mapa de terceros",
+      "body": "No usamos cookies de publicidad, de analítica ni de seguimiento. Solo necesitamos tu permiso para el mapa, que se carga desde servidores de OpenStreetMap y les permite ver tu dirección IP.",
+      "readPolicy": "Leer la política de cookies",
+      "acceptAll": "Aceptar",
+      "rejectAll": "Rechazar",
+      "configure": "Configurar",
+      "preferences": "Preferencias de cookies",
+      "preferencesTitle": "Preferencias de cookies",
+      "preferencesBody": "Elige qué puede cargarse. Puedes cambiarlo cuando quieras desde el pie de página.",
+      "technicalLabel": "Estrictamente necesarias",
+      "technicalBody": "Mantienen tu sesión, recuerdan tu idioma y tus preferencias de interfaz. No se pueden desactivar.",
+      "mapsLabel": "Mapa de terceros (OpenStreetMap)",
+      "mapsBody": "Carga los mosaicos del mapa. Sus servidores reciben tu dirección IP.",
+      "save": "Guardar preferencias"
+    }
+  }
+}

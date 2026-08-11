@@ -15,7 +15,9 @@ import { useProblemMessage } from "@/hooks/useProblemToast";
 import { Link } from "@/i18n/navigation";
 import { ApiError } from "@/lib/api/client";
 import { isRetryable } from "@/lib/api/problem";
+import { useOfflineQueue } from "@/lib/offline/queue";
 import type { AscentResponse } from "@/types/api";
+import { QueuedAscentDetail } from "./QueuedAscentDetail";
 import { useOwnAscent } from "./useOwnAscent";
 
 const AscentDetailSkeleton = () => (
@@ -116,7 +118,18 @@ export const AscentDetailScreen = () => {
   const { id = "" } = useParams();
   const [params] = useSearchParams();
   const toMessage = useProblemMessage();
-  const ascent = useOwnAscent(id);
+  const queued = useOfflineQueue((state) =>
+    state.entries.find((entry) => entry.clientAscentId === id),
+  );
+  const ascent = useOwnAscent(id, { enabled: queued === undefined });
+
+  if (queued) {
+    return (
+      <main className="flex-1 p-6">
+        <QueuedAscentDetail entry={queued} />
+      </main>
+    );
+  }
 
   if (ascent.isError) {
     const problem =

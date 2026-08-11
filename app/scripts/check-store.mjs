@@ -12,6 +12,7 @@ const limits = {
   promotionalText: 170,
   keywords: 100,
   description: 4000,
+  privacyPolicyUrl: 200,
 };
 
 const required = Object.keys(limits);

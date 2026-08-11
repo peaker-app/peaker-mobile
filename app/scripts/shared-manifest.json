@@ -11,7 +11,9 @@
     "src/components/features/peaks": "PeakActions.test.tsx, PeakPagination.test.tsx, PeakMap.test.tsx, PeakFiltersSheet.tsx y MapListSwitcher.tsx son propios de movil y no existen en el portal: no se vendorizan. FeaturedPeaks.tsx tampoco, porque es un Server Component async de SC-01, excluida de paridad.",
     "src/stores": "preferences.ts y emailConfirmation.ts NO se vendorizan: el portal los escribe con zustand y persist sobre localStorage, prohibido en movil. Se reescriben sobre useSyncExternalStore y @capacitor/preferences conservando la API estatica (getState/setState), que es lo que permite que MyAscentsList, RegisterAscentForm, UnconfirmedEmailBanner y listAndTable.test.tsx entren byte-identicos (MOBILE.md §6 B5).",
     "src/components/features/collections": "Los doce ficheros entran byte-identicos: sus unicos imports de Next son next-intl y @/i18n/navigation, ya resueltos por los alias de §3.1.1. Las dos page.tsx del portal son Server Components y su equivalente movil vive en src/app/dashboard/collections/ (MOBILE.md §6 B6).",
-    "src/components/features/dashboard": "Solo se vendoriza UnconfirmedEmailBanner.tsx. DashboardGreeting, DashboardStats y RecentAscents son Server Components async y su equivalente movil vive en src/app/dashboard/. dashboard.test.tsx los prueba con serverFetch y next-intl/server, asi que tampoco se vendoriza: el banner lleva test propio de movil."
+    "src/components/features/dashboard": "Solo se vendoriza UnconfirmedEmailBanner.tsx. DashboardGreeting, DashboardStats y RecentAscents son Server Components async y su equivalente movil vive en src/app/dashboard/. dashboard.test.tsx los prueba con serverFetch y next-intl/server, asi que tampoco se vendoriza: el banner lleva test propio de movil.",
+    "src/components/features/legal": "LegalScreen.tsx es propio de movil (envoltorio de ruta) y no se vendoriza: en el portal su equivalente son las cuatro page.tsx del grupo (legal), que son Server Components.",
+    "messages/legal": "Los cinco JSON de textos legales entran byte-identicos: son datos, no codigo, y la version espanola es la autentica en ambos targets."
   },
   "files": [
     {
@@ -53,7 +55,7 @@
     {
       "path": "src/lib/map.ts",
       "divergence": "process.env.NEXT_PUBLIC_* no existe en Vite: import.meta.env.VITE_*.",
-      "sourceSha256": "e79af68448e17b02dd134800bbb3b7fe3f72a582b71b1e0f6a24ce7f0bd961a8"
+      "sourceSha256": "1fa9e1a230c83b8e9e440e3381ad6ae5b2164be8db07266dd336d30f57a7f0b1"
     },
     {
       "path": "src/lib/map.test.ts",
@@ -135,7 +137,9 @@
       "path": "src/hooks/useProblemToast.test.tsx"
     },
     {
-      "path": "src/types/api.ts"
+      "path": "src/types/api.ts",
+      "divergence": "B8a: RegisterAscentRequest gana clientAscentId opcional, la clave de deduplicacion que acepta POST /api/ascents (DESIGN.md §7.3), y UpdateAscentRequest la excluye ademas de peakId. El portal no la envia, asi que no se le anade la linea para no meter un cuarto repositorio en el bloque.",
+      "sourceSha256": "e5b248020efd2bfff990f1684f727171eb6ae960bb4bbd9d8eb7f3980a5f07c3"
     },
     {
       "path": "src/i18n/config.ts"
@@ -148,28 +152,28 @@
     },
     {
       "path": "messages/en.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
-      "sourceSha256": "7f6f8efd5f279a595aa9ae76a2236f3edddfc6ab871bf2dcc2ef30cdb240cba7"
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
+      "sourceSha256": "32edaf6501aafa08888cea688dfdb87eaa7960fca76947194951b7815d2ba7ad"
     },
     {
       "path": "messages/es.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
-      "sourceSha256": "636761498b4318641f6651d67e55ed0a422048b89b7c36ba7104d2b89225c3a5"
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
+      "sourceSha256": "09a112f164ee21e6879ac7287da889ce00f111cb04cac7ea8e6e98eb13014384"
     },
     {
       "path": "messages/zh.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
-      "sourceSha256": "c569237752376e9ba3ed863b0df75ce63eb0a08f8e207d78b35448d66f670419"
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
+      "sourceSha256": "2196625d6daae8e4cfb9dc4ed252dfb034cef3f0f8ba29ac4be5156708d7511a"
     },
     {
       "path": "messages/fr.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
-      "sourceSha256": "34d187b746bdb6f357c076d8ebb73cf20dce22b7d1fdb1475cbbbc0d41924c2d"
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
+      "sourceSha256": "770c529b4c2ad514a823e8ff8417b61dd672f21ad6bf8367bc52fc41b0314d2d"
     },
     {
       "path": "messages/ar.json",
-      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted.",
-      "sourceSha256": "e9d424580463faff4768353d0dfe080df3c5d4a82703d4ce4701f3cfe6935593"
+      "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
+      "sourceSha256": "e38b370f4d5225bef38b8a5fc1ee53b229a65a8929a7e0d58848f72d1479af8a"
     },
     {
       "path": "scripts/check-messages.mjs"
@@ -276,7 +280,7 @@
     {
       "path": "src/components/features/auth/LoginForm.tsx",
       "divergence": "No hay route handler en movil: fetch('/api/auth/login') pasa a signIn() de lib/auth/session capturando ApiError, mas una rama para el fallo de red que el BFF no tenia (MOBILE.md §6 B3).",
-      "sourceSha256": "8cc8c6b4c3e5dbdd8328fe831e17ef1019fbbdf78f1839dd2b38183781e10eea"
+      "sourceSha256": "d791a5bb100ff98bde8c9071c3a0b9b5f2c70c6a20b0ab4d38fe3cf3bcfbba70"
     },
     {
       "path": "src/components/features/auth/LoginForm.test.tsx",
@@ -286,7 +290,7 @@
     {
       "path": "src/components/features/auth/ConfirmEmailView.tsx",
       "divergence": "useSessionState viene del store de sesion (forma {status, session}); HeaderAuthActions es React Query sobre el BFF y no se vendoriza (MOBILE.md §6 B3).",
-      "sourceSha256": "3f7b6e353c11e9418fa076b6f7f97d8caddf995377764a7d7621c3565768b34b"
+      "sourceSha256": "e185cbbeff19e6fb4f1cf7bf36b1ad9a4776cbd285905281695d23d7805f53b3"
     },
     {
       "path": "src/components/features/auth/ConfirmEmailView.test.tsx",
@@ -327,7 +331,9 @@
       "path": "src/components/features/peaks/PeakFactsList.test.tsx"
     },
     {
-      "path": "src/components/features/peaks/PeakMap.tsx"
+      "path": "src/components/features/peaks/PeakMap.tsx",
+      "divergence": "Una linea: el consentimiento del mapa no viene de la cookie peaker_cc sino de usePreferences.mapsConsent sobre @capacitor/preferences. Una app instalada no tiene cookies ni banner; el conmutador vive en AccountScreen. El gate y su copia son identicos al portal.",
+      "sourceSha256": "4f4741aaa0cb8087a231e3e93cde29c398251a7d1320fe1eae791dcd76a0ae34"
     },
     {
       "path": "src/components/features/peaks/PeakMapView.tsx"
@@ -367,7 +373,7 @@
     {
       "path": "src/components/features/peaks/NearbyPeaksView.test.tsx",
       "divergence": "Sigue a NearbyPeaksView: el caso del mapa pulsa antes el conmutador, mas dos casos nuevos del propio conmutador.",
-      "sourceSha256": "662f35a27cb84828585d088d78a13ae0ae495e98ae2d32c398b9df75f87f053c"
+      "sourceSha256": "2bc47a73d8502bf7c93a4dbe28ab83cdce1609586bd5100af27415be75097e0d"
     },
     {
       "path": "src/components/features/ascents/AscentCard.tsx"
@@ -414,7 +420,9 @@
       "sourceSha256": "cf99dc5ad0dbe33d49e0edc2d5ed14b7dce71d4fc136d11825b8cf4993a54b07"
     },
     {
-      "path": "src/components/features/ascents/RegisterAscentForm.tsx"
+      "path": "src/components/features/ascents/RegisterAscentForm.tsx",
+      "divergence": "B8a: llama a submitOrQueue en vez de a submitAscent, para que un alta sin cobertura se encole en vez de perderse, y navega al clientAscentId cuando la respuesta llega encolada. submitAscent.ts sigue byte-identico y la cola lo reutiliza.",
+      "sourceSha256": "b5077a93184bc0e77cfbad6b05423c3f039ae2b847a5be6d6965f003aa1f70b7"
     },
     {
       "path": "src/components/features/ascents/RegisterAscentForm.test.tsx"
@@ -525,17 +533,29 @@
     {
       "path": "src/components/features/settings/AccountCards.tsx",
       "divergence": "useSessionState viene del store de sesion (forma {status, session}) y el signOut pasa de fetch('/api/auth/logout') a signOut() de lib/auth/session, que revoca contra el gateway y borra el almacen seguro. Navega antes de revocar, por el mismo motivo que la decision 9 de B3.",
-      "sourceSha256": "59f04009713ab34caf1e23c316a0846902bccf81bded18913e277d110a36c44b"
+      "sourceSha256": "ffbb23e036f2be29e6de55faea1d2dc5d5e6accf97ea453ebdef2f047ea5999b"
     },
     {
       "path": "src/components/features/settings/DeleteAccountDialog.tsx",
       "divergence": "Una linea: fetch('/api/auth/logout') pasa a clearTokens(). La cuenta ya esta borrada y su refresh token revocado, asi que llamar a logout sobraria. router.replace('/?deleted=1') se deja tal cual: SC-01 esta excluida de paridad y la ruta indice de movil redirige a /peaks.",
-      "sourceSha256": "74d5ee341ef5e9423ab0eb5a0201532489734932aed33413433c903668a81c30"
+      "sourceSha256": "e4c9b73551483fb1c312d0eff2f2cfd5da695e12e4180f74a68a182ed77b0f95"
     },
     {
       "path": "src/components/features/settings/accountCards.test.tsx",
       "divergence": "Sigue a AccountCards y DeleteAccountDialog: mock del store de sesion, de lib/auth/tokenStore y de useLocaleSetting en lugar del stub de fetch sobre el BFF, mas dos casos nuevos (el orden navegar-antes-de-revocar y el conmutador de idioma que B3 habia dejado sin llamador).",
-      "sourceSha256": "fe452ab4e5bdc6ab37b0fa6cb59587d7eb338d5347171d7607b668de0cdc9c2b"
+      "sourceSha256": "04050dca4afd1b7b9062d56c3ad7d2df4cd037349717a3a736a758faf5f30471"
+    },
+    {
+      "path": "src/lib/legal/entity.ts",
+      "divergence": "Cinco lineas: process.env.LEGAL_* no existe en Vite, se lee import.meta.env.VITE_LEGAL_*. Mismos valores, mismos marcadores de reserva. Los datos reales viven en .env, que git ignora en los dos repos."
+    },
+    {
+      "path": "src/components/features/legal/LegalDocument.tsx",
+      "divergence": "getTranslations de next-intl/server pasa a useTranslations de use-intl: en movil no hay Server Components. El resto del componente es identico.",
+      "sourceSha256": "98f36b91c4642000cb74db26b5043fc417d3713d34a12891f5272d4b06ffb10f"
+    },
+    {
+      "path": "src/lib/auth/tokenUrl.ts"
     }
   ]
 }

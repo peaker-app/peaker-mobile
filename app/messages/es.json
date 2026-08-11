@@ -62,7 +62,14 @@
   },
   "footer": {
     "tagline": "Busca las montañas del mundo y registra tus ascensiones.",
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "legalHeading": "Legal",
+    "legal": {
+      "notice": "Aviso legal",
+      "privacy": "Privacidad",
+      "cookies": "Cookies",
+      "terms": "Condiciones de uso"
+    }
   },
   "units": {
     "meters": "{value} m",
@@ -180,7 +187,9 @@
       "label": "Mapa de picos",
       "textualAlternative": "El mapa es decorativo: todos los picos aparecen abajo con sus coordenadas.",
       "zoomIn": "Acercar",
-      "zoomOut": "Alejar"
+      "zoomOut": "Alejar",
+      "consentRequired": "El mapa se carga desde OpenStreetMap, que verá tu dirección IP.",
+      "loadMap": "Cargar el mapa"
     },
     "nearby": {
       "title": "Picos cerca de ti",
@@ -421,7 +430,8 @@
       "signIn": "Entrar",
       "emailTaken": "Ese correo electrónico ya está registrado.",
       "emailTakenAction": "Entra en su lugar",
-      "rateLimited": "Demasiados intentos. Espera un minuto antes de volver a probar."
+      "rateLimited": "Demasiados intentos. Espera un minuto antes de volver a probar.",
+      "acceptTerms": "Confirmo que tengo al menos 14 años y acepto las <terms>Condiciones de uso</terms> y la <privacy>Política de privacidad</privacy>."
     },
     "login": {
       "title": "Entrar",
@@ -564,7 +574,7 @@
       "NotFound": "No hemos encontrado este pico.",
       "LatitudeOutOfRange": "La latitud debe estar entre -90 y 90.",
       "LongitudeOutOfRange": "La longitud debe estar entre -180 y 180.",
-      "RadiusOutOfRange": "El radio debe estar entre 1 y 200 km.",
+      "RadiusOutOfRange": "El radio debe estar entre 1 y 50 km.",
       "AltitudeRangeInvalid": "La altitud mínima no puede ser mayor que la máxima.",
       "CountryCodeInvalid": "Ese país no es válido.",
       "RegionTooLong": "Ese nombre de región es demasiado largo."
@@ -764,8 +774,30 @@
         "confirmPrompt": "Escribe {name} para confirmar.",
         "confirmLabel": "Confirmación",
         "confirmAction": "Dar de baja mi cuenta",
-        "deleted": "Tu cuenta está cerrada. Gracias por acompañarnos en la montaña."
+        "deleted": "Tu cuenta está cerrada. Gracias por acompañarnos en la montaña.",
+        "passwordPrompt": "Escribe tu contraseña para confirmar."
       }
+    }
+  },
+  "offline": {
+    "banner": "Estás sin conexión. Las ascensiones nuevas se guardan aquí y se envían al volver la red.",
+    "list": {
+      "pending": "Pendiente de enviar",
+      "rejected": "Sin enviar",
+      "photos": "{count, plural, one {# foto} other {# fotos}}"
+    },
+    "detail": {
+      "pending": {
+        "title": "Esperando conexión",
+        "body": "Esta ascensión está guardada en tu dispositivo y se enviará sola en cuanto vuelvas a tener red."
+      },
+      "rejected": {
+        "title": "No se ha podido enviar esta ascensión",
+        "body": "El servidor la rechazó, así que no se reintentará. Revisa los datos y regístrala de nuevo."
+      },
+      "photosDropped": "{count, plural, one {No se ha podido guardar # foto en el dispositivo} other {No se han podido guardar # fotos en el dispositivo}}. Vuelve a añadirlas cuando la ascensión se haya enviado.",
+      "discard": "Descartar esta ascensión",
+      "photosPending": "{count, plural, one {# foto pendiente de subir} other {# fotos pendientes de subir}}"
     }
   }
 }

@@ -89,6 +89,43 @@ describe("refreshSession", () => {
     expect(sessionStore.getSessionState().status).toBe("anonymous");
   });
 
+  it("refreshSession_withoutNetwork_resolvesInsteadOfRejecting", async () => {
+    const { refresh, tokenStore } = await loadAuth();
+    await tokenStore.persistTokens(tokens());
+    vi.spyOn(globalThis, "fetch").mockRejectedValue(
+      new TypeError("Failed to fetch"),
+    );
+
+    await expect(refresh.refreshSession()).resolves.toBeUndefined();
+  });
+
+  it("refreshSession_withoutNetwork_keepsTheRefreshTokenForWhenItComesBack", async () => {
+    const { refresh, tokenStore } = await loadAuth();
+    await tokenStore.persistTokens(tokens({ refreshToken: "still-valid" }));
+    vi.spyOn(globalThis, "fetch").mockRejectedValue(
+      new TypeError("Failed to fetch"),
+    );
+
+    await refresh.refreshSession();
+
+    await expect(tokenStore.readRefreshToken()).resolves.toBe("still-valid");
+  });
+
+  it("refreshSession_networkBackAfterAnOutage_rotatesWithTheKeptToken", async () => {
+    const { refresh, tokenStore } = await loadAuth();
+    await tokenStore.persistTokens(tokens({ refreshToken: "still-valid" }));
+    const fetchSpy = vi
+      .spyOn(globalThis, "fetch")
+      .mockRejectedValueOnce(new TypeError("Failed to fetch"))
+      .mockImplementation(alwaysJson(tokens({ refreshToken: "rotated" })));
+
+    await refresh.refreshSession();
+    await refresh.refreshSession();
+
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
+    await expect(tokenStore.readRefreshToken()).resolves.toBe("rotated");
+  });
+
   it("refreshSession_afterAFailure_doesNotRetryWithADeadToken", async () => {
     const { refresh, tokenStore } = await loadAuth();
     await tokenStore.persistTokens(tokens());

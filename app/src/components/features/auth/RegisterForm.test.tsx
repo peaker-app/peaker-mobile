@@ -37,6 +37,7 @@ const fillAndSubmit = async (overrides: Partial<Record<string, string>> = {}) =>
     screen.getByLabelText("Password"),
     overrides.password ?? "montana2026segura",
   );
+  await userEvent.click(screen.getByRole("checkbox"));
   await userEvent.click(screen.getByRole("button", { name: "Create account" }));
 };
 

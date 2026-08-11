@@ -6,24 +6,32 @@ import { clearTokens, persistTokens, readRefreshToken } from "./tokenStore";
 
 let inFlight: Promise<AuthTokensResponse | undefined> | undefined;
 
+type RotationOutcome =
+  | { status: "rotated"; tokens: AuthTokensResponse }
+  | { status: "rejected" }
+  | { status: "unreachable" };
+
 const requestNewTokens = async (
   refreshToken: string,
-): Promise<AuthTokensResponse | undefined> => {
-  const response = await fetch(
-    `${gatewayUrl()}/api/${endpoints.auth.refresh}`,
-    {
+): Promise<RotationOutcome> => {
+  let response: Response;
+
+  try {
+    response = await fetch(`${gatewayUrl()}/api/${endpoints.auth.refresh}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         [correlationHeader]: newCorrelationId(),
       },
       body: JSON.stringify({ refreshToken }),
-    },
-  );
+    });
+  } catch {
+    return { status: "unreachable" };
+  }
 
   return response.ok
-    ? ((await response.json()) as AuthTokensResponse)
-    : undefined;
+    ? { status: "rotated", tokens: (await response.json()) as AuthTokensResponse }
+    : { status: "rejected" };
 };
 
 const rotate = async (): Promise<AuthTokensResponse | undefined> => {
@@ -33,17 +41,19 @@ const rotate = async (): Promise<AuthTokensResponse | undefined> => {
     return undefined;
   }
 
-  const tokens = await requestNewTokens(refreshToken);
+  const outcome = await requestNewTokens(refreshToken);
 
-  if (!tokens) {
+  if (outcome.status === "rejected") {
     await clearTokens();
+  }
 
+  if (outcome.status !== "rotated") {
     return undefined;
   }
 
-  await persistTokens(tokens);
+  await persistTokens(outcome.tokens);
 
-  return tokens;
+  return outcome.tokens;
 };
 
 export const refreshSession = (): Promise<AuthTokensResponse | undefined> => {

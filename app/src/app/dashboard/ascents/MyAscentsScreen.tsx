@@ -10,6 +10,7 @@ import { usePagedQuery } from "@/hooks/usePagedQuery";
 import { Link } from "@/i18n/navigation";
 import { endpoints } from "@/lib/api/endpoints";
 import type { AscentSummaryResponse } from "@/types/api";
+import { QueuedAscentsList } from "./QueuedAscentsList";
 
 const pageSize = 20;
 const listPath = "/dashboard/ascents";
@@ -82,6 +83,7 @@ export const MyAscentsScreen = () => {
       <Button asChild className="self-start">
         <Link href="/dashboard/ascents/new">{t("logAscent")}</Link>
       </Button>
+      <QueuedAscentsList />
       <MyAscentsResults results={results} />
     </main>
   );

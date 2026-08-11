@@ -39,3 +39,7 @@ Décidez de ce que voit le reste du monde. Chaque ascension est publique ou priv
 
 DANS VOTRE LANGUE
 Français, anglais, espagnol, chinois et arabe, avec prise en charge complète de la lecture de droite à gauche.
+
+## privacyPolicyUrl
+
+https://[PENDIENTE-dominio]/fr/legal/privacy

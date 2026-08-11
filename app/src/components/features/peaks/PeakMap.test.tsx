@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import userEvent from "@testing-library/user-event";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { IntlWrapper } from "@/test/IntlWrapper";
+import { usePreferences } from "@/stores/preferences";
 import type { PeakMapViewProps } from "./PeakMapView";
 
 vi.mock("./PeakMapView", () => ({
@@ -13,16 +15,20 @@ const { PeakMap } = await import("./PeakMap");
 
 const point = { id: "p-1", latitude: 42.63, longitude: 0.65 };
 
+const allowMaps = () => usePreferences.setState({ mapsConsent: true });
+
+afterEach(() => usePreferences.setState({ mapsConsent: false }));
+
 describe("PeakMap", () => {
-  it("peakMap_mounted_loadsTheLeafletViewLazily", async () => {
+  it("peakMap_withConsent_loadsTheLeafletViewLazily", async () => {
+    allowMaps();
     render(<PeakMap points={[point]} zoom={11} />, { wrapper: IntlWrapper });
 
-    expect(
-      await screen.findByText("points:1 zoom:11"),
-    ).toBeInTheDocument();
+    expect(await screen.findByText("points:1 zoom:11")).toBeInTheDocument();
   });
 
-  it("peakMap_always_carriesATextualAlternative", async () => {
+  it("peakMap_withConsent_carriesATextualAlternative", async () => {
+    allowMaps();
     render(<PeakMap points={[point]} />, { wrapper: IntlWrapper });
 
     expect(
@@ -30,5 +36,24 @@ describe("PeakMap", () => {
         "The map is decorative: every peak is listed below with its coordinates.",
       ),
     ).toBeInTheDocument();
+  });
+
+  it("peakMap_withoutConsent_neverMountsTheTileView", () => {
+    render(<PeakMap points={[point]} zoom={11} />, { wrapper: IntlWrapper });
+
+    expect(screen.queryByText("points:1 zoom:11")).not.toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Load the map" }),
+    ).toBeInTheDocument();
+  });
+
+  it("peakMap_loadingItOnce_showsTheMapWithoutStoringConsent", async () => {
+    const user = userEvent.setup();
+    render(<PeakMap points={[point]} zoom={11} />, { wrapper: IntlWrapper });
+
+    await user.click(screen.getByRole("button", { name: "Load the map" }));
+
+    expect(await screen.findByText("points:1 zoom:11")).toBeInTheDocument();
+    expect(usePreferences.getState().mapsConsent).toBe(false);
   });
 });

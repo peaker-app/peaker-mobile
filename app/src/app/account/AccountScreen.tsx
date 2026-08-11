@@ -4,9 +4,17 @@ import { Button } from "@/components/ui/Button";
 import { Link } from "@/i18n/navigation";
 import { useOwnProfile } from "@/lib/profile/useOwnProfile";
 
+const legalLinks = [
+  { href: "/legal/notice", key: "notice" },
+  { href: "/legal/privacy", key: "privacy" },
+  { href: "/legal/cookies", key: "cookies" },
+  { href: "/legal/terms", key: "terms" },
+] as const;
+
 export const AccountScreen = () => {
   const t = useTranslations("settings.account");
   const profile = useTranslations("settings.profile");
+  const footer = useTranslations("footer");
   const { data } = useOwnProfile();
 
   return (
@@ -20,6 +28,18 @@ export const AccountScreen = () => {
       </Button>
 
       <AccountCards displayName={data?.displayName ?? ""} />
+
+      <nav aria-label={footer("legalHeading")} className="mt-2">
+        <ul className="flex flex-col gap-2 text-sm leading-relaxed text-muted-foreground">
+          {legalLinks.map((link) => (
+            <li key={link.key}>
+              <Link href={link.href} className="underline">
+                {footer(`legal.${link.key}`)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </main>
   );
 };

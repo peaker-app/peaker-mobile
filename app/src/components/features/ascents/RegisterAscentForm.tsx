@@ -5,10 +5,11 @@ import { useState } from "react";
 import { useRouter } from "@/i18n/navigation";
 import { ApiError } from "@/lib/api/client";
 import { hasCode } from "@/lib/api/problem";
+import type { SubmitProgressState } from "@/lib/ascents/submitAscent";
 import {
-  submitAscent,
-  type SubmitProgressState,
-} from "@/lib/ascents/submitAscent";
+  submitOrQueue,
+  type SubmitOutcome,
+} from "@/lib/offline/submitOrQueue";
 import { useEmailConfirmation } from "@/stores/emailConfirmation";
 import {
   AscentForm,
@@ -19,6 +20,16 @@ import {
 import type { SelectedPeak } from "./PeakSearchCombobox";
 
 type FieldErrors = NonNullable<AscentFormProps["fieldErrors"]>;
+
+const destinationOf = (outcome: SubmitOutcome): string => {
+  if (outcome.status === "queued") {
+    return `/dashboard/ascents/${outcome.clientAscentId}`;
+  }
+
+  return outcome.failedPhotos > 0
+    ? `/dashboard/ascents/${outcome.ascentId}?photosFailed=${outcome.failedPhotos}`
+    : `/dashboard/ascents/${outcome.ascentId}`;
+};
 
 const fieldOf: [string, keyof FieldErrors][] = [
   ["Ascent.DateInFuture", "ascentDate"],
@@ -100,7 +111,7 @@ export const RegisterAscentForm = ({
     setFormError(undefined);
 
     try {
-      const { ascentId, failedPhotos } = await submitAscent({
+      const outcome = await submitOrQueue({
         request: {
           peakId: values.peak.id,
           ascentDate: values.ascentDate,
@@ -113,13 +124,10 @@ export const RegisterAscentForm = ({
         },
         photos: values.photos,
         onProgress: setProgress,
+        peak: values.peak,
       });
 
-      router.replace(
-        failedPhotos > 0
-          ? `/dashboard/ascents/${ascentId}?photosFailed=${failedPhotos}`
-          : `/dashboard/ascents/${ascentId}`,
-      );
+      router.replace(destinationOf(outcome));
     } catch (error) {
       setProgress(undefined);
       applyProblem(error, () => void save(values));

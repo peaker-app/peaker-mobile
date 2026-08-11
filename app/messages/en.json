@@ -62,7 +62,14 @@
   },
   "footer": {
     "tagline": "Search the world's mountains and log your ascents.",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "legalHeading": "Legal",
+    "legal": {
+      "notice": "Legal notice",
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "terms": "Terms of use"
+    }
   },
   "units": {
     "meters": "{value} m",
@@ -180,7 +187,9 @@
       "label": "Map of peaks",
       "textualAlternative": "The map is decorative: every peak is listed below with its coordinates.",
       "zoomIn": "Zoom in",
-      "zoomOut": "Zoom out"
+      "zoomOut": "Zoom out",
+      "consentRequired": "The map loads from OpenStreetMap, which will see your IP address.",
+      "loadMap": "Load the map"
     },
     "nearby": {
       "title": "Peaks near you",
@@ -421,7 +430,8 @@
       "signIn": "Sign in",
       "emailTaken": "That email address is already registered.",
       "emailTakenAction": "Sign in instead",
-      "rateLimited": "Too many attempts. Wait a minute before trying again."
+      "rateLimited": "Too many attempts. Wait a minute before trying again.",
+      "acceptTerms": "I confirm that I am at least 14 years old and I accept the <terms>Terms of use</terms> and the <privacy>Privacy policy</privacy>."
     },
     "login": {
       "title": "Sign in",
@@ -640,7 +650,7 @@
       "NotFound": "We couldn't find this peak.",
       "LatitudeOutOfRange": "Latitude must be between -90 and 90.",
       "LongitudeOutOfRange": "Longitude must be between -180 and 180.",
-      "RadiusOutOfRange": "The radius must be between 1 and 200 km.",
+      "RadiusOutOfRange": "The radius must be between 1 and 50 km.",
       "AltitudeRangeInvalid": "The minimum altitude can't be higher than the maximum.",
       "CountryCodeInvalid": "That country isn't valid.",
       "RegionTooLong": "That region name is too long."
@@ -764,8 +774,30 @@
         "confirmPrompt": "Type {name} to confirm.",
         "confirmLabel": "Confirmation",
         "confirmAction": "Close my account",
-        "deleted": "Your account is closed. Thanks for climbing with us."
+        "deleted": "Your account is closed. Thanks for climbing with us.",
+        "passwordPrompt": "Enter your password to confirm."
       }
+    }
+  },
+  "offline": {
+    "banner": "You're offline. New ascents are saved here and sent when you're back.",
+    "list": {
+      "pending": "Waiting to be sent",
+      "rejected": "Not sent",
+      "photos": "{count, plural, one {# photo} other {# photos}}"
+    },
+    "detail": {
+      "pending": {
+        "title": "Waiting for a connection",
+        "body": "This ascent is saved on your device and will be sent on its own as soon as you're back online."
+      },
+      "rejected": {
+        "title": "This ascent couldn't be sent",
+        "body": "The server turned it down, so it won't be retried. Check the details and log it again."
+      },
+      "photosDropped": "{count, plural, one {# photo couldn't be saved on your device} other {# photos couldn't be saved on your device}}. Add them again once the ascent has been sent.",
+      "discard": "Discard this ascent",
+      "photosPending": "{count, plural, one {# photo waiting to be uploaded} other {# photos waiting to be uploaded}}"
     }
   }
 }

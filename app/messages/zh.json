@@ -62,7 +62,14 @@
   },
   "footer": {
     "tagline": "搜索世界各地的山峰，记录你的每一次登顶。",
-    "rights": "保留所有权利。"
+    "rights": "保留所有权利。",
+    "legalHeading": "法律",
+    "legal": {
+      "notice": "法律声明",
+      "privacy": "隐私",
+      "cookies": "Cookie",
+      "terms": "使用条款"
+    }
   },
   "units": {
     "meters": "{value} 米",
@@ -180,7 +187,9 @@
       "label": "山峰地图",
       "textualAlternative": "地图仅作装饰：下方列出了每座山峰及其坐标。",
       "zoomIn": "放大",
-      "zoomOut": "缩小"
+      "zoomOut": "缩小",
+      "consentRequired": "地图从 OpenStreetMap 加载，对方会看到你的 IP 地址。",
+      "loadMap": "加载地图"
     },
     "nearby": {
       "title": "你附近的山峰",
@@ -421,7 +430,8 @@
       "signIn": "登录",
       "emailTaken": "该电子邮箱已被注册。",
       "emailTakenAction": "改为登录",
-      "rateLimited": "尝试次数过多，请等待一分钟后再试。"
+      "rateLimited": "尝试次数过多，请等待一分钟后再试。",
+      "acceptTerms": "我确认已年满 14 岁，并接受<terms>使用条款</terms>与<privacy>隐私政策</privacy>。"
     },
     "login": {
       "title": "登录",
@@ -564,7 +574,7 @@
       "NotFound": "未找到该山峰。",
       "LatitudeOutOfRange": "纬度必须介于 -90 和 90 之间。",
       "LongitudeOutOfRange": "经度必须介于 -180 和 180 之间。",
-      "RadiusOutOfRange": "半径必须介于 1 至 200 公里之间。",
+      "RadiusOutOfRange": "半径必须介于 1 至 50 公里之间。",
       "AltitudeRangeInvalid": "最低海拔不能高于最高海拔。",
       "CountryCodeInvalid": "该国家或地区无效。",
       "RegionTooLong": "该地区名称过长。"
@@ -764,8 +774,30 @@
         "confirmPrompt": "输入 {name} 以确认。",
         "confirmLabel": "确认",
         "confirmAction": "注销我的账户",
-        "deleted": "你的账号已注销。感谢与我们一同攀登。"
+        "deleted": "你的账号已注销。感谢与我们一同攀登。",
+        "passwordPrompt": "输入密码以确认。"
       }
+    }
+  },
+  "offline": {
+    "banner": "您当前处于离线状态。新的登顶记录会保存在此，恢复网络后自动发送。",
+    "list": {
+      "pending": "待发送",
+      "rejected": "未发送",
+      "photos": "{count, plural, other {# 张照片}}"
+    },
+    "detail": {
+      "pending": {
+        "title": "等待网络连接",
+        "body": "这条登顶记录已保存在您的设备上，恢复网络后会自动发送。"
+      },
+      "rejected": {
+        "title": "无法发送这条登顶记录",
+        "body": "服务器已拒绝该记录，因此不会重试。请检查内容后重新登记。"
+      },
+      "photosDropped": "{count, plural, other {有 # 张照片无法保存到设备}}。登顶记录发送后请重新添加。",
+      "discard": "放弃这条登顶记录",
+      "photosPending": "{count, plural, other {有 # 张照片待上传}}"
     }
   }
 }

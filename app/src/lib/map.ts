@@ -17,7 +17,7 @@ export const maxLatitude = 90;
 export const minLongitude = -180;
 export const maxLongitude = 180;
 export const minRadiusMeters = 1000;
-export const maxRadiusMeters = 200_000;
+export const maxRadiusMeters = 50_000;
 export const radiusStepMeters = 1000;
 export const defaultRadiusMeters = 25_000;
 

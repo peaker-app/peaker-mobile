@@ -6,8 +6,12 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceLocale = "en";
 const targetLocales = ["es", "zh", "fr", "ar"];
 
-const load = (locale) =>
-  JSON.parse(readFileSync(join(root, "messages", `${locale}.json`), "utf8"));
+const load = (locale) => ({
+  ...JSON.parse(readFileSync(join(root, "messages", `${locale}.json`), "utf8")),
+  ...JSON.parse(
+    readFileSync(join(root, "messages", "legal", `${locale}.json`), "utf8"),
+  ),
+});
 
 const flatten = (value, prefix = "") =>
   typeof value === "object" && value !== null

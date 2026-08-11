@@ -119,7 +119,7 @@ describe("NearbyPeaksView", () => {
 
     await waitFor(() =>
       expect(
-        screen.getByText("The radius must be between 1 and 200 km."),
+        screen.getByText("The radius must be between 1 and 50 km."),
       ).toBeInTheDocument(),
     );
     expect(screen.getByRole("alert")).toBeInTheDocument();
@@ -160,10 +160,10 @@ describe("NearbyPeaksView", () => {
     await userEvent.type(input, "9999");
     await userEvent.tab();
 
-    expect(input).toHaveValue(200);
+    expect(input).toHaveValue(50);
     expect(container.querySelector('[role="slider"]')).toHaveAttribute(
       "aria-valuenow",
-      "200000",
+      "50000",
     );
   });
 
