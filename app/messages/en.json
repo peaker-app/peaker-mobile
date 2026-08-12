@@ -218,6 +218,11 @@
     "catalogueEmptyHint": "Data is loaded from Wikidata; come back in a moment."
   },
   "peakDetail": {
+    "photoCredit": {
+      "photo": "Photo",
+      "unknownAuthor": "Unknown author",
+      "source": "Wikimedia Commons"
+    },
     "canonicalName": "Also known as {name}",
     "metaDescription": "{name}, {altitude} metres. Coordinates, prominence and mountain range.",
     "facts": {
@@ -681,6 +686,8 @@
       "DefaultNotEditable": "The default collection can't be renamed.",
       "DefaultNotDeletable": "The default collection can't be deleted.",
       "PeakAlreadyAdded": "That peak is already in this collection.",
+      "PeakLimitReached": "A collection cannot hold more than 1,000 peaks.",
+      "CollectionLimitReached": "You cannot have more than 100 collections.",
       "PeakRequired": "Choose a peak.",
       "PeakNameRequired": "That peak has no usable name in the catalogue.",
       "PeakNameTooLong": "That peak's name is too long for a collection.",
@@ -757,8 +764,7 @@
       "preferences": {
         "heading": "Language and units",
         "units": "Units",
-        "metric": "Metres",
-        "unitsHelp": "Feet aren't available yet."
+        "metric": "Metres"
       },
       "danger": {
         "heading": "Danger zone",

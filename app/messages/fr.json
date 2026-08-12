@@ -218,6 +218,11 @@
     "catalogueEmptyHint": "Les données proviennent de Wikidata ; revenez dans un instant."
   },
   "peakDetail": {
+    "photoCredit": {
+      "photo": "Photo",
+      "unknownAuthor": "Auteur inconnu",
+      "source": "Wikimedia Commons"
+    },
     "canonicalName": "Également appelé {name}",
     "metaDescription": "{name}, {altitude} mètres. Coordonnées, proéminence et massif.",
     "facts": {
@@ -605,6 +610,8 @@
       "DefaultNotEditable": "La collection par défaut ne peut pas être renommée.",
       "DefaultNotDeletable": "La collection par défaut ne peut pas être supprimée.",
       "PeakAlreadyAdded": "Ce sommet est déjà dans cette collection.",
+      "PeakLimitReached": "Une collection ne peut pas contenir plus de 1 000 sommets.",
+      "CollectionLimitReached": "Vous ne pouvez pas avoir plus de 100 collections.",
       "PeakRequired": "Choisissez un sommet.",
       "PeakNameRequired": "Ce sommet n'a pas de nom exploitable dans le catalogue.",
       "PeakNameTooLong": "Le nom de ce sommet est trop long pour une collection.",
@@ -757,8 +764,7 @@
       "preferences": {
         "heading": "Langue et unités",
         "units": "Unités",
-        "metric": "Mètres",
-        "unitsHelp": "Les pieds ne sont pas encore disponibles."
+        "metric": "Mètres"
       },
       "danger": {
         "heading": "Zone de danger",

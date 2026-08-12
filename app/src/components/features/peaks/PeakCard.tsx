@@ -16,6 +16,8 @@ export interface PeakCardItem {
   countryCode: string | null;
   region: string | null;
   imageUrl?: string | null;
+  imageAuthor?: string | null;
+  imageLicense?: string | null;
   distanceMeters?: number;
 }
 
@@ -31,8 +33,23 @@ export const placeLabel = (
   return [region, country].filter(Boolean).join(", ") || undefined;
 };
 
+export const photoCredit = (
+  peak: PeakCardItem,
+  label: (key: "photo" | "unknownAuthor" | "source") => string,
+): string | undefined =>
+  peak.imageUrl
+    ? [
+        `${label("photo")}: ${peak.imageAuthor ?? label("unknownAuthor")}`,
+        peak.imageLicense,
+        label("source"),
+      ]
+        .filter(Boolean)
+        .join(" · ")
+    : undefined;
+
 export const PeakCard = ({ peak }: { peak: PeakCardItem }) => {
   const t = useTranslations("peaks.card");
+  const credit = useTranslations("peakDetail.photoCredit");
   const peaks = useTranslations("peaks");
   const units = useTranslations("units");
   const locale = useLocale() as Locale;
@@ -51,6 +68,7 @@ export const PeakCard = ({ peak }: { peak: PeakCardItem }) => {
         <Image
           src={peakThumbnail(peak.imageUrl, thumbnailSize * 2)}
           alt=""
+          title={photoCredit(peak, (key) => credit(key))}
           width={thumbnailSize}
           height={thumbnailSize}
           className="size-16 shrink-0 rounded-md object-cover"

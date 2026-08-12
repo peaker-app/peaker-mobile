@@ -82,6 +82,8 @@ export interface PeakListItemResponse {
   countryCode: string | null;
   region: string | null;
   imageUrl: string | null;
+  imageAuthor: string | null;
+  imageLicense: string | null;
 }
 
 export interface NearbyPeakResponse {
@@ -93,6 +95,8 @@ export interface NearbyPeakResponse {
   countryCode: string | null;
   region: string | null;
   imageUrl: string | null;
+  imageAuthor: string | null;
+  imageLicense: string | null;
   distanceMeters: number;
 }
 
@@ -112,6 +116,10 @@ export interface PeakDetailResponse {
   countryCode: string | null;
   region: string | null;
   imageUrl: string | null;
+  imageAuthor: string | null;
+  imageLicense: string | null;
+  imageLicenseUrl: string | null;
+  imageCreditUrl: string | null;
   rangeId: string | null;
   rangeName: string | null;
   alternativeNames: PeakNameResponse[];

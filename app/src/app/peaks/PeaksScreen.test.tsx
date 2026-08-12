@@ -38,6 +38,8 @@ const peak = (
   countryCode: "ES",
   region: "Pyrenees",
   imageUrl: null,
+  imageAuthor: null,
+  imageLicense: null,
   ...overrides,
 });
 

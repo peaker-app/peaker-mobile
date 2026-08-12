@@ -5,13 +5,19 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { useProblemMessage } from "@/hooks/useProblemToast";
 import { useRouter } from "@/i18n/navigation";
-import { apiFetch } from "@/lib/api/client";
+import { ApiError, apiFetch } from "@/lib/api/client";
 import { endpoints } from "@/lib/api/endpoints";
+import { hasCode } from "@/lib/api/problem";
 import type { CollectionPeakResponse, PagedResponse } from "@/types/api";
 
 export interface CollectionPeaksOptions {
   collectionId: string;
   page: PagedResponse<CollectionPeakResponse>;
+}
+
+export interface AddPeakOutcome {
+  tone: "neutral" | "error";
+  message: string;
 }
 
 export const useCollectionPeaks = ({ collectionId, page }: CollectionPeaksOptions) => {
@@ -30,7 +36,7 @@ export const useCollectionPeaks = ({ collectionId, page }: CollectionPeaksOption
     setTotal(page.totalCount);
   }
 
-  const addPeak = async (peakId: string): Promise<string | undefined> => {
+  const addPeak = async (peakId: string): Promise<AddPeakOutcome | undefined> => {
     setBusy(true);
 
     try {
@@ -51,7 +57,10 @@ export const useCollectionPeaks = ({ collectionId, page }: CollectionPeaksOption
 
       return undefined;
     } catch (error) {
-      return toMessage(error);
+      const alreadyThere =
+        error instanceof ApiError && hasCode(error.problem, "Collection.PeakAlreadyAdded");
+
+      return { tone: alreadyThere ? "neutral" : "error", message: toMessage(error) };
     } finally {
       setBusy(false);
     }

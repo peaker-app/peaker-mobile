@@ -60,6 +60,8 @@ const searchHit = {
       countryCode: "ES",
       region: "Aragón",
       imageUrl: null,
+      imageAuthor: null,
+      imageLicense: null,
     },
   ],
   page: 1,

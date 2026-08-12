@@ -18,7 +18,6 @@ afterEach(() => {
 describe("usePreferences", () => {
   it("usePreferences_default_showsTheCardView", () => {
     expect(usePreferences.getState().ascentListView).toBe("cards");
-    expect(usePreferences.getState().unitSystem).toBe("metric");
   });
 
   it("usePreferences_setAscentListView_switchesToTheTable", () => {

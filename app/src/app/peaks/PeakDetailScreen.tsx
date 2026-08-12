@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "use-intl";
 import { NotFoundScreen } from "@/app/NotFoundScreen";
 import { ErrorState } from "@/components/feedback/ErrorState";
 import { PeakActions } from "@/components/features/peaks/PeakActions";
+import { PhotoCredit } from "@/components/features/peaks/PhotoCredit";
 import { PeakFactsList } from "@/components/features/peaks/PeakFactsList";
 import { PeakMap } from "@/components/features/peaks/PeakMap";
 import { Badge } from "@/components/ui/Badge";
@@ -94,13 +95,18 @@ const PeakDetail = ({ peak }: { peak: PeakDetailResponse }) => {
       </header>
 
       {peak.imageUrl ? (
-        <Image
-          src={peakThumbnail(peak.imageUrl, photoWidth)}
-          alt={name}
-          width={photoWidth}
-          height={photoHeight}
-          className="h-auto w-full rounded-md object-cover"
-        />
+        <figure className="flex flex-col gap-2">
+          <Image
+            src={peakThumbnail(peak.imageUrl, photoWidth)}
+            alt={name}
+            width={photoWidth}
+            height={photoHeight}
+            className="h-auto w-full rounded-md object-cover"
+          />
+          <figcaption>
+            <PhotoCredit peak={peak} />
+          </figcaption>
+        </figure>
       ) : null}
 
       <PeakFactsList peak={peak} />

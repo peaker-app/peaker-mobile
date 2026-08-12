@@ -146,6 +146,8 @@ describe("App", () => {
           countryCode: "ES",
           region: null,
           imageUrl: null,
+          imageAuthor: null,
+          imageLicense: null,
           rangeId: null,
           rangeName: null,
           alternativeNames: [],

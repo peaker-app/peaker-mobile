@@ -282,7 +282,7 @@ describe("CollectionPeaksSection", () => {
     expect(screen.queryByRole("alert")).toBeNull();
   });
 
-  it("collectionPeaksSection_serverRejectsTheAdd_reportsItInsideTheDialog", async () => {
+  it("collectionPeaksSection_thePeakIsAlreadyThere_reportsItAsAStatusNotAnError", async () => {
     routeApiFetch(() =>
       Promise.reject(new ApiError({ status: 409, title: "Collection.PeakAlreadyAdded" })),
     );
@@ -295,10 +295,25 @@ describe("CollectionPeaksSection", () => {
 
     const dialog = await screen.findByRole("dialog");
     await waitFor(() =>
-      expect(within(dialog).getByRole("alert")).toHaveTextContent(
+      expect(within(dialog).getByRole("status")).toHaveTextContent(
         "That peak is already in this collection.",
       ),
     );
+    expect(within(dialog).queryByRole("alert")).toBeNull();
+  });
+
+  it("collectionPeaksSection_theServerFails_reportsItAsAnError", async () => {
+    routeApiFetch(() =>
+      Promise.reject(new ApiError({ status: 503, title: "Collection.PeakCatalogUnavailable" })),
+    );
+    const user = userEvent.setup({ pointerEventsCheck: 0 });
+    render(<CollectionPeaksSection collectionId="c1" page={peakPage([posets])} />, {
+      wrapper: Wrapper,
+    });
+
+    await pickFromTheDialog(user, "Monte Perdido");
+
+    const dialog = await screen.findByRole("dialog");
+    await waitFor(() => expect(within(dialog).getByRole("alert")).toBeInTheDocument());
   });
 });
-

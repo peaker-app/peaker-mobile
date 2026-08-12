@@ -48,6 +48,8 @@ const aneto: NearbyPeakResponse = {
   countryCode: "ES",
   region: null,
   imageUrl: null,
+  imageAuthor: null,
+  imageLicense: null,
   distanceMeters: 4200,
 };
 

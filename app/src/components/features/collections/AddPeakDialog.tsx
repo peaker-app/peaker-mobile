@@ -14,10 +14,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/Dialog";
 import { Label } from "@/components/ui/Label";
+import type { AddPeakOutcome } from "./useCollectionPeaks";
 
 export interface AddPeakDialogProps {
   presentPeakIds: readonly string[];
-  onAdd: (peakId: string) => Promise<string | undefined>;
+  onAdd: (peakId: string) => Promise<AddPeakOutcome | undefined>;
 }
 
 export const AddPeakDialog = ({ presentPeakIds, onAdd }: AddPeakDialogProps) => {
@@ -25,14 +26,14 @@ export const AddPeakDialog = ({ presentPeakIds, onAdd }: AddPeakDialogProps) => 
   const detail = useTranslations("collections.detail");
 
   const [open, setOpen] = useState(false);
-  const [failure, setFailure] = useState<string | undefined>(undefined);
+  const [outcome, setOutcome] = useState<AddPeakOutcome | undefined>(undefined);
 
   return (
     <Dialog
       open={open}
       onOpenChange={(next) => {
         setOpen(next);
-        setFailure(undefined);
+        setOutcome(undefined);
       }}
     >
       <DialogTrigger asChild>
@@ -45,9 +46,13 @@ export const AddPeakDialog = ({ presentPeakIds, onAdd }: AddPeakDialogProps) => 
           </DialogTitle>
         </DialogHeader>
 
-        {failure ? (
-          <Alert variant="destructive" role="alert" className="mt-4">
-            <AlertDescription>{failure}</AlertDescription>
+        {outcome ? (
+          <Alert
+            variant={outcome.tone === "error" ? "destructive" : "info"}
+            role={outcome.tone === "error" ? "alert" : "status"}
+            className="mt-4"
+          >
+            <AlertDescription>{outcome.message}</AlertDescription>
           </Alert>
         ) : null}
 
@@ -58,12 +63,12 @@ export const AddPeakDialog = ({ presentPeakIds, onAdd }: AddPeakDialogProps) => 
             disabledIds={presentPeakIds}
             disabledHint={t("alreadyInCollection")}
             onSelect={(peak) => {
-              setFailure(undefined);
+              setOutcome(undefined);
 
-              void onAdd(peak.id).then((message) => {
-                setFailure(message);
+              void onAdd(peak.id).then((result) => {
+                setOutcome(result);
 
-                if (!message) {
+                if (!result) {
                   setOpen(false);
                 }
               });

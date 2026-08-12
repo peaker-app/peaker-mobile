@@ -35,6 +35,8 @@ const item = (id: string, name: string): PeakListItemResponse => ({
   countryCode: "ES",
   region: null,
   imageUrl: null,
+  imageAuthor: null,
+  imageLicense: null,
 });
 
 const respondWith = (items: PeakListItemResponse[]) => {

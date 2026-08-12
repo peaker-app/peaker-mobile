@@ -218,6 +218,11 @@
     "catalogueEmptyHint": "Los datos se cargan desde Wikidata; vuelve en un momento."
   },
   "peakDetail": {
+    "photoCredit": {
+      "photo": "Foto",
+      "unknownAuthor": "Autor desconocido",
+      "source": "Wikimedia Commons"
+    },
     "canonicalName": "También conocido como {name}",
     "metaDescription": "{name}, {altitude} metros. Coordenadas, prominencia y cordillera.",
     "facts": {
@@ -605,6 +610,8 @@
       "DefaultNotEditable": "La colección por defecto no se puede renombrar.",
       "DefaultNotDeletable": "La colección por defecto no se puede borrar.",
       "PeakAlreadyAdded": "Ese pico ya está en esta colección.",
+      "PeakLimitReached": "Una colección no puede tener más de 1.000 picos.",
+      "CollectionLimitReached": "No puedes tener más de 100 colecciones.",
       "PeakRequired": "Elige un pico.",
       "PeakNameRequired": "Ese pico no tiene un nombre utilizable en el catálogo.",
       "PeakNameTooLong": "El nombre de ese pico es demasiado largo para una colección.",
@@ -757,8 +764,7 @@
       "preferences": {
         "heading": "Idioma y unidades",
         "units": "Unidades",
-        "metric": "Metros",
-        "unitsHelp": "Los pies todavía no están disponibles."
+        "metric": "Metros"
       },
       "danger": {
         "heading": "Zona de peligro",

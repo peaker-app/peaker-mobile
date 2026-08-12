@@ -218,6 +218,11 @@
     "catalogueEmptyHint": "数据来自 Wikidata，请稍后再来。"
   },
   "peakDetail": {
+    "photoCredit": {
+      "photo": "照片",
+      "unknownAuthor": "作者不详",
+      "source": "维基共享资源"
+    },
     "canonicalName": "又名 {name}",
     "metaDescription": "{name}，海拔 {altitude} 米。坐标、地形突起度与所属山脉。",
     "facts": {
@@ -605,6 +610,8 @@
       "DefaultNotEditable": "默认收藏无法重命名。",
       "DefaultNotDeletable": "默认收藏无法删除。",
       "PeakAlreadyAdded": "这座山峰已在该收藏中。",
+      "PeakLimitReached": "一个收藏最多只能包含 1000 座山峰。",
+      "CollectionLimitReached": "你最多只能拥有 100 个收藏。",
       "PeakRequired": "请选择一座山峰。",
       "PeakNameRequired": "该山峰在目录中没有可用的名称。",
       "PeakNameTooLong": "该山峰的名称对收藏来说太长了。",
@@ -757,8 +764,7 @@
       "preferences": {
         "heading": "语言与单位",
         "units": "单位",
-        "metric": "米",
-        "unitsHelp": "暂不支持英尺。"
+        "metric": "米"
       },
       "danger": {
         "heading": "危险操作",

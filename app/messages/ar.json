@@ -218,6 +218,11 @@
     "catalogueEmptyHint": "تُحمَّل البيانات من ويكي بيانات؛ عد بعد قليل."
   },
   "peakDetail": {
+    "photoCredit": {
+      "photo": "صورة",
+      "unknownAuthor": "مؤلف غير معروف",
+      "source": "ويكيميديا كومنز"
+    },
     "canonicalName": "تُعرف أيضًا باسم {name}",
     "metaDescription": "{name}، {altitude} مترًا. الإحداثيات والبروز التضاريسي والسلسلة الجبلية.",
     "facts": {
@@ -605,6 +610,8 @@
       "DefaultNotEditable": "لا يمكن إعادة تسمية المجموعة الافتراضية.",
       "DefaultNotDeletable": "لا يمكن حذف المجموعة الافتراضية.",
       "PeakAlreadyAdded": "هذه القمة موجودة في المجموعة بالفعل.",
+      "PeakLimitReached": "لا يمكن أن تضم المجموعة أكثر من 1000 قمة.",
+      "CollectionLimitReached": "لا يمكنك امتلاك أكثر من 100 مجموعة.",
       "PeakRequired": "اختر قمة.",
       "PeakNameRequired": "لا تملك هذه القمة اسمًا صالحًا في الدليل.",
       "PeakNameTooLong": "اسم هذه القمة أطول مما تسمح به المجموعة.",
@@ -757,8 +764,7 @@
       "preferences": {
         "heading": "اللغة والوحدات",
         "units": "الوحدات",
-        "metric": "أمتار",
-        "unitsHelp": "الأقدام غير متاحة بعد."
+        "metric": "أمتار"
       },
       "danger": {
         "heading": "منطقة الخطر",
