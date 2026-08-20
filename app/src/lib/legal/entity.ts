@@ -16,11 +16,11 @@ const placeholders: LegalEntity = {
 };
 
 export const legalEntity: LegalEntity = {
-  holder: import.meta.env.VITE_LEGAL_HOLDER ?? placeholders.holder,
-  taxId: import.meta.env.VITE_LEGAL_TAX_ID ?? placeholders.taxId,
-  address: import.meta.env.VITE_LEGAL_ADDRESS ?? placeholders.address,
-  email: import.meta.env.VITE_LEGAL_EMAIL ?? placeholders.email,
-  dpo: import.meta.env.VITE_LEGAL_DPO,
+  holder: import.meta.env.VITE_LEGAL_HOLDER || placeholders.holder,
+  taxId: import.meta.env.VITE_LEGAL_TAX_ID || placeholders.taxId,
+  address: import.meta.env.VITE_LEGAL_ADDRESS || placeholders.address,
+  email: import.meta.env.VITE_LEGAL_EMAIL || placeholders.email,
+  dpo: import.meta.env.VITE_LEGAL_DPO || undefined,
 };
 
 export const termsVersion = "2026-08-11";

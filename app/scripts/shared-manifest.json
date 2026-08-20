@@ -55,12 +55,12 @@
     {
       "path": "src/lib/map.ts",
       "divergence": "process.env.NEXT_PUBLIC_* no existe en Vite: import.meta.env.VITE_*.",
-      "sourceSha256": "1fa9e1a230c83b8e9e440e3381ad6ae5b2164be8db07266dd336d30f57a7f0b1"
+      "sourceSha256": "8919f249fda8a699894669c95d8eaced041d4841a046799d9b917a0bc519fc49"
     },
     {
       "path": "src/lib/map.test.ts",
       "divergence": "Sigue a map.ts: vi.stubEnv en lugar de mutar process.env.",
-      "sourceSha256": "a8ca20b16070a72c7768f6063257f253029f34e70419183c161fc0055c1e3aaf"
+      "sourceSha256": "dbdfe52312e03f24969eab89195d87edb7a68d81e25a7f1659f318f5812edd11"
     },
     {
       "path": "src/lib/collections/label.ts"
@@ -548,7 +548,12 @@
     {
       "path": "src/lib/legal/entity.ts",
       "divergence": "Cinco lineas: process.env.LEGAL_* no existe en Vite, se lee import.meta.env.VITE_LEGAL_*. Mismos valores, mismos marcadores de reserva. Los datos reales viven en .env, que git ignora en los dos repos.",
-      "sourceSha256": "fb77e936846543f77b4928b5f00ea0951351863e89367a7b17237991ebe9fe81"
+      "sourceSha256": "5baa9281e2275c54cae9863b7517c3ca327efbaf3a27191fb1c151fce69d2c86"
+    },
+    {
+      "path": "src/lib/legal/entity.test.ts",
+      "divergence": "Sigue a entity.ts: vi.stubEnv sobre import.meta.env en lugar de mutar process.env.",
+      "sourceSha256": "8c0fa0a21495d80d37e6a94bf20a40a80e087c6e5ff4e3b4ca87819774092558"
     },
     {
       "path": "src/components/features/legal/LegalDocument.tsx",
