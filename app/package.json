@@ -15,6 +15,7 @@
     "check:messages": "node scripts/check-messages.mjs",
     "check:rtl": "node scripts/check-rtl.mjs",
     "check:detail": "node scripts/check-problem-detail.mjs",
+    "check:legal": "node scripts/check-legal.mjs",
     "check:store": "node scripts/check-store.mjs",
     "check:shared": "node scripts/sync-shared.mjs",
     "verify": "npm run typecheck && npm run lint && npm run check:messages && npm run check:rtl && npm run check:detail && npm run check:store && npm run test:coverage"
