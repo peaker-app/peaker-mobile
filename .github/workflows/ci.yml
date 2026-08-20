@@ -7,6 +7,19 @@ on:
     branches: [main, develop]
   workflow_dispatch:
 
+env:
+  VITE_GATEWAY_URL: ${{ vars.VITE_GATEWAY_URL }}
+  VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
+  VITE_MAP_ENABLED: ${{ vars.VITE_MAP_ENABLED || 'false' }}
+  VITE_MAP_TILE_URL: ${{ vars.VITE_MAP_TILE_URL }}
+  VITE_MAP_ATTRIBUTION: ${{ vars.VITE_MAP_ATTRIBUTION }}
+  VITE_MAP_PROVIDER_NAME: ${{ vars.VITE_MAP_PROVIDER_NAME }}
+  VITE_LEGAL_HOLDER: ${{ vars.VITE_LEGAL_HOLDER }}
+  VITE_LEGAL_TAX_ID: ${{ secrets.VITE_LEGAL_TAX_ID }}
+  VITE_LEGAL_ADDRESS: ${{ vars.VITE_LEGAL_ADDRESS }}
+  VITE_LEGAL_EMAIL: ${{ vars.VITE_LEGAL_EMAIL }}
+  VITE_LEGAL_DPO: ${{ vars.VITE_LEGAL_DPO }}
+
 defaults:
   run:
     working-directory: app
@@ -59,6 +72,11 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
 
       - run: npm ci
+
+      - name: Puertas de publicación (LEGAL.md y blockers.md §B5)
+        run: |
+          npm run check:legal
+          npm run check:tiles
 
       - run: npm run build
 

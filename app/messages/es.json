@@ -188,7 +188,7 @@
       "textualAlternative": "El mapa es decorativo: todos los picos aparecen abajo con sus coordenadas.",
       "zoomIn": "Acercar",
       "zoomOut": "Alejar",
-      "consentRequired": "El mapa se carga desde OpenStreetMap, que verá tu dirección IP.",
+      "consentRequired": "El mapa se carga desde {mapProvider}, que verá tu dirección IP.",
       "loadMap": "Cargar el mapa"
     },
     "nearby": {

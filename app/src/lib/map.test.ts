@@ -2,10 +2,13 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   clampRadius,
   defaultAttribution,
+  defaultProviderName,
   defaultTileUrl,
   isLatitude,
   isLongitude,
   isRadius,
+  mapProviderName,
+  mapsEnabled,
   maxRadiusMeters,
   minRadiusMeters,
   tileAttribution,
@@ -41,6 +44,44 @@ describe("tileUrl", () => {
     vi.stubEnv("VITE_MAP_ATTRIBUTION", "");
 
     expect(tileAttribution()).toBe(defaultAttribution);
+  });
+});
+
+describe("mapProviderName", () => {
+  it("mapProviderName_withoutConfiguration_isOpenStreetMap", () => {
+    expect(mapProviderName()).toBe(defaultProviderName);
+  });
+
+  it("mapProviderName_configuredProvider_isUsed", () => {
+    vi.stubEnv("VITE_MAP_PROVIDER_NAME", "MapTiler");
+
+    expect(mapProviderName()).toBe("MapTiler");
+  });
+
+  it("mapProviderName_emptyVariable_isOpenStreetMap", () => {
+    vi.stubEnv("VITE_MAP_PROVIDER_NAME", "");
+
+    expect(mapProviderName()).toBe(defaultProviderName);
+  });
+});
+
+describe("mapsEnabled", () => {
+  it("mapsEnabled_withoutConfiguration_isEnabled", () => {
+    vi.stubEnv("VITE_MAP_ENABLED", undefined);
+
+    expect(mapsEnabled()).toBe(true);
+  });
+
+  it("mapsEnabled_false_isDisabled", () => {
+    vi.stubEnv("VITE_MAP_ENABLED", "false");
+
+    expect(mapsEnabled()).toBe(false);
+  });
+
+  it("mapsEnabled_anyOtherValue_isEnabled", () => {
+    vi.stubEnv("VITE_MAP_ENABLED", "true");
+
+    expect(mapsEnabled()).toBe(true);
   });
 });
 

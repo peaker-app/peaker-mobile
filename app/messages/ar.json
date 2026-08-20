@@ -188,7 +188,7 @@
       "textualAlternative": "الخريطة للتزيين فقط: كل قمة مذكورة أدناه مع إحداثياتها.",
       "zoomIn": "تكبير",
       "zoomOut": "تصغير",
-      "consentRequired": "تُحمَّل الخريطة من OpenStreetMap التي سترى عنوان IP الخاص بك.",
+      "consentRequired": "تُحمَّل الخريطة من {mapProvider} التي سترى عنوان IP الخاص بك.",
       "loadMap": "تحميل الخريطة"
     },
     "nearby": {

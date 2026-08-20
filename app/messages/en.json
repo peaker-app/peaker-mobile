@@ -188,7 +188,7 @@
       "textualAlternative": "The map is decorative: every peak is listed below with its coordinates.",
       "zoomIn": "Zoom in",
       "zoomOut": "Zoom out",
-      "consentRequired": "The map loads from OpenStreetMap, which will see your IP address.",
+      "consentRequired": "The map loads from {mapProvider}, which will see your IP address.",
       "loadMap": "Load the map"
     },
     "nearby": {

@@ -19,6 +19,7 @@ import { endpoints } from "@/lib/api/endpoints";
 import { formatDistance } from "@/lib/format";
 import {
   defaultRadiusMeters,
+  mapsEnabled,
   maxRadiusMeters,
   minRadiusMeters,
   radiusStepMeters,
@@ -87,6 +88,8 @@ export const NearbyPeaksView = () => {
     value: (debouncedRadius / 1000).toString(),
   });
 
+  const showMap = mapsEnabled();
+
   return (
     <div className="flex flex-col gap-6">
       <LocationPicker origin={origin} onChange={changeOrigin} />
@@ -132,9 +135,9 @@ export const NearbyPeaksView = () => {
         </p>
       </div>
 
-      <MapListSwitcher pane={pane} onChange={setPane} />
+      {showMap ? <MapListSwitcher pane={pane} onChange={setPane} /> : null}
 
-      {pane === "map" ? (
+      {showMap && pane === "map" ? (
         <div className="flex flex-col gap-2">
           <PeakMap
             points={query.data?.items ?? []}

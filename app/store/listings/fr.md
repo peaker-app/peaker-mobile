@@ -23,7 +23,7 @@ montagne,sommet,pic,randonnée,alpinisme,ascension,escalade,carnet,gps,plein air
 Peaker est un carnet de sommets pour celles et ceux qui montent en montagne.
 
 TROUVEZ LA MONTAGNE
-Cherchez dans un catalogue mondial par nom, dans n'importe quelle langue, puis affinez par pays, région ou altitude. Ou laissez l'application utiliser votre position pour lister les sommets les plus proches, avec la distance à chacun et une carte.
+Cherchez dans un catalogue mondial par nom, dans n'importe quelle langue, puis affinez par pays, région ou altitude. Ou laissez l'application utiliser votre position pour lister les sommets les plus proches, avec la distance à chacun.
 
 NOTEZ L'ASCENSION
 Enregistrez la date, avec qui vous étiez et l'état de la voie. Ajoutez jusqu'à trois photos, prises avec l'appareil au sommet même ou choisies dans votre galerie. Consignez la neige, le vent et l'état du sentier pour que la prochaine tentative parte mieux renseignée.

@@ -23,7 +23,7 @@ mountain,peak,summit,hiking,climbing,ascent,alpinism,logbook,gps,outdoor
 Peaker is a logbook for people who climb mountains.
 
 FIND THE MOUNTAIN
-Search a worldwide catalogue by name, in any language, and narrow it down by country, region or altitude. Or let the app use your location to list the summits closest to you, with the distance to each one and a map.
+Search a worldwide catalogue by name, in any language, and narrow it down by country, region or altitude. Or let the app use your location to list the summits closest to you, with the distance to each one.
 
 LOG THE ASCENT
 Record the date, who you were with and how the route went. Add up to three photos, taken with the camera right there on the summit or picked from your gallery. Note the snow, the wind and the state of the trail so the next attempt starts better informed.

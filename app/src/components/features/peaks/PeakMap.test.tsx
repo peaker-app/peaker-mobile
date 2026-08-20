@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { IntlWrapper } from "@/test/IntlWrapper";
 import { usePreferences } from "@/stores/preferences";
 import type { PeakMapViewProps } from "./PeakMapView";
@@ -17,7 +17,12 @@ const point = { id: "p-1", latitude: 42.63, longitude: 0.65 };
 
 const allowMaps = () => usePreferences.setState({ mapsConsent: true });
 
-afterEach(() => usePreferences.setState({ mapsConsent: false }));
+beforeEach(() => vi.stubEnv("VITE_MAP_ENABLED", "true"));
+
+afterEach(() => {
+  usePreferences.setState({ mapsConsent: false });
+  vi.unstubAllEnvs();
+});
 
 describe("PeakMap", () => {
   it("peakMap_withConsent_loadsTheLeafletViewLazily", async () => {
@@ -55,5 +60,18 @@ describe("PeakMap", () => {
 
     expect(await screen.findByText("points:1 zoom:11")).toBeInTheDocument();
     expect(usePreferences.getState().mapsConsent).toBe(false);
+  });
+});
+
+describe("PeakMap sin proveedor de teselas", () => {
+  it("peakMap_withMapsDisabled_rendersNothing", () => {
+    vi.stubEnv("VITE_MAP_ENABLED", "false");
+    allowMaps();
+    const { container } = render(<PeakMap points={[point]} zoom={11} />, {
+      wrapper: IntlWrapper,
+    });
+
+    expect(container).toBeEmptyDOMElement();
+    expect(screen.queryByText("points:1 zoom:11")).not.toBeInTheDocument();
   });
 });
