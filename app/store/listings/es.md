@@ -42,4 +42,4 @@ Español, inglés, francés, chino y árabe, con soporte completo de derecha a i
 
 ## privacyPolicyUrl
 
-https://[PENDIENTE-dominio]/es/legal/privacy
+https://peaker.es/es/legal/privacy

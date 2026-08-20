@@ -42,4 +42,4 @@ Peaker 是为登山者准备的登顶日志。
 
 ## privacyPolicyUrl
 
-https://[PENDIENTE-dominio]/zh/legal/privacy
+https://peaker.es/zh/legal/privacy

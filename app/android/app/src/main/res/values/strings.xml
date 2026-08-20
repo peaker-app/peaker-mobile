@@ -4,5 +4,5 @@
     <string name="title_activity_main">Peaker</string>
     <string name="package_name">app.peaker.mobile</string>
     <string name="custom_url_scheme">app.peaker.mobile</string>
-    <string name="app_links_host">peaker.app</string>
+    <string name="app_links_host">peaker.es</string>
 </resources>

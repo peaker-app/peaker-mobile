@@ -21,9 +21,11 @@ Faltan dos cosas, y ninguna es código:
 
 1. **La huella SHA-256 del keystore de release**, que B7b genera. Hasta entonces el valor es un
    marcador que Android rechazará.
-2. **Un dominio con HTTPS**. `peaker.app` no está registrado: hoy es el valor por defecto de
-   `VITE_SITE_URL` y de `lib/seo.ts`. Sin dominio servido, `autoVerify` **falla**, y Android trata
-   el enlace como un enlace web normal en vez de abrir la aplicación.
+2. **Que `peaker.es` sirva este fichero por HTTPS** en
+   `https://peaker.es/.well-known/assetlinks.json`. El dominio ya está decidido y es el valor de
+   `app_links_host`, de `VITE_SITE_URL` y del valor por defecto de `lib/seo.ts`, pero mientras el
+   ingress no lo publique `autoVerify` **falla**, y Android trata el enlace como un enlace web
+   normal en vez de abrir la aplicación.
 
 Mientras tanto el flujo de confirmación de correo se prueba con el esquema propio, que no depende
 de ningún dominio:

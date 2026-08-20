@@ -42,4 +42,4 @@ Français, anglais, espagnol, chinois et arabe, avec prise en charge complète d
 
 ## privacyPolicyUrl
 
-https://[PENDIENTE-dominio]/fr/legal/privacy
+https://peaker.es/fr/legal/privacy

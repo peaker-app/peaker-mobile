@@ -42,4 +42,4 @@ Peaker
 
 ## privacyPolicyUrl
 
-https://[PENDIENTE-dominio]/ar/legal/privacy
+https://peaker.es/ar/legal/privacy
