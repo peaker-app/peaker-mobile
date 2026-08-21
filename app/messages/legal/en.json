@@ -71,7 +71,7 @@
           "body": [
             "Cloudinary: hosts and delivers your photographs. Before uploading we re-encode them and strip their metadata, including the GPS coordinates summit photos usually carry.",
             "Domain email provider: sends confirmation and password recovery messages.",
-            "OpenStreetMap: when the map loads, your browser requests tiles from their servers, which receive your IP address. That is why the map does not load until you consent.",
+            "{mapProvider}: when the map loads, your browser requests tiles from their servers, which receive your IP address. That is why the map does not load until you consent.",
             "Wikimedia Commons: when a mountain photograph is shown, your browser requests it from their servers.",
             "Have I Been Pwned: when you choose a password we check it against known breaches. We only send the first five characters of the password's cryptographic digest, which cannot be used to reconstruct it or to identify you.",
             "We do not sell your data and we do not share it for advertising."
@@ -124,7 +124,7 @@
         {
           "heading": "3. The third-party map",
           "body": [
-            "The map uses OpenStreetMap tiles. Loading it makes your browser connect to servers outside Peaker, which receive your IP address. That is not a cookie, but it is a disclosure to a third party, so we ask first.",
+            "The map uses {mapProvider} tiles. Loading it makes your browser connect to servers outside Peaker, which receive your IP address. That is not a cookie, but it is a disclosure to a third party, so we ask first.",
             "If you decline, the site still works: where the map would go you get a button to load it just that once."
           ]
         },
@@ -196,7 +196,7 @@
     },
     "banner": {
       "title": "Cookies and the third-party map",
-      "body": "We use no advertising, analytics or tracking cookies. We only need your permission for the map, which loads from OpenStreetMap servers and lets them see your IP address.",
+      "body": "We use no advertising, analytics or tracking cookies. We only need your permission for the map, which loads from {mapProvider} servers and lets them see your IP address.",
       "readPolicy": "Read the cookie policy",
       "acceptAll": "Accept",
       "rejectAll": "Reject",
@@ -206,7 +206,7 @@
       "preferencesBody": "Choose what may load. You can change this whenever you want from the footer.",
       "technicalLabel": "Strictly necessary",
       "technicalBody": "Keep you signed in, remember your language and your interface choices. They cannot be switched off.",
-      "mapsLabel": "Third-party map (OpenStreetMap)",
+      "mapsLabel": "Third-party map ({mapProvider})",
       "mapsBody": "Loads the map tiles. Their servers receive your IP address.",
       "save": "Save preferences"
     }

@@ -188,7 +188,7 @@
       "textualAlternative": "La carte est décorative : chaque sommet est listé ci-dessous avec ses coordonnées.",
       "zoomIn": "Zoomer",
       "zoomOut": "Dézoomer",
-      "consentRequired": "La carte est chargée depuis OpenStreetMap, qui verra votre adresse IP.",
+      "consentRequired": "La carte est chargée depuis {mapProvider}, qui verra votre adresse IP.",
       "loadMap": "Charger la carte"
     },
     "nearby": {

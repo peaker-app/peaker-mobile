@@ -23,7 +23,7 @@ montaña,cumbre,pico,montañismo,alpinismo,ascensión,senderismo,cuaderno,gps,ai
 Peaker es un cuaderno de cumbres para quien sube montañas.
 
 ENCUENTRA LA MONTAÑA
-Busca en un catálogo mundial por nombre, en cualquier idioma, y afina por país, región o altitud. O deja que la aplicación use tu ubicación para listar las cumbres más cercanas, con la distancia a cada una y un mapa.
+Busca en un catálogo mundial por nombre, en cualquier idioma, y afina por país, región o altitud. O deja que la aplicación use tu ubicación para listar las cumbres más cercanas, con la distancia a cada una.
 
 REGISTRA LA ASCENSIÓN
 Anota la fecha, con quién fuiste y cómo estaba la vía. Añade hasta tres fotos, hechas con la cámara allí mismo en la cumbre o elegidas de la galería. Deja constancia de la nieve, el viento y el estado del sendero para que el próximo intento empiece mejor informado.

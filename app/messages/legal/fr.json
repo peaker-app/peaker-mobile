@@ -71,7 +71,7 @@
           "body": [
             "Cloudinary : héberge et diffuse vos photographies. Avant l'envoi nous les réencodons et supprimons leurs métadonnées, y compris les coordonnées GPS que portent souvent les photos de sommet.",
             "Fournisseur de messagerie du domaine : envoie les courriels de confirmation et de récupération de mot de passe.",
-            "OpenStreetMap : au chargement de la carte, votre navigateur demande les tuiles à leurs serveurs, qui reçoivent votre adresse IP. C'est pourquoi la carte ne se charge qu'avec votre accord.",
+            "{mapProvider} : au chargement de la carte, votre navigateur demande les tuiles à leurs serveurs, qui reçoivent votre adresse IP. C'est pourquoi la carte ne se charge qu'avec votre accord.",
             "Wikimedia Commons : lors de l'affichage de la photographie d'une montagne, votre navigateur la demande à leurs serveurs.",
             "Have I Been Pwned : au choix d'un mot de passe nous vérifions qu'il n'apparaît pas dans des fuites connues. Nous n'envoyons que les cinq premiers caractères de l'empreinte du mot de passe, ce qui ne permet ni de le reconstituer ni de vous identifier.",
             "Nous ne vendons pas vos données et ne les cédons pas à des fins publicitaires."
@@ -124,7 +124,7 @@
         {
           "heading": "3. La carte tierce",
           "body": [
-            "La carte utilise les tuiles d'OpenStreetMap. La charger fait que votre navigateur se connecte à des serveurs extérieurs à Peaker, qui reçoivent votre adresse IP. Ce n'est pas un cookie, mais bien une communication à un tiers : nous demandons donc votre accord.",
+            "La carte utilise les tuiles d'{mapProvider}. La charger fait que votre navigateur se connecte à des serveurs extérieurs à Peaker, qui reçoivent votre adresse IP. Ce n'est pas un cookie, mais bien une communication à un tiers : nous demandons donc votre accord.",
             "Si vous refusez, le site fonctionne quand même : à la place de la carte apparaît un bouton pour la charger ponctuellement."
           ]
         },
@@ -196,7 +196,7 @@
     },
     "banner": {
       "title": "Cookies et carte tierce",
-      "body": "Nous n'utilisons ni cookies publicitaires, ni de mesure d'audience, ni traceurs. Nous avons seulement besoin de votre accord pour la carte, chargée depuis les serveurs d'OpenStreetMap, qui voient alors votre adresse IP.",
+      "body": "Nous n'utilisons ni cookies publicitaires, ni de mesure d'audience, ni traceurs. Nous avons seulement besoin de votre accord pour la carte, chargée depuis les serveurs d''{mapProvider}, qui voient alors votre adresse IP.",
       "readPolicy": "Lire la politique de cookies",
       "acceptAll": "Accepter",
       "rejectAll": "Refuser",
@@ -206,7 +206,7 @@
       "preferencesBody": "Choisissez ce qui peut se charger. Modifiable à tout moment depuis le pied de page.",
       "technicalLabel": "Strictement nécessaires",
       "technicalBody": "Maintiennent votre session, mémorisent votre langue et vos préférences d'interface. Non désactivables.",
-      "mapsLabel": "Carte tierce (OpenStreetMap)",
+      "mapsLabel": "Carte tierce ({mapProvider})",
       "mapsBody": "Charge les tuiles de la carte. Leurs serveurs reçoivent votre adresse IP.",
       "save": "Enregistrer"
     }

@@ -71,7 +71,7 @@
           "body": [
             "Cloudinary: aloja y entrega tus fotografías. Antes de subirlas las recodificamos y eliminamos sus metadatos, incluidas las coordenadas GPS que suelen llevar las fotos de cumbre.",
             "Proveedor de correo del dominio: envía los correos de confirmación y de recuperación de contraseña.",
-            "OpenStreetMap: al cargar el mapa, tu navegador solicita los mosaicos a sus servidores y estos reciben tu dirección IP. Por eso el mapa no se carga hasta que lo consientes.",
+            "{mapProvider}: al cargar el mapa, tu navegador solicita los mosaicos a sus servidores y estos reciben tu dirección IP. Por eso el mapa no se carga hasta que lo consientes.",
             "Wikimedia Commons: al mostrar la fotografía de una montaña, tu navegador la solicita a sus servidores.",
             "Have I Been Pwned: al elegir una contraseña comprobamos que no aparezca en filtraciones conocidas. Solo enviamos los cinco primeros caracteres del resumen criptográfico de la contraseña, lo que no permite reconstruirla ni identificarte.",
             "No vendemos tus datos ni los cedemos con fines publicitarios."
@@ -124,7 +124,7 @@
         {
           "heading": "3. El mapa de terceros",
           "body": [
-            "El mapa usa los mosaicos de OpenStreetMap. Cargarlo hace que tu navegador se conecte a servidores ajenos a Peaker, que reciben tu dirección IP. No es una cookie, pero sí una comunicación a un tercero, así que te pedimos permiso antes.",
+            "El mapa usa los mosaicos de {mapProvider}. Cargarlo hace que tu navegador se conecte a servidores ajenos a Peaker, que reciben tu dirección IP. No es una cookie, pero sí una comunicación a un tercero, así que te pedimos permiso antes.",
             "Si lo rechazas, el sitio funciona igual: donde iría el mapa aparece un botón para cargarlo puntualmente."
           ]
         },
@@ -196,7 +196,7 @@
     },
     "banner": {
       "title": "Cookies y mapa de terceros",
-      "body": "No usamos cookies de publicidad, de analítica ni de seguimiento. Solo necesitamos tu permiso para el mapa, que se carga desde servidores de OpenStreetMap y les permite ver tu dirección IP.",
+      "body": "No usamos cookies de publicidad, de analítica ni de seguimiento. Solo necesitamos tu permiso para el mapa, que se carga desde servidores de {mapProvider} y les permite ver tu dirección IP.",
       "readPolicy": "Leer la política de cookies",
       "acceptAll": "Aceptar",
       "rejectAll": "Rechazar",
@@ -206,7 +206,7 @@
       "preferencesBody": "Elige qué puede cargarse. Puedes cambiarlo cuando quieras desde el pie de página.",
       "technicalLabel": "Estrictamente necesarias",
       "technicalBody": "Mantienen tu sesión, recuerdan tu idioma y tus preferencias de interfaz. No se pueden desactivar.",
-      "mapsLabel": "Mapa de terceros (OpenStreetMap)",
+      "mapsLabel": "Mapa de terceros ({mapProvider})",
       "mapsBody": "Carga los mosaicos del mapa. Sus servidores reciben tu dirección IP.",
       "save": "Guardar preferencias"
     }

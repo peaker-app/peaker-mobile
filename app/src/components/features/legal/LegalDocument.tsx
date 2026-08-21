@@ -1,5 +1,6 @@
 import { useTranslations } from "use-intl";
 import { lastUpdated, legalEntity } from "@/lib/legal/entity";
+import { mapProviderName } from "@/lib/map";
 
 export type LegalDocumentId = "notice" | "privacy" | "cookies" | "terms";
 
@@ -8,12 +9,13 @@ interface LegalSection {
   body: string[];
 }
 
-const fillEntity = (paragraph: string): string =>
+const fillPlaceholders = (paragraph: string): string =>
   paragraph
     .replaceAll("{holder}", legalEntity.holder)
     .replaceAll("{taxId}", legalEntity.taxId)
     .replaceAll("{address}", legalEntity.address)
-    .replaceAll("{email}", legalEntity.email);
+    .replaceAll("{email}", legalEntity.email)
+    .replaceAll("{mapProvider}", mapProviderName());
 
 export const LegalDocument = ({ id }: { id: LegalDocumentId }) => {
   const t = useTranslations(`legal.${id}`);
@@ -41,7 +43,7 @@ export const LegalDocument = ({ id }: { id: LegalDocumentId }) => {
               key={paragraph}
               className="max-w-prose leading-relaxed text-muted-foreground text-start"
             >
-              {fillEntity(paragraph)}
+              {fillPlaceholders(paragraph)}
             </p>
           ))}
         </section>

@@ -2,11 +2,19 @@ export const defaultTileUrl = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 export const defaultAttribution =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
+export const defaultProviderName = "OpenStreetMap";
+
 export const tileUrl = (): string =>
   import.meta.env.VITE_MAP_TILE_URL || defaultTileUrl;
 
 export const tileAttribution = (): string =>
   import.meta.env.VITE_MAP_ATTRIBUTION || defaultAttribution;
+
+export const mapProviderName = (): string =>
+  import.meta.env.VITE_MAP_PROVIDER_NAME || defaultProviderName;
+
+export const mapsEnabled = (): boolean =>
+  import.meta.env.VITE_MAP_ENABLED !== "false";
 
 export const worldView = { latitude: 20, longitude: 0, zoom: 2 } as const;
 export const detailZoom = 11;

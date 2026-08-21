@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { NextIntlClientProvider } from "next-intl";
 import type { ReactNode } from "react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import messages from "../../../../messages/en.json";
 import type { NearbyPeakResponse, PagedResponse } from "@/types/api";
 
@@ -71,8 +71,13 @@ const showMap = async () => {
   await userEvent.click(screen.getByRole("button", { name: "Map" }));
 };
 
+beforeEach(() => {
+  vi.stubEnv("VITE_MAP_ENABLED", "true");
+});
+
 afterEach(() => {
   vi.restoreAllMocks();
+  vi.unstubAllEnvs();
 });
 
 describe("NearbyPeaksView", () => {
@@ -218,6 +223,25 @@ describe("NearbyPeaksView", () => {
     await userEvent.click(screen.getByRole("button", { name: "List" }));
 
     expect(screen.getByText("Closest peaks")).toBeInTheDocument();
+    expect(screen.queryByTestId("map")).toBeNull();
+  });
+});
+
+describe("NearbyPeaksView sin proveedor de teselas", () => {
+  it("nearbyPeaksView_withMapsDisabled_dropsTheSwitcherAndKeepsTheList", async () => {
+    vi.stubEnv("VITE_MAP_ENABLED", "false");
+    respondWith(nearby([aneto]));
+    render(<NearbyPeaksView />, { wrapper: Wrapper });
+
+    expect(screen.queryByRole("button", { name: "Map" })).toBeNull();
+    expect(screen.queryByRole("button", { name: "List" })).toBeNull();
+    expect(screen.getByText("Closest peaks")).toBeInTheDocument();
+
+    await setOrigin();
+
+    await waitFor(() =>
+      expect(screen.getByText("4.2 km away")).toBeInTheDocument(),
+    );
     expect(screen.queryByTestId("map")).toBeNull();
   });
 });

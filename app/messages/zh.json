@@ -188,7 +188,7 @@
       "textualAlternative": "地图仅作装饰：下方列出了每座山峰及其坐标。",
       "zoomIn": "放大",
       "zoomOut": "缩小",
-      "consentRequired": "地图从 OpenStreetMap 加载，对方会看到你的 IP 地址。",
+      "consentRequired": "地图从 {mapProvider} 加载，对方会看到你的 IP 地址。",
       "loadMap": "加载地图"
     },
     "nearby": {

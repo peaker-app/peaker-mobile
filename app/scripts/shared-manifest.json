@@ -13,7 +13,7 @@
     "src/components/features/collections": "Los doce ficheros entran byte-identicos: sus unicos imports de Next son next-intl y @/i18n/navigation, ya resueltos por los alias de §3.1.1. Las dos page.tsx del portal son Server Components y su equivalente movil vive en src/app/dashboard/collections/ (MOBILE.md §6 B6).",
     "src/components/features/dashboard": "Solo se vendoriza UnconfirmedEmailBanner.tsx. DashboardGreeting, DashboardStats y RecentAscents son Server Components async y su equivalente movil vive en src/app/dashboard/. dashboard.test.tsx los prueba con serverFetch y next-intl/server, asi que tampoco se vendoriza: el banner lleva test propio de movil.",
     "src/components/features/legal": "LegalScreen.tsx es propio de movil (envoltorio de ruta) y no se vendoriza: en el portal su equivalente son las cuatro page.tsx del grupo (legal), que son Server Components.",
-    "messages/legal": "Los cinco JSON de textos legales entran byte-identicos: son datos, no codigo, y la version espanola es la autentica en ambos targets."
+    "messages/legal": "Los cinco JSON de textos legales entran byte-identicos: son datos, no codigo, y la version espanola es la autentica en ambos targets. Nombran al proveedor de teselas con el marcador {mapProvider}, que LegalDocument resuelve con mapProviderName(): el destinatario del RGPD art. 13.1.e es configuracion, no texto."
   },
   "files": [
     {
@@ -55,12 +55,12 @@
     {
       "path": "src/lib/map.ts",
       "divergence": "process.env.NEXT_PUBLIC_* no existe en Vite: import.meta.env.VITE_*.",
-      "sourceSha256": "8919f249fda8a699894669c95d8eaced041d4841a046799d9b917a0bc519fc49"
+      "sourceSha256": "3d1e393adec6f947b3eefaaa852aeba3b3b0feaa19bba5aca1fa477011727e97"
     },
     {
       "path": "src/lib/map.test.ts",
       "divergence": "Sigue a map.ts: vi.stubEnv en lugar de mutar process.env.",
-      "sourceSha256": "dbdfe52312e03f24969eab89195d87edb7a68d81e25a7f1659f318f5812edd11"
+      "sourceSha256": "30cade69a7e4878fb878a570b8324f8e7a219a5b050a7be0206595d57217fd69"
     },
     {
       "path": "src/lib/collections/label.ts"
@@ -153,27 +153,27 @@
     {
       "path": "messages/en.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "083814e94718817c93c051d73afa96337e786f71e23007058fe1ed9032073007"
+      "sourceSha256": "59db6c9bbc80775aeaa2ba22c27941e265e9fc42f964da40cde6192e206d81d1"
     },
     {
       "path": "messages/es.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "cfec9a67b9c9bdfe071be1aca473e14fd931a337197253b6a4a6bf3d7b615fd3"
+      "sourceSha256": "4960bab733e65e9c4b40df0ad5becea15f35e7f04a1321d8b78ec3f447a36a3f"
     },
     {
       "path": "messages/zh.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "85616756c8dc51d7a80e6fd01b4538b6866e369f3242615aa88b475f6ab82136"
+      "sourceSha256": "5f2cec2dd2a7eafa68b7ff6dcbee4af1f66323785a076d0d54cbe29a1f3133fc"
     },
     {
       "path": "messages/fr.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "d4d022a015d2f1ebf47003fb4c8ac0e0927010bb39e20a3838d78babe00bd78e"
+      "sourceSha256": "8355d43c9d1ee127de4f2952f3c16112fb6b0e9a7258db6cd336bb58ee312c56"
     },
     {
       "path": "messages/ar.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "996b01655151f0767e6e5c12b868b99a54803770c1723640df6353cc740e02af"
+      "sourceSha256": "61075c77e4e2c61eccde64ee68643fa8b3beb489a6d235f28114508307ce81eb"
     },
     {
       "path": "scripts/check-messages.mjs"
@@ -332,8 +332,8 @@
     },
     {
       "path": "src/components/features/peaks/PeakMap.tsx",
-      "divergence": "Una linea: el consentimiento del mapa no viene de la cookie peaker_cc sino de usePreferences.mapsConsent sobre @capacitor/preferences. Una app instalada no tiene cookies ni banner; el conmutador vive en AccountScreen. El gate y su copia son identicos al portal.",
-      "sourceSha256": "4f4741aaa0cb8087a231e3e93cde29c398251a7d1320fe1eae791dcd76a0ae34"
+      "divergence": "Dos cosas: el consentimiento del mapa no viene de la cookie peaker_cc sino de usePreferences.mapsConsent sobre @capacitor/preferences, porque una app instalada no tiene cookies ni banner; y hoy ninguna pantalla llama a setMapsConsent, asi que el mapa solo se abria con el boton de una vez. Irrelevante mientras VITE_MAP_ENABLED sea false (blockers.md §B5). El gate y su copia son identicos al portal.",
+      "sourceSha256": "fa14481446418f99acee92a42aaca25dcb09cedb5add7351569842f752032677"
     },
     {
       "path": "src/components/features/peaks/PeakMapView.tsx"
@@ -367,12 +367,12 @@
     },
     {
       "path": "src/components/features/peaks/NearbyPeaksView.tsx",
-      "divergence": "Conmutador Mapa/Lista de FRONTEND.md SC-03 §6: en un telefono las dos columnas no caben y el mapa atrapa el gesto de scroll. El panel por defecto es la lista, asi que Leaflet solo se descarga cuando se pide.",
-      "sourceSha256": "24f7ce2d2878a0c643fc9310c81cf295b5cde4d49a423bbd367b30e233a58a44"
+      "divergence": "Conmutador Mapa/Lista de FRONTEND.md SC-03 §6: en un telefono las dos columnas no caben y el mapa atrapa el gesto de scroll. El panel por defecto es la lista, asi que Leaflet solo se descarga cuando se pide. Con el mapa desactivado desaparece tambien el conmutador y el panel queda fijo en la lista.",
+      "sourceSha256": "f9fa2600860b4717b21cd9cbcc3550942aaf716f8db2988f8d9b5ed555dce995"
     },
     {
       "path": "src/components/features/peaks/NearbyPeaksView.test.tsx",
-      "divergence": "Sigue a NearbyPeaksView: el caso del mapa pulsa antes el conmutador, mas dos casos nuevos del propio conmutador.",
+      "divergence": "Sigue a NearbyPeaksView: el caso del mapa pulsa antes el conmutador, mas dos casos nuevos del propio conmutador. Estabiliza VITE_MAP_ENABLED con vi.stubEnv para no depender del .env, y cubre el caso sin proveedor de teselas: sin conmutador y con la lista fija.",
       "sourceSha256": "8807f5e3148432dcf2d05acbd2a4ff00f1fcd7240f2671f4fc1d05aa6e61687e"
     },
     {
@@ -563,7 +563,7 @@
     {
       "path": "src/components/features/legal/LegalDocument.tsx",
       "divergence": "getTranslations de next-intl/server pasa a useTranslations de use-intl: en movil no hay Server Components. El resto del componente es identico.",
-      "sourceSha256": "98f36b91c4642000cb74db26b5043fc417d3713d34a12891f5272d4b06ffb10f"
+      "sourceSha256": "192ac53e29da214828c2dda185cf54bba9db8e670a54c6a24b7a3d00b7d8f571"
     },
     {
       "path": "src/lib/auth/tokenUrl.ts"
