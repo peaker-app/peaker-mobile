@@ -12,6 +12,7 @@ const replace = vi.fn();
 const refresh = vi.fn();
 const setLocale = vi.fn();
 const revokeSession = vi.fn().mockResolvedValue(undefined);
+const revokeEverySession = vi.fn().mockResolvedValue(undefined);
 const clearTokens = vi.fn().mockResolvedValue(undefined);
 
 let sessionState = {
@@ -34,6 +35,7 @@ vi.mock("@/i18n/LocaleProvider", () => ({
 vi.mock("@/lib/auth/session", () => ({
   useSessionState: () => sessionState,
   signOut: () => revokeSession(),
+  signOutEverywhere: () => revokeEverySession(),
 }));
 
 vi.mock("@/lib/auth/tokenStore", () => ({
@@ -82,13 +84,13 @@ afterEach(() => {
 });
 
 describe("AccountCards", () => {
-  it("accountCards_session_warnsAboutTheFifteenMinuteToken", () => {
+  it("accountCards_session_offersBothWaysOut", () => {
     render(<AccountCards displayName="Rubén" />, { wrapper: Wrapper });
 
+    expect(screen.getByRole("button", { name: "Sign out" })).toBeInTheDocument();
     expect(
-      screen.getByText(/the access token stays valid for up to 15 minutes/),
+      screen.getByRole("button", { name: "Sign out on all devices" }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/close the browser as well/)).toBeInTheDocument();
   });
 
   it("accountCards_email_isShownLeftToRight", async () => {
@@ -139,6 +141,18 @@ describe("AccountCards", () => {
     await userEvent.click(screen.getByRole("button", { name: "Sign out" }));
 
     await waitFor(() => expect(order).toEqual(["navigate", "revoke"]));
+  });
+
+  it("accountCards_signOutOnAllDevices_revokesEverySessionThroughTheSessionModule", async () => {
+    render(<AccountCards displayName="Rubén" />, { wrapper: Wrapper });
+
+    await userEvent.click(
+      screen.getByRole("button", { name: "Sign out on all devices" }),
+    );
+
+    await waitFor(() => expect(revokeEverySession).toHaveBeenCalledOnce());
+    expect(revokeSession).not.toHaveBeenCalled();
+    expect(replace).toHaveBeenCalledWith("/");
   });
 
   it("accountCards_offersTheLanguageSwitcherThatB3LeftWithoutACaller", async () => {

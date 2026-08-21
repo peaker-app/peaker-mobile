@@ -758,8 +758,8 @@
       },
       "session": {
         "heading": "Sesión",
-        "warning": "Cerrar sesión revoca la sesión de este dispositivo, pero el token de acceso sigue siendo válido hasta 15 minutos. En un equipo compartido, cierra también el navegador.",
-        "signOut": "Cerrar sesión"
+        "signOut": "Cerrar sesión",
+        "signOutAll": "Cerrar sesión en todos los dispositivos"
       },
       "preferences": {
         "heading": "Idioma y unidades",

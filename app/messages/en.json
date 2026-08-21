@@ -758,8 +758,8 @@
       },
       "session": {
         "heading": "Session",
-        "warning": "Signing out revokes this device's session, but the access token stays valid for up to 15 minutes. On a shared computer, close the browser as well.",
-        "signOut": "Sign out"
+        "signOut": "Sign out",
+        "signOutAll": "Sign out on all devices"
       },
       "preferences": {
         "heading": "Language and units",

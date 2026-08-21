@@ -72,12 +72,12 @@ describe("AccountScreen", () => {
     ).toHaveAttribute("href", "/confirm-email/pending");
   });
 
-  it("accountScreen_sessionCard_warnsAboutTheFifteenMinuteToken", () => {
+  it("accountScreen_sessionCard_offersBothWaysOut", () => {
     renderWithProviders(<AccountScreen />);
 
     expect(screen.getByRole("button", { name: "Sign out" })).toBeInTheDocument();
     expect(
-      screen.getByText(/the access token stays valid for up to 15 minutes/),
+      screen.getByRole("button", { name: "Sign out on all devices" }),
     ).toBeInTheDocument();
   });
 

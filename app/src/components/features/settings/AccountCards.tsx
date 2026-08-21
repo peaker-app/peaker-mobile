@@ -1,14 +1,13 @@
 "use client";
 
-import { useQueryClient } from "@tanstack/react-query";
 import { TriangleAlertIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
 import { Alert, AlertDescription } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
-import { useSessionState, signOut as revokeSession } from "@/lib/auth/session";
-import { Link, useRouter } from "@/i18n/navigation";
+import { useSessionState } from "@/lib/auth/session";
+import { useSignOut } from "@/hooks/useSignOut";
+import { Link } from "@/i18n/navigation";
 import { useEmailConfirmation } from "@/stores/emailConfirmation";
 import { DeleteAccountDialog } from "./DeleteAccountDialog";
 
@@ -31,16 +30,7 @@ export const AccountCards = ({ displayName }: { displayName: string }) => {
   const t = useTranslations("settings.account");
   const { session } = useSessionState();
   const unconfirmed = useEmailConfirmation((state) => state.unconfirmed);
-  const router = useRouter();
-  const queryClient = useQueryClient();
-  const [signingOut, setSigningOut] = useState(false);
-
-  const signOut = async () => {
-    setSigningOut(true);
-    router.replace("/");
-    await revokeSession();
-    queryClient.clear();
-  };
+  const { signOut, signOutEverywhere, pending } = useSignOut();
 
   return (
     <div className="flex flex-col gap-6">
@@ -59,17 +49,22 @@ export const AccountCards = ({ displayName }: { displayName: string }) => {
       </Card>
 
       <Card heading={t("session.heading")}>
-        <p className="max-w-prose text-sm leading-relaxed text-muted-foreground text-start">
-          {t("session.warning")}
-        </p>
-        <Button
-          variant="outline"
-          className="self-start"
-          disabled={signingOut}
-          onClick={() => void signOut()}
-        >
-          {t("session.signOut")}
-        </Button>
+        <div className="flex flex-wrap gap-3">
+          <Button
+            variant="outline"
+            disabled={pending}
+            onClick={() => void signOut()}
+          >
+            {t("session.signOut")}
+          </Button>
+          <Button
+            variant="outline"
+            disabled={pending}
+            onClick={() => void signOutEverywhere()}
+          >
+            {t("session.signOutAll")}
+          </Button>
+        </div>
       </Card>
 
       <Card heading={t("preferences.heading")}>
@@ -79,6 +74,19 @@ export const AccountCards = ({ displayName }: { displayName: string }) => {
           {": "}
           {t("preferences.metric")}
         </p>
+      </Card>
+
+      <Card heading={t("privacy.heading")}>
+        <p className="max-w-prose text-sm leading-relaxed text-muted-foreground text-start">
+          {t("privacy.body")}
+        </p>
+        <div className="self-start">
+          <Button asChild variant="outline">
+            <a href="/api/export" download>
+              {t("privacy.download")}
+            </a>
+          </Button>
+        </div>
       </Card>
 
       <section className="flex flex-col gap-3 rounded-md border border-destructive/40 p-6">

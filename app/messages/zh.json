@@ -758,8 +758,8 @@
       },
       "session": {
         "heading": "登录状态",
-        "warning": "退出登录会撤销本设备的会话，但访问令牌最多还会有效 15 分钟。在共用电脑上，请同时关闭浏览器。",
-        "signOut": "退出登录"
+        "signOut": "退出登录",
+        "signOutAll": "在所有设备上退出登录"
       },
       "preferences": {
         "heading": "语言与单位",

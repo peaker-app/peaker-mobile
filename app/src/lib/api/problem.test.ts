@@ -81,7 +81,7 @@ describe("translateProblem", () => {
   it("translateProblem_neverReadsDetail", () => {
     const problem: ProblemDetails = {
       status: 409,
-      title: "User.EmailAlreadyRegistered",
+      title: "User.UsernameAlreadyRegistered",
       detail: "Ese correo ya está registrado.",
     };
 
