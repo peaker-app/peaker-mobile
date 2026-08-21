@@ -4,6 +4,7 @@ export const endpoints = {
     login: "auth/login",
     refresh: "auth/refresh",
     logout: "auth/logout",
+    logoutAll: "auth/logout/all",
     confirmEmail: "auth/email/confirm",
     resendConfirmation: "auth/email/resend",
     forgotPassword: "auth/password/forgot",

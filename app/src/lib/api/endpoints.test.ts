@@ -65,6 +65,7 @@ describe("endpoints", () => {
     expect(endpoints.auth.login).toBe("auth/login");
     expect(endpoints.auth.refresh).toBe("auth/refresh");
     expect(endpoints.auth.logout).toBe("auth/logout");
+    expect(endpoints.auth.logoutAll).toBe("auth/logout/all");
     expect(endpoints.auth.confirmEmail).toBe("auth/email/confirm");
     expect(endpoints.auth.resendConfirmation).toBe("auth/email/resend");
     expect(endpoints.auth.deleteAccount).toBe("auth/me");

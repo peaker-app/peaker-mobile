@@ -60,6 +60,22 @@ export const signOut = async (): Promise<void> => {
   await clearTokens();
 };
 
+const revokeEverySession = (accessToken: string): Promise<Response> =>
+  fetch(`${gatewayUrl()}/api/${endpoints.auth.logoutAll}`, {
+    method: "POST",
+    headers: { ...authHeaders(), Authorization: `Bearer ${accessToken}` },
+  });
+
+export const signOutEverywhere = async (): Promise<void> => {
+  const accessToken = getAccessToken();
+
+  if (accessToken) {
+    await revokeEverySession(accessToken).catch(() => undefined);
+  }
+
+  await clearTokens();
+};
+
 export const restoreSession = async (): Promise<SessionState> => {
   if (!(await refreshSession())) {
     markAnonymous();

@@ -758,8 +758,8 @@
       },
       "session": {
         "heading": "Session",
-        "warning": "La déconnexion révoque la session de cet appareil, mais le jeton d'accès reste valide jusqu'à 15 minutes. Sur un ordinateur partagé, fermez aussi le navigateur.",
-        "signOut": "Se déconnecter"
+        "signOut": "Se déconnecter",
+        "signOutAll": "Se déconnecter de tous les appareils"
       },
       "preferences": {
         "heading": "Langue et unités",
