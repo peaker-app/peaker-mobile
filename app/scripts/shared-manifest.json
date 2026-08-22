@@ -153,27 +153,27 @@
     {
       "path": "messages/en.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "59db6c9bbc80775aeaa2ba22c27941e265e9fc42f964da40cde6192e206d81d1"
+      "sourceSha256": "ec411c213c39461907caab088c012903e56a3d8cdc300c1411ea0494991613c8"
     },
     {
       "path": "messages/es.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "4960bab733e65e9c4b40df0ad5becea15f35e7f04a1321d8b78ec3f447a36a3f"
+      "sourceSha256": "e25ea33fc1b39e684787ce7b3e1da4286164db6836e4dfc1f1ebc3b8a4820072"
     },
     {
       "path": "messages/zh.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "5f2cec2dd2a7eafa68b7ff6dcbee4af1f66323785a076d0d54cbe29a1f3133fc"
+      "sourceSha256": "22fa65976ba282d61c65374dfce2e56e6e56d0fb767d63220f963bb1239a341b"
     },
     {
       "path": "messages/fr.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "8355d43c9d1ee127de4f2952f3c16112fb6b0e9a7258db6cd336bb58ee312c56"
+      "sourceSha256": "af10656eab140f992688a5d99f4ea99f1094e67e8e25c870371ae645922407d6"
     },
     {
       "path": "messages/ar.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "61075c77e4e2c61eccde64ee68643fa8b3beb489a6d235f28114508307ce81eb"
+      "sourceSha256": "d8d9eaeda16e11f8afb881996e91f518f4b974f72507d133928216b3b4a3e6d5"
     },
     {
       "path": "scripts/check-messages.mjs"

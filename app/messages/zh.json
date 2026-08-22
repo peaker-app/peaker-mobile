@@ -435,7 +435,7 @@
       "signIn": "登录",
       "emailTaken": "该电子邮箱已被注册。",
       "emailTakenAction": "改为登录",
-      "rateLimited": "尝试次数过多，请等待一分钟后再试。",
+      "rateLimited": "尝试次数过多，请等待几分钟后再试。",
       "acceptTerms": "我确认已年满 14 岁，并接受<terms>使用条款</terms>与<privacy>隐私政策</privacy>。"
     },
     "login": {
