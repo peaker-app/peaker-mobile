@@ -435,7 +435,7 @@
       "signIn": "Entrar",
       "emailTaken": "Ese correo electrónico ya está registrado.",
       "emailTakenAction": "Entra en su lugar",
-      "rateLimited": "Demasiados intentos. Espera un minuto antes de volver a probar.",
+      "rateLimited": "Demasiados intentos. Espera unos minutos antes de volver a probar.",
       "acceptTerms": "Confirmo que tengo al menos 14 años y acepto las <terms>Condiciones de uso</terms> y la <privacy>Política de privacidad</privacy>."
     },
     "login": {

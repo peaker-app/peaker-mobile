@@ -174,7 +174,7 @@ describe("RegisterForm", () => {
 
     await waitFor(() =>
       expect(screen.getByRole("alert")).toHaveTextContent(
-        "Too many attempts. Wait a minute before trying again.",
+        "Too many attempts. Wait a few minutes before trying again.",
       ),
     );
   });
