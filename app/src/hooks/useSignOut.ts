@@ -7,17 +7,20 @@ import {
   signOut as revokeSession,
   signOutEverywhere as revokeEverySession,
 } from "@/lib/auth/session";
+import { useEmailConfirmation } from "@/stores/emailConfirmation";
 
 export const useSignOut = () => {
   const router = useRouter();
   const queryClient = useQueryClient();
   const [pending, setPending] = useState(false);
+  const clearUnconfirmed = useEmailConfirmation((state) => state.clear);
 
   const revoke = async (revocation: () => Promise<void>) => {
     setPending(true);
     router.replace("/");
     await revocation();
     queryClient.clear();
+    clearUnconfirmed();
   };
 
   return {
