@@ -11,6 +11,7 @@ import { hasCode } from "@/lib/api/problem";
 import { dashboardPath } from "@/lib/auth/nextPath";
 import { forgetTokenInUrl } from "@/lib/auth/tokenUrl";
 import { useSessionState } from "@/lib/auth/session";
+import { useEmailConfirmation } from "@/stores/emailConfirmation";
 
 type ConfirmState = "pending" | "success" | "already" | "error" | "missingToken";
 
@@ -21,6 +22,7 @@ export const ConfirmEmailView = ({ token }: { token?: string }) => {
     token ? "pending" : "missingToken",
   );
   const requested = useRef(false);
+  const clearUnconfirmed = useEmailConfirmation((store) => store.clear);
 
   useEffect(() => {
     if (!token || requested.current) {
@@ -36,19 +38,23 @@ export const ConfirmEmailView = ({ token }: { token?: string }) => {
           method: "POST",
           body: JSON.stringify({ token }),
         });
+        clearUnconfirmed();
         setState("success");
       } catch (error) {
-        setState(
+        const confirmedBefore =
           error instanceof ApiError &&
-            hasCode(error.problem, "User.EmailAlreadyConfirmed")
-            ? "already"
-            : "error",
-        );
+          hasCode(error.problem, "User.EmailAlreadyConfirmed");
+
+        if (confirmedBefore) {
+          clearUnconfirmed();
+        }
+
+        setState(confirmedBefore ? "already" : "error");
       }
     };
 
     void confirm();
-  }, [token]);
+  }, [token, clearUnconfirmed]);
 
   const settled = state !== "pending";
   const failed = state === "error" || state === "missingToken";
