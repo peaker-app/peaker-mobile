@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "Peaker 使用相机，让你在记录登顶时拍摄山顶照片。";
+"NSPhotoLibraryUsageDescription" = "Peaker 需要访问相册，以便你为登顶记录添加照片或设置头像。";
+"NSLocationWhenInUseUsageDescription" = "Peaker 使用你的位置来列出距离你最近的山峰。";

@@ -1,0 +1,809 @@
+{
+  "common": {
+    "skipToContent": "跳转到主要内容",
+    "brand": "Peaker",
+    "locale": {
+      "label": "语言",
+      "en": "English",
+      "es": "Español",
+      "zh": "中文",
+      "fr": "Français",
+      "ar": "العربية"
+    },
+    "states": {
+      "loading": "加载中…",
+      "emptyTitle": "这里还没有内容",
+      "emptyDescription": "目前没有可显示的数据。",
+      "errorTitle": "出错了",
+      "retry": "重试"
+    },
+    "pagination": {
+      "label": "分页",
+      "previous": "上一页",
+      "next": "下一页",
+      "page": "第 {page} 页",
+      "summary": "第 {page} 页，共 {totalPages} 页"
+    },
+    "confirm": {
+      "cancel": "取消",
+      "confirm": "确认"
+    },
+    "breadcrumb": {
+      "label": "面包屑导航",
+      "home": "首页"
+    },
+    "showMore": "展开全部",
+    "showLess": "收起",
+    "actions": {
+      "save": "保存",
+      "saved": "已保存",
+      "cancel": "取消",
+      "delete": "删除",
+      "edit": "编辑",
+      "back": "返回"
+    }
+  },
+  "nav": {
+    "label": "主导航",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "home": "首页",
+    "peaks": "山峰",
+    "nearby": "附近",
+    "dashboard": "我的活动",
+    "myAscents": "我的登顶记录",
+    "collections": "收藏夹",
+    "profile": "个人资料",
+    "account": "账户",
+    "signIn": "登录",
+    "signUp": "创建账户",
+    "signOut": "退出登录",
+    "accountMenu": "账户菜单"
+  },
+  "footer": {
+    "tagline": "搜索世界各地的山峰，记录你的每一次登顶。",
+    "rights": "保留所有权利。",
+    "legalHeading": "法律",
+    "legal": {
+      "notice": "法律声明",
+      "privacy": "隐私",
+      "cookies": "Cookie",
+      "terms": "使用条款"
+    }
+  },
+  "units": {
+    "meters": "{value} 米",
+    "kilometers": "{value} 公里"
+  },
+  "visibility": {
+    "label": "可见性",
+    "Public": "公开",
+    "Private": "私密",
+    "publicHint": "任何人都可以在你的公开主页上看到。",
+    "privateHint": "只有你自己可以看到。"
+  },
+  "conditions": {
+    "label": "环境状况",
+    "unspecified": "未填写",
+    "snow": {
+      "label": "积雪",
+      "None": "无积雪",
+      "Patchy": "零星积雪",
+      "Continuous": "连续积雪",
+      "Deep": "深厚积雪"
+    },
+    "wind": {
+      "label": "风力",
+      "Calm": "无风",
+      "Moderate": "中等",
+      "Strong": "强风",
+      "Storm": "暴风"
+    },
+    "trail": {
+      "label": "路况",
+      "Good": "良好",
+      "Muddy": "泥泞",
+      "Icy": "结冰",
+      "Blocked": "受阻"
+    }
+  },
+  "stats": {
+    "totalAscents": "登顶总次数",
+    "distinctPeaks": "不同山峰数",
+    "highestAltitude": "最高海拔",
+    "lastAscent": "最近一次登顶",
+    "none": "暂无记录",
+    "publicOnly": "仅统计公开的登顶记录",
+    "eventualConsistency": "数据将在几秒后更新。"
+  },
+  "landing": {
+    "hero": {
+      "title": "世界上的每一座山，你登顶的每一座",
+      "subtitle": "搜索全球山峰，可靠地记录你的每一次登顶。",
+      "searchCta": "搜索山峰",
+      "nearbyCta": "查看附近的山峰"
+    },
+    "valueProps": {
+      "heading": "为什么选择 Peaker",
+      "searchTitle": "覆盖全球的目录",
+      "searchBody": "用山峰的任意名称都能找到它：Matterhorn 和 Cervino 指向同一座山。",
+      "logTitle": "妥善保存你的登顶记录",
+      "logBody": "日期、路线笔记、同行者、环境状况，以及每次登顶最多三张照片。",
+      "statsTitle": "经得起核对的数据",
+      "statsBody": "登顶总数、不同山峰数和你的海拔纪录，全部自动更新。"
+    },
+    "featured": {
+      "heading": "精选山峰",
+      "seeAll": "查看完整目录"
+    },
+    "cta": {
+      "heading": "准备好迎接下一座山峰了吗？",
+      "body": "免费注册账户，开始记录你的登顶。",
+      "signUp": "创建账户",
+      "dashboard": "查看我的活动"
+    },
+    "farewell": {
+      "title": "你的账户已注销",
+      "body": "感谢你使用 Peaker。你的个人资料、登顶记录和照片正在删除中。"
+    }
+  },
+  "peaks": {
+    "title": "山峰",
+    "unnamed": "无名山峰（{id}）",
+    "card": {
+      "altitude": "{value} 米",
+      "prominence": "地形突起度：{value} 米",
+      "accessibleName": "{name}，海拔 {altitude} 米",
+      "distance": "相距 {value}",
+      "unknownCountry": "位置未知"
+    },
+    "search": {
+      "label": "搜索山峰",
+      "placeholder": "Matterhorn、Aneto、Fuji…",
+      "submit": "搜索",
+      "help": "可用任何语言的任意山名搜索。",
+      "results": "{count, plural, other {# 条结果}}",
+      "empty": "没有与「{query}」匹配的山峰",
+      "emptyHint": "换一种写法，或去掉部分筛选条件。"
+    },
+    "filters": {
+      "heading": "筛选",
+      "open": "筛选（{count}）",
+      "close": "完成",
+      "country": "国家或地区",
+      "anyCountry": "全部国家和地区",
+      "region": "地区",
+      "regionPlaceholder": "比利牛斯、阿尔卑斯…",
+      "altitude": "海拔",
+      "minAltitude": "最低海拔",
+      "maxAltitude": "最高海拔",
+      "altitudeRange": "从 {min} 米到 {max} 米",
+      "clearAll": "全部清除",
+      "remove": "移除筛选条件 {name}",
+      "search": "搜索",
+      "searchLabel": "使用这些筛选条件搜索"
+    },
+    "map": {
+      "label": "山峰地图",
+      "textualAlternative": "地图仅作装饰：下方列出了每座山峰及其坐标。",
+      "zoomIn": "放大",
+      "zoomOut": "缩小",
+      "consentRequired": "地图从 {mapProvider} 加载，对方会看到你的 IP 地址。",
+      "loadMap": "加载地图"
+    },
+    "nearby": {
+      "title": "你附近的山峰",
+      "subtitle": "选择一个起点，我们会列出最近的山峰。",
+      "useMyLocation": "使用我的位置",
+      "locating": "定位中…",
+      "permissionDenied": "无法获取你的位置，请手动输入坐标。",
+      "servicesDisabled": "定位服务已关闭。请在设备设置中开启，或手动输入坐标。",
+      "unsupported": "此浏览器无法共享你的位置，请手动输入坐标。",
+      "located": "位置已确定。",
+      "latitude": "纬度",
+      "longitude": "经度",
+      "apply": "在此搜索",
+      "radius": "搜索半径",
+      "radiusValue": "{value} 公里",
+      "mapHint": "点击地图可移动起点。",
+      "noOrigin": "选择一个起点，查看周围的山峰。",
+      "empty": "{radius} 范围内没有山峰",
+      "emptyAction": "扩大半径",
+      "listHeading": "最近的山峰",
+      "showMap": "地图",
+      "showList": "列表",
+      "radiusInput": "半径（公里）"
+    },
+    "catalogueEmpty": "目录中还没有山峰。",
+    "catalogueEmptyHint": "数据来自 Wikidata，请稍后再来。"
+  },
+  "peakDetail": {
+    "photoCredit": {
+      "photo": "照片",
+      "unknownAuthor": "作者不详",
+      "source": "维基共享资源"
+    },
+    "canonicalName": "又名 {name}",
+    "metaDescription": "{name}，海拔 {altitude} 米。坐标、地形突起度与所属山脉。",
+    "facts": {
+      "heading": "基本信息",
+      "altitude": "海拔",
+      "prominence": "地形突起度",
+      "coordinates": "坐标",
+      "country": "国家或地区",
+      "region": "地区",
+      "range": "所属山脉",
+      "openInMap": "在地图中打开"
+    },
+    "actions": {
+      "heading": "操作",
+      "logAscent": "记录登顶",
+      "logAscentHint": "记录登顶需要先拥有账户。",
+      "addToCollection": "添加到收藏",
+      "addToCollectionHint": "需要账号才能把山峰保存到收藏中。"
+    },
+    "alternativeNames": {
+      "heading": "其他名称",
+      "official": "官方名称"
+    }
+  },
+  "profile": {
+    "public": {
+      "metaDescription": "{name} 在 Peaker 上公开的登顶记录。",
+      "ascentsHeading": "公开的登顶记录",
+      "empty": "这位登山者还没有公开的登顶记录。",
+      "ascentsUnavailable": "暂时无法加载登顶记录。"
+    },
+    "header": {
+      "avatarAlt": "{name} 的头像",
+      "noBio": "这位登山者还没有填写简介。"
+    }
+  },
+  "ascents": {
+    "card": {
+      "accessibleName": "{date} 登顶 {peak}",
+      "noPhoto": "无照片",
+      "altitude": "{value} 米"
+    },
+    "public": {
+      "metaTitle": "{peak} — {climber}",
+      "breadcrumb": "登顶记录",
+      "byClimber": "由 {name} 记录",
+      "viewPeak": "查看这座山峰"
+    },
+    "header": {
+      "date": "登顶日期：{date}"
+    },
+    "gallery": {
+      "heading": "照片",
+      "photoAlt": "{peak} 登顶照片第 {index} 张",
+      "open": "打开第 {index} 张照片",
+      "close": "关闭",
+      "previous": "上一张照片",
+      "next": "下一张照片",
+      "counter": "第 {index} 张，共 {total} 张"
+    },
+    "notes": {
+      "routeHeading": "路线笔记",
+      "companionsHeading": "同行者"
+    },
+    "mine": {
+      "title": "我的登顶记录",
+      "logAscent": "记录登顶",
+      "view": {
+        "label": "视图",
+        "cards": "卡片",
+        "table": "表格"
+      },
+      "table": {
+        "caption": "你的登顶记录，按时间从新到旧排列",
+        "peak": "山峰",
+        "altitude": "海拔",
+        "date": "日期",
+        "visibility": "可见性",
+        "actions": "操作",
+        "view": "查看",
+        "edit": "编辑"
+      },
+      "empty": {
+        "title": "你还没有记录任何登顶",
+        "body": "你记录的每一次登顶都会显示在这里，最新的排在最前。",
+        "action": "记录我的第一次登顶"
+      }
+    },
+    "detail": {
+      "edit": "编辑",
+      "delete": "删除",
+      "pendingPhotos": {
+        "title": "{count, plural, other {有 # 张照片上传失败}}",
+        "body": "登顶记录已保存，你可以在下方重新添加这些照片。"
+      },
+      "viewPublic": "查看公开页面"
+    },
+    "photos": {
+      "heading": "照片",
+      "add": "添加照片",
+      "uploading": "上传中…",
+      "full": "最多 {max} 张照片。",
+      "delete": "删除第 {index} 张照片，共 {total} 张",
+      "confirmTitle": "删除这张照片？",
+      "confirmBody": "该照片将从登顶记录和图片存储中移除，此操作无法撤销。",
+      "confirmAction": "删除照片",
+      "deleted": "照片已删除。",
+      "empty": "还没有照片。添加你在山顶拍的照片吧。",
+      "takePhoto": "拍照",
+      "chooseFromGallery": "从相册选择",
+      "pickerDenied": "无法打开相机或相册。请检查应用权限。"
+    },
+    "danger": {
+      "heading": "危险操作",
+      "body": "删除登顶记录会同时删除其照片，此操作无法撤销。",
+      "delete": "删除登顶记录",
+      "confirmTitle": "删除这条登顶记录？",
+      "confirmBody": "{count, plural, =0 {该登顶记录将被删除。} other {该登顶记录及其 # 张照片将被删除。}} 此操作无法撤销。",
+      "deleted": "登顶记录已删除。",
+      "saved": "登顶记录已更新。"
+    }
+  },
+  "collections": {
+    "title": "我的收藏",
+    "defaultName": "想要攀登",
+    "defaultBadge": "默认",
+    "new": "新建收藏",
+    "peakCount": "{count, plural, other {# 座山峰}}",
+    "empty": {
+      "title": "你还没有创建任何收藏",
+      "body": "把你想攀登的山峰归到一起，或者整理一份正在逐一完成的清单。"
+    },
+    "form": {
+      "name": "名称",
+      "nameHelp": "最多 {max} 个字符。",
+      "description": "描述",
+      "descriptionCounter": "{count} / {max} 个字符",
+      "nameRequired": "请输入名称。"
+    },
+    "create": {
+      "title": "新建收藏",
+      "submit": "创建收藏",
+      "created": "收藏已创建。"
+    },
+    "edit": {
+      "action": "编辑",
+      "title": "编辑收藏",
+      "submit": "保存修改",
+      "saved": "收藏已保存。"
+    },
+    "remove": {
+      "action": "删除",
+      "title": "删除这个收藏？",
+      "body": "收藏及其山峰列表将被删除。你的登顶记录和山峰目录不受影响。",
+      "confirm": "删除收藏",
+      "deleted": "收藏已删除。"
+    },
+    "detail": {
+      "peaks": "山峰",
+      "addPeak": "添加山峰",
+      "empty": "这个收藏还没有山峰。",
+      "peakColumn": "山峰",
+      "altitudeColumn": "海拔",
+      "addedColumn": "添加时间",
+      "removePeak": "把 {name} 从收藏中移除",
+      "peakAdded": "已添加 {name}。",
+      "peakRemoved": "已移除 {name}。"
+    },
+    "addPeak": {
+      "title": "添加山峰",
+      "label": "搜索山峰",
+      "alreadyInCollection": "已在这个收藏中",
+      "close": "完成"
+    },
+    "picker": {
+      "title": "添加到收藏",
+      "empty": "你还没有任何收藏。",
+      "added": "已添加到{collection}。",
+      "alreadyThere": "它已经在{collection}中了。",
+      "close": "关闭"
+    }
+  },
+  "auth": {
+    "fields": {
+      "email": "电子邮箱",
+      "emailHelp": "我们会向该邮箱发送一封验证链接邮件。",
+      "username": "用户名",
+      "usernameHelp": "3 到 30 个字符：字母、数字、点、连字符或下划线。必须以字母或数字开头和结尾，且不能连续使用两个分隔符。",
+      "usernameCase": "大小写会按你输入的方式保存，但两个用户名不能仅靠大小写区分。",
+      "password": "密码",
+      "passwordHelp": "至少 {min} 个字符。长度比复杂度更重要。",
+      "showPassword": "显示密码",
+      "hidePassword": "隐藏密码",
+      "identifier": "邮箱或用户名",
+      "required": "此项为必填。"
+    },
+    "passwordStrength": {
+      "label": "密码强度",
+      "weak": "弱",
+      "fair": "一般",
+      "strong": "强",
+      "hint": "这只是提示，不会阻止你继续。"
+    },
+    "register": {
+      "title": "创建你的账户",
+      "subtitle": "记录你登顶的每一座山峰，无论它在哪里。",
+      "submit": "创建账户",
+      "submitting": "正在创建账户…",
+      "haveAccount": "已经有账户了？",
+      "signIn": "登录",
+      "emailTaken": "该电子邮箱已被注册。",
+      "emailTakenAction": "改为登录",
+      "rateLimited": "尝试次数过多，请等待几分钟后再试。",
+      "acceptTerms": "我确认已年满 14 岁，并接受<terms>使用条款</terms>与<privacy>隐私政策</privacy>。"
+    },
+    "login": {
+      "title": "登录",
+      "subtitle": "欢迎回来。",
+      "submit": "登录",
+      "submitting": "正在登录…",
+      "noAccount": "还没有账户？",
+      "signUp": "创建一个",
+      "registered": "账户已创建。请查收邮箱中的验证链接，邮件可能需要一点时间才能送达。",
+      "failed": "登录信息无效。",
+      "rateLimited": "尝试次数过多，请等待一分钟后再试。"
+    },
+    "confirmEmail": {
+      "title": "正在验证你的邮箱",
+      "pending": "验证中…",
+      "successTitle": "邮箱验证成功",
+      "successBody": "现在你可以记录登顶了。",
+      "alreadyTitle": "你的邮箱之前已完成验证",
+      "alreadyBody": "这里没有其他需要处理的事情。",
+      "errorTitle": "无法验证你的邮箱",
+      "errorBody": "该链接无效、已使用或已过期。",
+      "missingToken": "该链接缺少令牌。请打开我们最近发送给你的邮件。",
+      "goToDashboard": "查看我的活动",
+      "goToLogin": "登录",
+      "requestNew": "获取新链接",
+      "manual": {
+        "title": "手动完成验证",
+        "body": "如果链接没有打开应用，请把链接粘贴到这里，或只粘贴其中的令牌。",
+        "label": "验证链接或令牌",
+        "help": "它在我们最近发送给你的邮件里。链接自发送起 24 小时后失效，且只能使用一次。",
+        "submit": "验证我的邮箱"
+      }
+    },
+    "resend": {
+      "title": "验证你的邮箱",
+      "body": "我们已向你的邮箱发送了一个链接，打开它即可完成验证。",
+      "warning": "获取新链接会让之前的链接失效：请始终使用最近收到的邮件。",
+      "submit": "重新发送链接",
+      "submitting": "发送中…",
+      "sent": "链接已发送，请查收邮箱。",
+      "cooldown": "<time>{value}</time> 后可再次获取链接。",
+      "cooldownDisabled": "倒计时结束前按钮不可用。",
+      "alreadyConfirmed": "你的邮箱已完成验证。",
+      "goToDashboard": "查看我的活动",
+      "enterToken": "我已经有链接了：直接输入"
+    }
+  },
+  "dashboard": {
+    "greeting": {
+      "title": "你的活动",
+      "body": "记录你登顶的山峰，随时掌握进度。",
+      "logAscent": "记录登顶",
+      "titleNamed": "你好，{name}"
+    },
+    "unconfirmed": {
+      "message": "请先验证你的电子邮箱，才能记录登顶。",
+      "action": "重新给我发送链接"
+    },
+    "stats": {
+      "heading": "你的数据"
+    },
+    "profilePending": {
+      "title": "正在准备你的个人资料…",
+      "body": "我们正在完成账户设置，需要几秒钟。",
+      "retry": "重新加载"
+    },
+    "recent": {
+      "heading": "最近的登顶记录",
+      "seeAll": "查看全部"
+    },
+    "empty": {
+      "title": "你还没有记录任何登顶",
+      "body": "搜索你登过的山峰，记录日期、路线和照片。",
+      "action": "记录我的第一次登顶"
+    }
+  },
+  "errors": {
+    "unknown": "出错了，请重试。",
+    "status": {
+      "400": "请求无效。",
+      "401": "请重新登录。",
+      "403": "你没有访问权限。",
+      "404": "未找到。",
+      "409": "与现有数据冲突。",
+      "429": "尝试次数过多，请稍候。",
+      "500": "服务器错误，请重试。",
+      "503": "服务暂时不可用。"
+    },
+    "notFound": {
+      "code": "404",
+      "title": "该页面不存在",
+      "description": "链接可能已失效，或内容已被删除。",
+      "goHome": "返回首页",
+      "searchPeaks": "搜索山峰"
+    },
+    "generic": {
+      "title": "出错了",
+      "description": "无法加载此页面。你可以重试或返回首页。",
+      "retry": "重试",
+      "goHome": "返回首页",
+      "reference": "技术参考编号"
+    },
+    "User": {
+      "EmailEmpty": "请输入你的电子邮箱。",
+      "EmailInvalid": "该电子邮箱无效。",
+      "EmailTooLong": "该电子邮箱过长。",
+      "UsernameEmpty": "请输入用户名。",
+      "UsernameInvalid": "请使用 3 到 30 个字符：字母、数字、点、连字符或下划线。必须以字母或数字开头和结尾，且不能连续使用两个分隔符。",
+      "PasswordHashMissing": "该账户尚未设置密码。",
+      "PasswordBreached": "该密码出现在已知的数据泄露中，请换一个。",
+      "EmailAlreadyRegistered": "该电子邮箱已被注册。",
+      "UsernameAlreadyRegistered": "该用户名已被占用。",
+      "InvalidCredentials": "登录信息无效。",
+      "EmailAlreadyConfirmed": "你的电子邮箱已完成验证。",
+      "AlreadyDeleted": "该账户已注销。",
+      "NotFound": "未找到该账户。"
+    },
+    "RefreshToken": {
+      "InvalidOrExpired": "登录状态已过期，请重新登录。"
+    },
+    "EmailConfirmation": {
+      "InvalidOrExpired": "该链接无效、已使用或已过期。",
+      "ResendTooSoon": "你刚刚已请求过链接，请等待两分钟后再试。",
+      "DeliveryFailed": "邮件发送失败，请稍后再试。"
+    },
+    "Profile": {
+      "DisplayNameEmpty": "请输入显示名称。",
+      "DisplayNameTooLong": "显示名称不能超过 60 个字符。",
+      "BioTooLong": "个人简介不能超过 500 个字符。",
+      "CountryCodeInvalid": "该国家或地区无效。",
+      "SlugInvalid": "请使用小写字母、数字和连字符，最多 80 个字符。",
+      "SlugAlreadyTaken": "该地址已被占用。",
+      "AvatarTooLarge": "图片不能超过 5 MB。",
+      "AvatarFormatNotSupported": "仅支持 JPEG、PNG 和 WebP 格式的图片。",
+      "AvatarUploadFailed": "图片保存失败，请稍后再试。",
+      "NotFound": "未找到该个人资料。",
+      "AlreadyExists": "该个人资料已存在。"
+    },
+    "Peak": {
+      "NotFound": "未找到该山峰。",
+      "LatitudeOutOfRange": "纬度必须介于 -90 和 90 之间。",
+      "LongitudeOutOfRange": "经度必须介于 -180 和 180 之间。",
+      "RadiusOutOfRange": "半径必须介于 1 至 50 公里之间。",
+      "AltitudeRangeInvalid": "最低海拔不能高于最高海拔。",
+      "CountryCodeInvalid": "该国家或地区无效。",
+      "RegionTooLong": "该地区名称过长。"
+    },
+    "Ascent": {
+      "DateInFuture": "登顶日期不能是将来的日期。",
+      "DateTooOld": "登顶日期不能早于 1900 年 1 月 1 日。",
+      "CompanionsTooLong": "同行者不能超过 500 个字符。",
+      "RouteNotesTooLong": "路线笔记不能超过 2000 个字符。",
+      "UnsupportedPhotoFormat": "仅支持 JPEG、PNG 和 WebP 格式的图片。",
+      "PhotoTooLarge": "每张照片不能超过 10 MB。",
+      "PhotoLimitReached": "一次登顶记录最多可上传 3 张照片。",
+      "EmailNotConfirmed": "请先验证你的电子邮箱，再记录登顶。",
+      "NotOwned": "该登顶记录不属于你。",
+      "NotFound": "未找到该登顶记录。",
+      "PhotoNotFound": "未找到该照片。",
+      "PeakNotFound": "该山峰已不在目录中。",
+      "ProfileNotVisible": "未找到该登顶记录。",
+      "PhotoUploadFailed": "图片保存失败，请重试。",
+      "PeakCatalogUnavailable": "山峰目录无响应，请稍后再试。",
+      "ProfileDirectoryUnavailable": "个人资料服务无响应，请稍后再试。"
+    },
+    "Collection": {
+      "NameRequired": "请为收藏输入名称。",
+      "NameTooLong": "名称不能超过 60 个字符。",
+      "DescriptionTooLong": "描述不能超过 500 个字符。",
+      "NameAlreadyUsed": "你已经有同名的收藏了。",
+      "DefaultNotEditable": "默认收藏无法重命名。",
+      "DefaultNotDeletable": "默认收藏无法删除。",
+      "PeakAlreadyAdded": "这座山峰已在该收藏中。",
+      "PeakLimitReached": "一个收藏最多只能包含 1000 座山峰。",
+      "CollectionLimitReached": "你最多只能拥有 100 个收藏。",
+      "PeakRequired": "请选择一座山峰。",
+      "PeakNameRequired": "该山峰在目录中没有可用的名称。",
+      "PeakNameTooLong": "该山峰的名称对收藏来说太长了。",
+      "PeakCatalogUnavailable": "山峰目录没有响应，请稍后再试。",
+      "NotFound": "找不到这个收藏。",
+      "PeakNotFound": "该山峰已不在目录中。",
+      "PeakNotInCollection": "该山峰不在这个收藏中。"
+    },
+    "Pagination": {
+      "PageOutOfRange": "该页不存在。",
+      "SizeOutOfRange": "每页数量必须介于 1 和 100 之间。"
+    }
+  },
+  "ascentForm": {
+    "newTitle": "记录登顶",
+    "editTitle": "编辑登顶记录",
+    "steps": {
+      "peak": "山峰",
+      "date": "日期",
+      "photos": "照片",
+      "details": "详情",
+      "visibility": "可见性"
+    },
+    "peak": {
+      "label": "你登的是哪座山？",
+      "placeholder": "开始输入名称…",
+      "change": "更换山峰",
+      "empty": "没有与「{query}」匹配的山峰",
+      "browse": "浏览目录",
+      "results": "{count, plural, other {# 条结果}}",
+      "selected": "已选择：{name}",
+      "locked": "山峰不可更改",
+      "lockedHelp": "若要更正山峰，请删除这条登顶记录并重新添加。"
+    },
+    "date": {
+      "label": "登顶日期",
+      "help": "不能是将来的日期。"
+    },
+    "photos": {
+      "label": "照片",
+      "help": "最多 {max} 张，每张 {size} MB。支持 JPEG、PNG 或 WebP。",
+      "add": "添加照片",
+      "counter": "{count} / {max}",
+      "remove": "移除第 {index} 张照片",
+      "moveUp": "将第 {index} 张照片前移",
+      "moveDown": "将第 {index} 张照片后移",
+      "tooLarge": "{name} 超过 {size} MB。",
+      "unsupported": "{name} 不是 JPEG、PNG 或 WebP 图片。",
+      "tooMany": "最多只能附加 {max} 张照片。",
+      "takePhoto": "拍照",
+      "chooseFromGallery": "从相册选择",
+      "pickerDenied": "无法打开相机或相册。请检查应用权限。"
+    },
+    "companions": {
+      "label": "同行者",
+      "placeholder": "Ana、Luis…",
+      "counter": "{count} / {max} 个字符"
+    },
+    "notes": {
+      "label": "路线笔记",
+      "placeholder": "从山屋出发的常规路线…",
+      "counter": "{count} / {max} 个字符"
+    },
+    "visibility": {
+      "label": "谁可以看到这条登顶记录？"
+    },
+    "progress": {
+      "label": "保存中",
+      "savingAscent": "正在保存登顶记录…",
+      "uploadingPhoto": "正在上传第 {current} 张照片，共 {total} 张…",
+      "done": "完成"
+    },
+    "submit": "保存登顶记录",
+    "submitting": "保存中…",
+    "cancel": "取消",
+    "unsavedChanges": "你有尚未保存的修改。",
+    "leaveTitle": "要放弃未保存的修改吗？",
+    "leaveConfirm": "放弃修改",
+    "emailNotConfirmed": {
+      "title": "记录登顶前请先验证邮箱",
+      "body": "你填写的内容已保留。验证邮箱后再试一次即可。",
+      "resend": "重新给我发送链接",
+      "retry": "重试"
+    },
+    "catalogueUnavailable": {
+      "title": "山峰目录无响应",
+      "retry": "重试"
+    }
+  },
+  "settings": {
+    "profile": {
+      "title": "个人资料",
+      "viewPublic": "查看我的公开主页",
+      "avatar": {
+        "heading": "照片",
+        "change": "更换照片",
+        "remove": "移除照片",
+        "help": "支持 JPEG、PNG 或 WebP，最大 {size} MB。",
+        "alt": "{name} 的照片",
+        "empty": "尚未设置照片",
+        "tooLarge": "图片不能超过 {size} MB。",
+        "unsupported": "仅支持 JPEG、PNG 和 WebP 格式的图片。",
+        "confirmRemoveTitle": "移除你的照片？",
+        "confirmRemoveBody": "你的主页将改为显示姓名首字母。你随时可以重新上传。",
+        "confirmRemoveAction": "移除照片",
+        "removed": "照片已移除。",
+        "uploaded": "照片已更新。",
+        "takePhoto": "拍照",
+        "chooseFromGallery": "从相册选择",
+        "pickerDenied": "无法打开相机或相册。请检查应用权限。"
+      },
+      "data": {
+        "heading": "你的资料",
+        "displayName": "显示名称",
+        "displayNameHelp": "其他登山者看到的名字。不必唯一，也不是你的用户名：用户名无法更改。",
+        "bio": "个人简介",
+        "bioCounter": "{count} / {max} 个字符",
+        "country": "国家或地区",
+        "countryPlaceholder": "未设置国家",
+        "visibility": "主页可见性",
+        "visibilityHelp": "私密主页会向所有访客返回「未找到」页面，你的公开登顶记录也将不再显示。",
+        "confirmPrivateTitle": "将主页设为私密？",
+        "confirmPrivateBody": "打开你公开地址的人会看到「未找到」页面，你的公开登顶记录也将不再显示。你随时可以改回来。",
+        "confirmPrivateAction": "设为私密",
+        "save": "保存资料",
+        "saved": "资料已保存。"
+      },
+      "slug": {
+        "heading": "公开地址",
+        "label": "你的地址",
+        "preview": "这是你公开主页的位置。",
+        "warning": "更改后，你用旧地址分享出去的所有链接都会失效：系统不会做跳转。",
+        "help": "小写字母、数字和连字符，最多 {max} 个字符。",
+        "save": "保存地址",
+        "saved": "地址已保存。"
+      }
+    },
+    "account": {
+      "title": "账户",
+      "email": {
+        "heading": "电子邮箱",
+        "unconfirmed": "你还没有验证这个邮箱。",
+        "resend": "给我发送验证链接"
+      },
+      "session": {
+        "heading": "登录状态",
+        "signOut": "退出登录",
+        "signOutAll": "在所有设备上退出登录"
+      },
+      "preferences": {
+        "heading": "语言与单位",
+        "units": "单位",
+        "metric": "米"
+      },
+      "danger": {
+        "heading": "危险操作",
+        "body": "注销账户会删除你记录的全部内容。",
+        "close": "注销我的账户",
+        "confirmTitle": "注销你的账户？",
+        "consequences": {
+          "data": "你的个人资料、统计数据、登顶记录及其照片都将被删除。",
+          "identity": "你的邮箱和用户名不会被释放：你无法再用它们重新注册。",
+          "irreversible": "此操作无法撤销。",
+          "sessions": "所有设备上的会话都将被关闭。"
+        },
+        "confirmPrompt": "输入 {name} 以确认。",
+        "confirmLabel": "确认",
+        "confirmAction": "注销我的账户",
+        "deleted": "你的账号已注销。感谢与我们一同攀登。",
+        "passwordPrompt": "输入密码以确认。"
+      }
+    }
+  },
+  "offline": {
+    "banner": "您当前处于离线状态。新的登顶记录会保存在此，恢复网络后自动发送。",
+    "list": {
+      "pending": "待发送",
+      "rejected": "未发送",
+      "photos": "{count, plural, other {# 张照片}}"
+    },
+    "detail": {
+      "pending": {
+        "title": "等待网络连接",
+        "body": "这条登顶记录已保存在您的设备上，恢复网络后会自动发送。"
+      },
+      "rejected": {
+        "title": "无法发送这条登顶记录",
+        "body": "服务器已拒绝该记录，因此不会重试。请检查内容后重新登记。"
+      },
+      "photosDropped": "{count, plural, other {有 # 张照片无法保存到设备}}。登顶记录发送后请重新添加。",
+      "discard": "放弃这条登顶记录",
+      "photosPending": "{count, plural, other {有 # 张照片待上传}}"
+    }
+  }
+}

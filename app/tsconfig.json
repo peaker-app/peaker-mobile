@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "useDefineForClassFields": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "next-intl": ["./src/shims/next-intl.ts"],
+      "next/image": ["./src/shims/next-image.tsx"],
+      "next/dynamic": ["./src/shims/next-dynamic.tsx"]
+    }
+  },
+  "include": [
+    "src",
+    "aliases.ts",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "vitest.setup.ts",
+    "capacitor.config.ts"
+  ],
+  "exclude": ["node_modules", "dist", "android", "ios", "coverage"]
+}

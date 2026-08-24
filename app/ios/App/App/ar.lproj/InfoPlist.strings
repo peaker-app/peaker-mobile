@@ -1,0 +1,3 @@
+"NSCameraUsageDescription" = "يستخدم Peaker الكاميرا لتتمكن من تصوير القمة عند تسجيل صعود.";
+"NSPhotoLibraryUsageDescription" = "يحتاج Peaker إلى معرض الصور لتتمكن من إرفاق صور بصعود أو تعيين صورة ملفك الشخصي.";
+"NSLocationWhenInUseUsageDescription" = "يستخدم Peaker موقعك لعرض القمم الأقرب إليك.";

@@ -1,0 +1,809 @@
+{
+  "common": {
+    "skipToContent": "Saltar al contenido",
+    "brand": "Peaker",
+    "locale": {
+      "label": "Idioma",
+      "en": "English",
+      "es": "Español",
+      "zh": "中文",
+      "fr": "Français",
+      "ar": "العربية"
+    },
+    "states": {
+      "loading": "Cargando…",
+      "emptyTitle": "Aquí todavía no hay nada",
+      "emptyDescription": "Por ahora no hay datos que mostrar.",
+      "errorTitle": "Algo ha ido mal",
+      "retry": "Reintentar"
+    },
+    "pagination": {
+      "label": "Paginación",
+      "previous": "Página anterior",
+      "next": "Página siguiente",
+      "page": "Página {page}",
+      "summary": "Página {page} de {totalPages}"
+    },
+    "confirm": {
+      "cancel": "Cancelar",
+      "confirm": "Confirmar"
+    },
+    "breadcrumb": {
+      "label": "Ruta de navegación",
+      "home": "Inicio"
+    },
+    "showMore": "Leer más",
+    "showLess": "Mostrar menos",
+    "actions": {
+      "save": "Guardar",
+      "saved": "Guardado",
+      "cancel": "Cancelar",
+      "delete": "Borrar",
+      "edit": "Editar",
+      "back": "Volver"
+    }
+  },
+  "nav": {
+    "label": "Navegación principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "home": "Inicio",
+    "peaks": "Picos",
+    "nearby": "Cercanos",
+    "dashboard": "Mi actividad",
+    "myAscents": "Mis ascensiones",
+    "collections": "Colecciones",
+    "profile": "Perfil",
+    "account": "Cuenta",
+    "signIn": "Entrar",
+    "signUp": "Crear cuenta",
+    "signOut": "Cerrar sesión",
+    "accountMenu": "Menú de cuenta"
+  },
+  "footer": {
+    "tagline": "Busca las montañas del mundo y registra tus ascensiones.",
+    "rights": "Todos los derechos reservados.",
+    "legalHeading": "Legal",
+    "legal": {
+      "notice": "Aviso legal",
+      "privacy": "Privacidad",
+      "cookies": "Cookies",
+      "terms": "Condiciones de uso"
+    }
+  },
+  "units": {
+    "meters": "{value} m",
+    "kilometers": "{value} km"
+  },
+  "visibility": {
+    "label": "Visibilidad",
+    "Public": "Pública",
+    "Private": "Privada",
+    "publicHint": "Cualquiera puede verla en tu perfil público.",
+    "privateHint": "Solo tú puedes verla."
+  },
+  "conditions": {
+    "label": "Condiciones",
+    "unspecified": "Sin especificar",
+    "snow": {
+      "label": "Nieve",
+      "None": "Sin nieve",
+      "Patchy": "Neveros aislados",
+      "Continuous": "Continua",
+      "Deep": "Profunda"
+    },
+    "wind": {
+      "label": "Viento",
+      "Calm": "En calma",
+      "Moderate": "Moderado",
+      "Strong": "Fuerte",
+      "Storm": "Temporal"
+    },
+    "trail": {
+      "label": "Sendero",
+      "Good": "En buen estado",
+      "Muddy": "Embarrado",
+      "Icy": "Helado",
+      "Blocked": "Cortado"
+    }
+  },
+  "stats": {
+    "totalAscents": "Ascensiones totales",
+    "distinctPeaks": "Picos distintos",
+    "highestAltitude": "Mayor altitud",
+    "lastAscent": "Última ascensión",
+    "none": "Todavía ninguna",
+    "publicOnly": "Solo ascensiones públicas",
+    "eventualConsistency": "Se actualizan en unos segundos."
+  },
+  "landing": {
+    "hero": {
+      "title": "Todas las montañas del mundo, y todas las cumbres que pisas",
+      "subtitle": "Busca picos de cualquier rincón del planeta y lleva un registro fiable de tus ascensiones.",
+      "searchCta": "Buscar picos",
+      "nearbyCta": "Ver picos cerca de mí"
+    },
+    "valueProps": {
+      "heading": "Por qué Peaker",
+      "searchTitle": "Un catálogo mundial",
+      "searchBody": "Encuentra un pico por cualquiera de sus nombres: Matterhorn y Cervino llevan a la misma montaña.",
+      "logTitle": "Tus ascensiones, bien guardadas",
+      "logBody": "Fecha, notas de vía, compañeros, condiciones y hasta tres fotos por cumbre.",
+      "statsTitle": "Estadísticas que cuadran",
+      "statsBody": "Ascensiones totales, picos distintos y tu récord de altitud, actualizados solos."
+    },
+    "featured": {
+      "heading": "Picos destacados",
+      "seeAll": "Ver el catálogo completo"
+    },
+    "cta": {
+      "heading": "¿Listo para tu próxima cumbre?",
+      "body": "Crea una cuenta gratuita y empieza a registrar tus ascensiones.",
+      "signUp": "Crear cuenta",
+      "dashboard": "Ir a mi actividad"
+    },
+    "farewell": {
+      "title": "Tu cuenta se ha dado de baja",
+      "body": "Gracias por haber usado Peaker. Tu perfil, tus ascensiones y tus fotos se están borrando."
+    }
+  },
+  "peaks": {
+    "title": "Picos",
+    "unnamed": "Pico sin nombre ({id})",
+    "card": {
+      "altitude": "{value} m",
+      "prominence": "Prominencia: {value} m",
+      "accessibleName": "{name}, {altitude} metros",
+      "distance": "a {value}",
+      "unknownCountry": "Ubicación desconocida"
+    },
+    "search": {
+      "label": "Buscar picos",
+      "placeholder": "Matterhorn, Aneto, Fuji…",
+      "submit": "Buscar",
+      "help": "Busca por cualquier nombre de la montaña, en cualquier idioma.",
+      "results": "{count, plural, =0 {Sin resultados} one {# resultado} other {# resultados}}",
+      "empty": "Ningún pico coincide con «{query}»",
+      "emptyHint": "Prueba con otra grafía o quita algún filtro."
+    },
+    "filters": {
+      "heading": "Filtros",
+      "open": "Filtros ({count})",
+      "close": "Hecho",
+      "country": "País",
+      "anyCountry": "Cualquier país",
+      "region": "Región",
+      "regionPlaceholder": "Pirineos, Alpes…",
+      "altitude": "Altitud",
+      "minAltitude": "Altitud mínima",
+      "maxAltitude": "Altitud máxima",
+      "altitudeRange": "De {min} a {max} metros",
+      "clearAll": "Limpiar todo",
+      "remove": "Quitar el filtro {name}",
+      "search": "Buscar",
+      "searchLabel": "Buscar con estos filtros"
+    },
+    "map": {
+      "label": "Mapa de picos",
+      "textualAlternative": "El mapa es decorativo: todos los picos aparecen abajo con sus coordenadas.",
+      "zoomIn": "Acercar",
+      "zoomOut": "Alejar",
+      "consentRequired": "El mapa se carga desde {mapProvider}, que verá tu dirección IP.",
+      "loadMap": "Cargar el mapa"
+    },
+    "nearby": {
+      "title": "Picos cerca de ti",
+      "subtitle": "Elige un punto de partida y te listamos las cumbres más próximas.",
+      "useMyLocation": "Usar mi ubicación",
+      "locating": "Localizando…",
+      "permissionDenied": "No hemos podido obtener tu ubicación. Escribe las coordenadas a mano.",
+      "servicesDisabled": "La ubicación está desactivada. Actívala en los ajustes del dispositivo o introduce las coordenadas a mano.",
+      "unsupported": "Este navegador no puede compartir tu ubicación. Escribe las coordenadas a mano.",
+      "located": "Ubicación fijada.",
+      "latitude": "Latitud",
+      "longitude": "Longitud",
+      "apply": "Buscar aquí",
+      "radius": "Radio de búsqueda",
+      "radiusValue": "{value} km",
+      "mapHint": "Haz clic en el mapa para mover el punto de partida.",
+      "noOrigin": "Elige un punto de partida para ver los picos de alrededor.",
+      "empty": "Ningún pico en {radius}",
+      "emptyAction": "Ampliar el radio",
+      "listHeading": "Picos más cercanos",
+      "showMap": "Mapa",
+      "showList": "Lista",
+      "radiusInput": "Radio en kilómetros"
+    },
+    "catalogueEmpty": "El catálogo todavía no tiene picos.",
+    "catalogueEmptyHint": "Los datos se cargan desde Wikidata; vuelve en un momento."
+  },
+  "peakDetail": {
+    "photoCredit": {
+      "photo": "Foto",
+      "unknownAuthor": "Autor desconocido",
+      "source": "Wikimedia Commons"
+    },
+    "canonicalName": "También conocido como {name}",
+    "metaDescription": "{name}, {altitude} metros. Coordenadas, prominencia y cordillera.",
+    "facts": {
+      "heading": "Datos",
+      "altitude": "Altitud",
+      "prominence": "Prominencia",
+      "coordinates": "Coordenadas",
+      "country": "País",
+      "region": "Región",
+      "range": "Cordillera",
+      "openInMap": "Abrir en un mapa"
+    },
+    "actions": {
+      "heading": "Acciones",
+      "logAscent": "Registrar ascensión",
+      "logAscentHint": "Necesitas una cuenta para registrar una ascensión.",
+      "addToCollection": "Añadir a una colección",
+      "addToCollectionHint": "Necesitas una cuenta para guardar picos en colecciones."
+    },
+    "alternativeNames": {
+      "heading": "Otros nombres",
+      "official": "Oficial"
+    }
+  },
+  "profile": {
+    "public": {
+      "metaDescription": "Ascensiones públicas de {name} en Peaker.",
+      "ascentsHeading": "Ascensiones públicas",
+      "empty": "Este montañero aún no tiene ascensiones públicas.",
+      "ascentsUnavailable": "No hemos podido cargar las ascensiones ahora mismo."
+    },
+    "header": {
+      "avatarAlt": "Avatar de {name}",
+      "noBio": "Este montañero todavía no ha escrito una biografía."
+    }
+  },
+  "ascents": {
+    "card": {
+      "accessibleName": "Ascensión a {peak} el {date}",
+      "noPhoto": "Sin foto",
+      "altitude": "{value} m"
+    },
+    "public": {
+      "metaTitle": "{peak} — {climber}",
+      "breadcrumb": "Ascensiones",
+      "byClimber": "Registrada por {name}",
+      "viewPeak": "Ver este pico"
+    },
+    "header": {
+      "date": "Ascendida el {date}"
+    },
+    "gallery": {
+      "heading": "Fotos",
+      "photoAlt": "Foto {index} de la ascensión a {peak}",
+      "open": "Abrir la foto {index}",
+      "close": "Cerrar",
+      "previous": "Foto anterior",
+      "next": "Foto siguiente",
+      "counter": "{index} de {total}"
+    },
+    "notes": {
+      "routeHeading": "Notas de vía",
+      "companionsHeading": "Compañeros"
+    },
+    "mine": {
+      "title": "Mis ascensiones",
+      "logAscent": "Registrar cumbre",
+      "view": {
+        "label": "Vista",
+        "cards": "Tarjetas",
+        "table": "Tabla"
+      },
+      "table": {
+        "caption": "Tus ascensiones, de la más reciente a la más antigua",
+        "peak": "Pico",
+        "altitude": "Altitud",
+        "date": "Fecha",
+        "visibility": "Visibilidad",
+        "actions": "Acciones",
+        "view": "Ver",
+        "edit": "Editar"
+      },
+      "empty": {
+        "title": "Todavía no has registrado ninguna cumbre",
+        "body": "Cada ascensión que registres aparecerá aquí, de la más reciente a la más antigua.",
+        "action": "Registrar mi primera cumbre"
+      }
+    },
+    "detail": {
+      "edit": "Editar",
+      "delete": "Borrar",
+      "pendingPhotos": {
+        "title": "{count, plural, one {No se ha podido subir # foto} other {No se han podido subir # fotos}}",
+        "body": "La ascensión sí se ha guardado. Puedes volver a añadirlas aquí abajo."
+      },
+      "viewPublic": "Ver la página pública"
+    },
+    "photos": {
+      "heading": "Fotos",
+      "add": "Añadir foto",
+      "uploading": "Subiendo…",
+      "full": "Máximo {max} fotos.",
+      "delete": "Borrar la foto {index} de {total}",
+      "confirmTitle": "¿Borrar esta foto?",
+      "confirmBody": "Se quitará de la ascensión y del almacenamiento de imágenes. No se puede deshacer.",
+      "confirmAction": "Borrar foto",
+      "deleted": "Foto borrada.",
+      "empty": "Todavía no hay fotos. Añade las que hiciste en la cumbre.",
+      "takePhoto": "Hacer una foto",
+      "chooseFromGallery": "Elegir de la galería",
+      "pickerDenied": "No hemos podido abrir la cámara ni la galería. Revisa los permisos de la aplicación."
+    },
+    "danger": {
+      "heading": "Zona de peligro",
+      "body": "Borrar una ascensión borra también sus fotos. No se puede deshacer.",
+      "delete": "Borrar ascensión",
+      "confirmTitle": "¿Borrar esta ascensión?",
+      "confirmBody": "{count, plural, =0 {Se borrará la ascensión.} one {Se borrarán la ascensión y su # foto.} other {Se borrarán la ascensión y sus # fotos.}} No se puede deshacer.",
+      "deleted": "Ascensión borrada.",
+      "saved": "Ascensión actualizada."
+    }
+  },
+  "collections": {
+    "title": "Mis colecciones",
+    "defaultName": "Quiero subir",
+    "defaultBadge": "Por defecto",
+    "new": "Nueva colección",
+    "peakCount": "{count, plural, =0 {Sin picos} one {# pico} other {# picos}}",
+    "empty": {
+      "title": "Todavía no has creado ninguna colección",
+      "body": "Agrupa las montañas que quieres subir, o las de una lista que estés completando."
+    },
+    "form": {
+      "name": "Nombre",
+      "nameHelp": "Hasta {max} caracteres.",
+      "description": "Descripción",
+      "descriptionCounter": "{count} de {max} caracteres",
+      "nameRequired": "Escribe un nombre."
+    },
+    "create": {
+      "title": "Nueva colección",
+      "submit": "Crear colección",
+      "created": "Colección creada."
+    },
+    "edit": {
+      "action": "Editar",
+      "title": "Editar colección",
+      "submit": "Guardar cambios",
+      "saved": "Colección guardada."
+    },
+    "remove": {
+      "action": "Borrar",
+      "title": "¿Borrar esta colección?",
+      "body": "Se borrarán la colección y su lista de picos. Tus ascensiones y el catálogo no se tocan.",
+      "confirm": "Borrar colección",
+      "deleted": "Colección borrada."
+    },
+    "detail": {
+      "peaks": "Picos",
+      "addPeak": "Añadir un pico",
+      "empty": "Esta colección aún no tiene picos.",
+      "peakColumn": "Pico",
+      "altitudeColumn": "Altitud",
+      "addedColumn": "Añadido",
+      "removePeak": "Quitar {name} de la colección",
+      "peakAdded": "{name} añadido.",
+      "peakRemoved": "{name} quitado."
+    },
+    "addPeak": {
+      "title": "Añadir un pico",
+      "label": "Buscar un pico",
+      "alreadyInCollection": "Ya está en esta colección",
+      "close": "Listo"
+    },
+    "picker": {
+      "title": "Añadir a una colección",
+      "empty": "Todavía no tienes ninguna colección.",
+      "added": "Añadido a {collection}.",
+      "alreadyThere": "Ya estaba en {collection}.",
+      "close": "Cerrar"
+    }
+  },
+  "auth": {
+    "fields": {
+      "email": "Correo electrónico",
+      "emailHelp": "Te enviaremos un enlace para confirmarlo.",
+      "username": "Nombre de usuario",
+      "usernameHelp": "De 3 a 30 caracteres: letras, dígitos, puntos, guiones o guiones bajos. Debe empezar y acabar en letra o dígito, y no puede llevar dos separadores seguidos.",
+      "usernameCase": "Las mayúsculas se guardan tal y como las escribes, pero dos nombres de usuario no pueden diferenciarse solo en ellas.",
+      "password": "Contraseña",
+      "passwordHelp": "Mínimo {min} caracteres. La longitud importa más que la complejidad.",
+      "showPassword": "Mostrar la contraseña",
+      "hidePassword": "Ocultar la contraseña",
+      "identifier": "Correo o nombre de usuario",
+      "required": "Este campo es obligatorio."
+    },
+    "passwordStrength": {
+      "label": "Fortaleza de la contraseña",
+      "weak": "Débil",
+      "fair": "Aceptable",
+      "strong": "Fuerte",
+      "hint": "Es solo orientativo y nunca te impide continuar."
+    },
+    "register": {
+      "title": "Crea tu cuenta",
+      "subtitle": "Registra las cumbres que pisas, estén donde estén.",
+      "submit": "Crear cuenta",
+      "submitting": "Creando la cuenta…",
+      "haveAccount": "¿Ya tienes cuenta?",
+      "signIn": "Entrar",
+      "emailTaken": "Ese correo electrónico ya está registrado.",
+      "emailTakenAction": "Entra en su lugar",
+      "rateLimited": "Demasiados intentos. Espera unos minutos antes de volver a probar.",
+      "acceptTerms": "Confirmo que tengo al menos 14 años y acepto las <terms>Condiciones de uso</terms> y la <privacy>Política de privacidad</privacy>."
+    },
+    "login": {
+      "title": "Entrar",
+      "subtitle": "Bienvenido de vuelta.",
+      "submit": "Entrar",
+      "submitting": "Entrando…",
+      "noAccount": "¿No tienes cuenta?",
+      "signUp": "Crea una",
+      "registered": "Cuenta creada. Revisa tu correo para encontrar el enlace de confirmación; puede tardar un momento en llegar.",
+      "failed": "Esas credenciales no son válidas.",
+      "rateLimited": "Demasiados intentos. Espera un minuto antes de volver a probar."
+    },
+    "confirmEmail": {
+      "title": "Confirmando tu correo",
+      "pending": "Confirmando…",
+      "successTitle": "Tu correo está confirmado",
+      "successBody": "Ya puedes registrar tus ascensiones.",
+      "alreadyTitle": "Tu correo ya estaba confirmado",
+      "alreadyBody": "No hay nada más que hacer aquí.",
+      "errorTitle": "No hemos podido confirmar tu correo",
+      "errorBody": "Este enlace no es válido, ya se ha usado o ha caducado.",
+      "missingToken": "Este enlace no lleva token. Abre el último correo que te hemos enviado.",
+      "goToDashboard": "Ir a mi actividad",
+      "goToLogin": "Entrar",
+      "requestNew": "Pedir un enlace nuevo",
+      "manual": {
+        "title": "Confírmalo a mano",
+        "body": "Si el enlace no abrió la aplicación, pégalo aquí, o pega solo el token que lleva dentro.",
+        "label": "Enlace o token de confirmación",
+        "help": "Está en el último correo que te hemos enviado. Caduca a las 24 horas y solo sirve una vez.",
+        "submit": "Confirmar mi correo"
+      }
+    },
+    "resend": {
+      "title": "Confirma tu correo",
+      "body": "Hemos enviado un enlace a tu correo. Ábrelo para confirmar tu dirección.",
+      "warning": "Pedir un enlace nuevo invalida los anteriores: usa siempre el último correo recibido.",
+      "submit": "Reenviar enlace",
+      "submitting": "Enviando…",
+      "sent": "Enlace enviado. Revisa tu correo.",
+      "cooldown": "Podrás pedir otro enlace en <time>{value}</time>.",
+      "cooldownDisabled": "El botón está deshabilitado hasta que acabe la cuenta atrás.",
+      "alreadyConfirmed": "Tu correo ya está confirmado.",
+      "goToDashboard": "Ir a mi actividad",
+      "enterToken": "Ya tengo el enlace: introducirlo"
+    }
+  },
+  "dashboard": {
+    "greeting": {
+      "title": "Tu actividad",
+      "body": "Registra las cumbres que pisas y llévalas al día.",
+      "logAscent": "Registrar cumbre",
+      "titleNamed": "Hola, {name}"
+    },
+    "unconfirmed": {
+      "message": "Confirma tu correo electrónico para poder registrar ascensiones.",
+      "action": "Enviarme el enlace otra vez"
+    },
+    "stats": {
+      "heading": "Tus cifras"
+    },
+    "profilePending": {
+      "title": "Preparando tu perfil…",
+      "body": "Estamos dejando lista tu cuenta. Tarda unos segundos.",
+      "retry": "Recargar"
+    },
+    "recent": {
+      "heading": "Últimas ascensiones",
+      "seeAll": "Ver todas"
+    },
+    "empty": {
+      "title": "Todavía no has registrado ninguna cumbre",
+      "body": "Busca la montaña que subiste y anota la fecha, la vía y tus fotos.",
+      "action": "Registrar mi primera cumbre"
+    }
+  },
+  "errors": {
+    "unknown": "Algo ha ido mal. Inténtalo de nuevo.",
+    "status": {
+      "400": "La petición no es válida.",
+      "401": "Vuelve a iniciar sesión.",
+      "403": "No tienes acceso a esto.",
+      "404": "No encontrado.",
+      "409": "Esto entra en conflicto con datos existentes.",
+      "429": "Demasiados intentos. Espera un momento.",
+      "500": "Error del servidor. Inténtalo de nuevo.",
+      "503": "El servicio no está disponible temporalmente."
+    },
+    "notFound": {
+      "code": "404",
+      "title": "Esta página no existe",
+      "description": "Puede que el enlace esté roto o que el contenido se haya eliminado.",
+      "goHome": "Volver al inicio",
+      "searchPeaks": "Buscar picos"
+    },
+    "generic": {
+      "title": "Algo ha ido mal",
+      "description": "No hemos podido cargar esta página. Puedes reintentarlo o volver al inicio.",
+      "retry": "Reintentar",
+      "goHome": "Volver al inicio",
+      "reference": "Referencia técnica"
+    },
+    "User": {
+      "EmailEmpty": "Escribe tu correo electrónico.",
+      "EmailInvalid": "Ese correo electrónico no es válido.",
+      "EmailTooLong": "Ese correo electrónico es demasiado largo.",
+      "UsernameEmpty": "Escribe un nombre de usuario.",
+      "UsernameInvalid": "Usa de 3 a 30 caracteres: letras, dígitos, puntos, guiones o guiones bajos. Debe empezar y acabar en letra o dígito, y no puede llevar dos separadores seguidos.",
+      "PasswordHashMissing": "Esta cuenta no tiene contraseña definida.",
+      "PasswordBreached": "Esta contraseña aparece en filtraciones conocidas. Elige otra.",
+      "EmailAlreadyRegistered": "Ese correo electrónico ya está registrado.",
+      "UsernameAlreadyRegistered": "Ese nombre de usuario ya está en uso.",
+      "InvalidCredentials": "Esas credenciales no son válidas.",
+      "EmailAlreadyConfirmed": "Tu correo ya está confirmado.",
+      "AlreadyDeleted": "Esta cuenta ya está dada de baja.",
+      "NotFound": "No hemos encontrado esta cuenta."
+    },
+    "RefreshToken": {
+      "InvalidOrExpired": "Tu sesión ha caducado. Vuelve a iniciar sesión."
+    },
+    "EmailConfirmation": {
+      "InvalidOrExpired": "Este enlace no es válido, ya se ha usado o ha caducado.",
+      "ResendTooSoon": "Has pedido un enlace hace muy poco. Espera un par de minutos antes de volver a intentarlo.",
+      "DeliveryFailed": "No hemos podido enviar el correo. Inténtalo en unos instantes."
+    },
+    "Profile": {
+      "DisplayNameEmpty": "Escribe un nombre visible.",
+      "DisplayNameTooLong": "El nombre visible no puede superar los 60 caracteres.",
+      "BioTooLong": "La biografía no puede superar los 500 caracteres.",
+      "CountryCodeInvalid": "Ese país no es válido.",
+      "SlugInvalid": "Usa minúsculas, dígitos y guiones, hasta 80 caracteres.",
+      "SlugAlreadyTaken": "Esa dirección ya está en uso.",
+      "AvatarTooLarge": "La imagen no puede superar los 5 MB.",
+      "AvatarFormatNotSupported": "Solo se admiten imágenes JPEG, PNG y WebP.",
+      "AvatarUploadFailed": "No hemos podido guardar la imagen. Inténtalo más tarde.",
+      "NotFound": "No hemos encontrado este perfil.",
+      "AlreadyExists": "Este perfil ya existe."
+    },
+    "Peak": {
+      "NotFound": "No hemos encontrado este pico.",
+      "LatitudeOutOfRange": "La latitud debe estar entre -90 y 90.",
+      "LongitudeOutOfRange": "La longitud debe estar entre -180 y 180.",
+      "RadiusOutOfRange": "El radio debe estar entre 1 y 50 km.",
+      "AltitudeRangeInvalid": "La altitud mínima no puede ser mayor que la máxima.",
+      "CountryCodeInvalid": "Ese país no es válido.",
+      "RegionTooLong": "Ese nombre de región es demasiado largo."
+    },
+    "Ascent": {
+      "DateInFuture": "La fecha de ascensión no puede ser futura.",
+      "DateTooOld": "La fecha de ascensión no puede ser anterior al 1 de enero de 1900.",
+      "CompanionsTooLong": "Los compañeros no pueden superar los 500 caracteres.",
+      "RouteNotesTooLong": "Las notas de vía no pueden superar los 2000 caracteres.",
+      "UnsupportedPhotoFormat": "Solo se admiten imágenes JPEG, PNG y WebP.",
+      "PhotoTooLarge": "Cada foto no puede superar los 10 MB.",
+      "PhotoLimitReached": "Una ascensión admite como máximo 3 fotos.",
+      "EmailNotConfirmed": "Confirma tu correo electrónico antes de registrar una ascensión.",
+      "NotOwned": "Esta ascensión no te pertenece.",
+      "NotFound": "No hemos encontrado esta ascensión.",
+      "PhotoNotFound": "No hemos encontrado esta foto.",
+      "PeakNotFound": "Ese pico ya no está en el catálogo.",
+      "ProfileNotVisible": "No hemos encontrado esta ascensión.",
+      "PhotoUploadFailed": "No hemos podido guardar la imagen. Inténtalo de nuevo.",
+      "PeakCatalogUnavailable": "El catálogo de picos no responde. Inténtalo en unos instantes.",
+      "ProfileDirectoryUnavailable": "El servicio de perfiles no responde. Inténtalo en unos instantes."
+    },
+    "Collection": {
+      "NameRequired": "Escribe un nombre para la colección.",
+      "NameTooLong": "El nombre no puede superar los 60 caracteres.",
+      "DescriptionTooLong": "La descripción no puede superar los 500 caracteres.",
+      "NameAlreadyUsed": "Ya tienes una colección con ese nombre.",
+      "DefaultNotEditable": "La colección por defecto no se puede renombrar.",
+      "DefaultNotDeletable": "La colección por defecto no se puede borrar.",
+      "PeakAlreadyAdded": "Ese pico ya está en esta colección.",
+      "PeakLimitReached": "Una colección no puede tener más de 1.000 picos.",
+      "CollectionLimitReached": "No puedes tener más de 100 colecciones.",
+      "PeakRequired": "Elige un pico.",
+      "PeakNameRequired": "Ese pico no tiene un nombre utilizable en el catálogo.",
+      "PeakNameTooLong": "El nombre de ese pico es demasiado largo para una colección.",
+      "PeakCatalogUnavailable": "El catálogo de picos no responde. Inténtalo de nuevo en un momento.",
+      "NotFound": "No hemos encontrado esta colección.",
+      "PeakNotFound": "Ese pico ya no está en el catálogo.",
+      "PeakNotInCollection": "Ese pico no está en esta colección."
+    },
+    "Pagination": {
+      "PageOutOfRange": "Esa página no existe.",
+      "SizeOutOfRange": "El tamaño de página debe estar entre 1 y 100."
+    }
+  },
+  "ascentForm": {
+    "newTitle": "Registrar cumbre",
+    "editTitle": "Editar ascensión",
+    "steps": {
+      "peak": "Pico",
+      "date": "Fecha",
+      "photos": "Fotos",
+      "details": "Detalle",
+      "visibility": "Visibilidad"
+    },
+    "peak": {
+      "label": "¿Qué montaña has subido?",
+      "placeholder": "Empieza a escribir un nombre…",
+      "change": "Cambiar de pico",
+      "empty": "Ningún pico coincide con «{query}»",
+      "browse": "Explorar el catálogo",
+      "results": "{count, plural, =0 {Sin resultados} one {# resultado} other {# resultados}}",
+      "selected": "Seleccionado: {name}",
+      "locked": "El pico no se puede cambiar",
+      "lockedHelp": "Para corregir el pico, borra esta ascensión y regístrala de nuevo."
+    },
+    "date": {
+      "label": "Fecha de ascensión",
+      "help": "No puede ser futura."
+    },
+    "photos": {
+      "label": "Fotos",
+      "help": "Hasta {max} fotos, {size} MB cada una. JPEG, PNG o WebP.",
+      "add": "Añadir fotos",
+      "counter": "{count} de {max}",
+      "remove": "Quitar la foto {index}",
+      "moveUp": "Adelantar la foto {index}",
+      "moveDown": "Atrasar la foto {index}",
+      "tooLarge": "{name} supera los {size} MB.",
+      "unsupported": "{name} no es una imagen JPEG, PNG ni WebP.",
+      "tooMany": "Solo puedes adjuntar {max} fotos.",
+      "takePhoto": "Hacer una foto",
+      "chooseFromGallery": "Elegir de la galería",
+      "pickerDenied": "No hemos podido abrir la cámara ni la galería. Revisa los permisos de la aplicación."
+    },
+    "companions": {
+      "label": "Compañeros",
+      "placeholder": "Ana, Luis…",
+      "counter": "{count} de {max} caracteres"
+    },
+    "notes": {
+      "label": "Notas de vía",
+      "placeholder": "Vía normal desde el refugio…",
+      "counter": "{count} de {max} caracteres"
+    },
+    "visibility": {
+      "label": "¿Quién puede ver esta ascensión?"
+    },
+    "progress": {
+      "label": "Guardando",
+      "savingAscent": "Guardando la ascensión…",
+      "uploadingPhoto": "Subiendo la foto {current} de {total}…",
+      "done": "Hecho"
+    },
+    "submit": "Guardar ascensión",
+    "submitting": "Guardando…",
+    "cancel": "Cancelar",
+    "unsavedChanges": "Tienes cambios sin guardar.",
+    "leaveTitle": "¿Salir sin guardar?",
+    "leaveConfirm": "Descartar los cambios",
+    "emailNotConfirmed": {
+      "title": "Confirma tu correo antes de registrar una ascensión",
+      "body": "Hemos conservado todo lo que has escrito. Confirma tu dirección y vuelve a intentarlo.",
+      "resend": "Enviarme el enlace otra vez",
+      "retry": "Reintentar"
+    },
+    "catalogueUnavailable": {
+      "title": "El catálogo de picos no responde",
+      "retry": "Reintentar"
+    }
+  },
+  "settings": {
+    "profile": {
+      "title": "Perfil",
+      "viewPublic": "Ver mi perfil público",
+      "avatar": {
+        "heading": "Foto",
+        "change": "Cambiar la foto",
+        "remove": "Quitar la foto",
+        "help": "JPEG, PNG o WebP, hasta {size} MB.",
+        "alt": "Foto de {name}",
+        "empty": "Todavía sin foto",
+        "tooLarge": "La imagen no puede superar los {size} MB.",
+        "unsupported": "Solo se admiten imágenes JPEG, PNG y WebP.",
+        "confirmRemoveTitle": "¿Quitar tu foto?",
+        "confirmRemoveBody": "Tu perfil mostrará tus iniciales en su lugar. Puedes subir otra cuando quieras.",
+        "confirmRemoveAction": "Quitar la foto",
+        "removed": "Foto quitada.",
+        "uploaded": "Foto actualizada.",
+        "takePhoto": "Hacer una foto",
+        "chooseFromGallery": "Elegir de la galería",
+        "pickerDenied": "No hemos podido abrir la cámara ni la galería. Revisa los permisos de la aplicación."
+      },
+      "data": {
+        "heading": "Tus datos",
+        "displayName": "Nombre visible",
+        "displayNameHelp": "Cómo te ven los demás montañeros. No tiene por qué ser único, y no es tu nombre de usuario: ese no se puede cambiar.",
+        "bio": "Biografía",
+        "bioCounter": "{count} de {max} caracteres",
+        "country": "País",
+        "countryPlaceholder": "Sin país",
+        "visibility": "Visibilidad del perfil",
+        "visibilityHelp": "Un perfil privado devuelve una página de «no encontrado» a cualquier visitante, y tus ascensiones públicas dejan de verse.",
+        "confirmPrivateTitle": "¿Poner tu perfil en privado?",
+        "confirmPrivateBody": "Quien abra tu dirección pública verá una página de «no encontrado», y tus ascensiones públicas dejarán de verse. Puedes deshacerlo cuando quieras.",
+        "confirmPrivateAction": "Ponerlo en privado",
+        "save": "Guardar los datos",
+        "saved": "Datos guardados."
+      },
+      "slug": {
+        "heading": "Dirección pública",
+        "label": "Tu dirección",
+        "preview": "Aquí es donde vive tu perfil público.",
+        "warning": "Cambiarla rompe todos los enlaces que compartiste con la dirección anterior: no hay redirección.",
+        "help": "Minúsculas, dígitos y guiones, hasta {max} caracteres.",
+        "save": "Guardar la dirección",
+        "saved": "Dirección guardada."
+      }
+    },
+    "account": {
+      "title": "Cuenta",
+      "email": {
+        "heading": "Correo electrónico",
+        "unconfirmed": "Todavía no has confirmado esta dirección.",
+        "resend": "Enviarme el enlace de confirmación"
+      },
+      "session": {
+        "heading": "Sesión",
+        "signOut": "Cerrar sesión",
+        "signOutAll": "Cerrar sesión en todos los dispositivos"
+      },
+      "preferences": {
+        "heading": "Idioma y unidades",
+        "units": "Unidades",
+        "metric": "Metros"
+      },
+      "danger": {
+        "heading": "Zona de peligro",
+        "body": "Dar de baja la cuenta borra todo lo que has registrado.",
+        "close": "Dar de baja mi cuenta",
+        "confirmTitle": "¿Dar de baja tu cuenta?",
+        "consequences": {
+          "data": "Se borrarán tu perfil, tus estadísticas, tus ascensiones y sus fotos.",
+          "identity": "Tu correo y tu nombre de usuario NO se liberan: no podrás volver a registrarte con ellos.",
+          "irreversible": "Esto no se puede deshacer.",
+          "sessions": "Se cerrarán todas las sesiones en todos los dispositivos."
+        },
+        "confirmPrompt": "Escribe {name} para confirmar.",
+        "confirmLabel": "Confirmación",
+        "confirmAction": "Dar de baja mi cuenta",
+        "deleted": "Tu cuenta está cerrada. Gracias por acompañarnos en la montaña.",
+        "passwordPrompt": "Escribe tu contraseña para confirmar."
+      }
+    }
+  },
+  "offline": {
+    "banner": "Estás sin conexión. Las ascensiones nuevas se guardan aquí y se envían al volver la red.",
+    "list": {
+      "pending": "Pendiente de enviar",
+      "rejected": "Sin enviar",
+      "photos": "{count, plural, one {# foto} other {# fotos}}"
+    },
+    "detail": {
+      "pending": {
+        "title": "Esperando conexión",
+        "body": "Esta ascensión está guardada en tu dispositivo y se enviará sola en cuanto vuelvas a tener red."
+      },
+      "rejected": {
+        "title": "No se ha podido enviar esta ascensión",
+        "body": "El servidor la rechazó, así que no se reintentará. Revisa los datos y regístrala de nuevo."
+      },
+      "photosDropped": "{count, plural, one {No se ha podido guardar # foto en el dispositivo} other {No se han podido guardar # fotos en el dispositivo}}. Vuelve a añadirlas cuando la ascensión se haya enviado.",
+      "discard": "Descartar esta ascensión",
+      "photosPending": "{count, plural, one {# foto pendiente de subir} other {# fotos pendientes de subir}}"
+    }
+  }
+}

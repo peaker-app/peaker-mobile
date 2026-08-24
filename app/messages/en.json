@@ -1,0 +1,809 @@
+{
+  "common": {
+    "skipToContent": "Skip to content",
+    "brand": "Peaker",
+    "locale": {
+      "label": "Language",
+      "en": "English",
+      "es": "Español",
+      "zh": "中文",
+      "fr": "Français",
+      "ar": "العربية"
+    },
+    "states": {
+      "loading": "Loading…",
+      "emptyTitle": "Nothing here yet",
+      "emptyDescription": "There is no data to show for now.",
+      "errorTitle": "Something went wrong",
+      "retry": "Try again"
+    },
+    "pagination": {
+      "label": "Pagination",
+      "previous": "Previous page",
+      "next": "Next page",
+      "page": "Page {page}",
+      "summary": "Page {page} of {totalPages}"
+    },
+    "confirm": {
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    },
+    "breadcrumb": {
+      "label": "Breadcrumb",
+      "home": "Home"
+    },
+    "showMore": "Read more",
+    "showLess": "Show less",
+    "actions": {
+      "save": "Save",
+      "saved": "Saved",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "back": "Back"
+    }
+  },
+  "nav": {
+    "label": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "Home",
+    "peaks": "Peaks",
+    "nearby": "Nearby",
+    "dashboard": "My activity",
+    "myAscents": "My ascents",
+    "collections": "Collections",
+    "profile": "Profile",
+    "account": "Account",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "signOut": "Sign out",
+    "accountMenu": "Account menu"
+  },
+  "footer": {
+    "tagline": "Search the world's mountains and log your ascents.",
+    "rights": "All rights reserved.",
+    "legalHeading": "Legal",
+    "legal": {
+      "notice": "Legal notice",
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "terms": "Terms of use"
+    }
+  },
+  "units": {
+    "meters": "{value} m",
+    "kilometers": "{value} km"
+  },
+  "visibility": {
+    "label": "Visibility",
+    "Public": "Public",
+    "Private": "Private",
+    "publicHint": "Anyone can see it on your public profile.",
+    "privateHint": "Only you can see it."
+  },
+  "conditions": {
+    "label": "Conditions",
+    "unspecified": "Not specified",
+    "snow": {
+      "label": "Snow",
+      "None": "None",
+      "Patchy": "Patchy",
+      "Continuous": "Continuous",
+      "Deep": "Deep"
+    },
+    "wind": {
+      "label": "Wind",
+      "Calm": "Calm",
+      "Moderate": "Moderate",
+      "Strong": "Strong",
+      "Storm": "Storm"
+    },
+    "trail": {
+      "label": "Trail",
+      "Good": "Good",
+      "Muddy": "Muddy",
+      "Icy": "Icy",
+      "Blocked": "Blocked"
+    }
+  },
+  "stats": {
+    "totalAscents": "Total ascents",
+    "distinctPeaks": "Distinct peaks",
+    "highestAltitude": "Highest altitude",
+    "lastAscent": "Last ascent",
+    "none": "None yet",
+    "publicOnly": "Public ascents only",
+    "eventualConsistency": "Updated in a few seconds."
+  },
+  "landing": {
+    "hero": {
+      "title": "Every mountain on Earth, and every summit you reach",
+      "subtitle": "Search peaks worldwide and keep a reliable log of your ascents.",
+      "searchCta": "Search peaks",
+      "nearbyCta": "See peaks near me"
+    },
+    "valueProps": {
+      "heading": "Why Peaker",
+      "searchTitle": "A worldwide catalogue",
+      "searchBody": "Find a peak by any of its names: Matterhorn and Cervino lead to the same mountain.",
+      "logTitle": "Your ascents, kept properly",
+      "logBody": "Date, route notes, companions, conditions and up to three photos per summit.",
+      "statsTitle": "Statistics that add up",
+      "statsBody": "Total ascents, distinct peaks and your altitude record, updated on their own."
+    },
+    "featured": {
+      "heading": "Featured peaks",
+      "seeAll": "See the whole catalogue"
+    },
+    "cta": {
+      "heading": "Ready for your next summit?",
+      "body": "Create a free account and start logging your ascents.",
+      "signUp": "Create account",
+      "dashboard": "Go to my activity"
+    },
+    "farewell": {
+      "title": "Your account has been closed",
+      "body": "Thanks for using Peaker. Your profile, ascents and photos are being deleted."
+    }
+  },
+  "peaks": {
+    "title": "Peaks",
+    "unnamed": "Unnamed peak ({id})",
+    "card": {
+      "altitude": "{value} m",
+      "prominence": "Prominence: {value} m",
+      "accessibleName": "{name}, {altitude} metres",
+      "distance": "{value} away",
+      "unknownCountry": "Unknown location"
+    },
+    "search": {
+      "label": "Search peaks",
+      "placeholder": "Matterhorn, Aneto, Fuji…",
+      "submit": "Search",
+      "help": "Search by any name of the mountain, in any language.",
+      "results": "{count, plural, =0 {No results} one {# result} other {# results}}",
+      "empty": "No peaks match \"{query}\"",
+      "emptyHint": "Try a different spelling or remove some filters."
+    },
+    "filters": {
+      "heading": "Filters",
+      "open": "Filters ({count})",
+      "close": "Done",
+      "country": "Country",
+      "anyCountry": "Any country",
+      "region": "Region",
+      "regionPlaceholder": "Pyrenees, Alps…",
+      "altitude": "Altitude",
+      "minAltitude": "Minimum altitude",
+      "maxAltitude": "Maximum altitude",
+      "altitudeRange": "From {min} to {max} metres",
+      "clearAll": "Clear all",
+      "remove": "Remove filter {name}",
+      "search": "Search",
+      "searchLabel": "Search with these filters"
+    },
+    "map": {
+      "label": "Map of peaks",
+      "textualAlternative": "The map is decorative: every peak is listed below with its coordinates.",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "consentRequired": "The map loads from {mapProvider}, which will see your IP address.",
+      "loadMap": "Load the map"
+    },
+    "nearby": {
+      "title": "Peaks near you",
+      "subtitle": "Choose a starting point and we'll list the closest summits.",
+      "useMyLocation": "Use my location",
+      "locating": "Locating…",
+      "permissionDenied": "We couldn't get your location. Enter the coordinates by hand.",
+      "servicesDisabled": "Location services are off. Turn them on in your device settings, or enter the coordinates by hand.",
+      "unsupported": "This browser can't share your location. Enter the coordinates by hand.",
+      "located": "Location set.",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "apply": "Search here",
+      "radius": "Search radius",
+      "radiusValue": "{value} km",
+      "mapHint": "Click the map to move the starting point.",
+      "noOrigin": "Pick a starting point to see the peaks around it.",
+      "empty": "No peaks within {radius}",
+      "emptyAction": "Widen the radius",
+      "listHeading": "Closest peaks",
+      "showMap": "Map",
+      "showList": "List",
+      "radiusInput": "Radius in kilometres"
+    },
+    "catalogueEmpty": "The catalogue has no peaks yet.",
+    "catalogueEmptyHint": "Data is loaded from Wikidata; come back in a moment."
+  },
+  "peakDetail": {
+    "photoCredit": {
+      "photo": "Photo",
+      "unknownAuthor": "Unknown author",
+      "source": "Wikimedia Commons"
+    },
+    "canonicalName": "Also known as {name}",
+    "metaDescription": "{name}, {altitude} metres. Coordinates, prominence and mountain range.",
+    "facts": {
+      "heading": "Facts",
+      "altitude": "Altitude",
+      "prominence": "Prominence",
+      "coordinates": "Coordinates",
+      "country": "Country",
+      "region": "Region",
+      "range": "Mountain range",
+      "openInMap": "Open in a map"
+    },
+    "actions": {
+      "heading": "Actions",
+      "logAscent": "Log an ascent",
+      "logAscentHint": "You'll need an account to log an ascent.",
+      "addToCollection": "Add to a collection",
+      "addToCollectionHint": "You'll need an account to save peaks into collections."
+    },
+    "alternativeNames": {
+      "heading": "Other names",
+      "official": "Official"
+    }
+  },
+  "profile": {
+    "public": {
+      "metaDescription": "{name}'s public ascents on Peaker.",
+      "ascentsHeading": "Public ascents",
+      "empty": "This climber has no public ascents yet.",
+      "ascentsUnavailable": "We couldn't load the ascents right now."
+    },
+    "header": {
+      "avatarAlt": "{name}'s avatar",
+      "noBio": "This climber hasn't written a bio yet."
+    }
+  },
+  "ascents": {
+    "mine": {
+      "title": "My ascents",
+      "logAscent": "Log a summit",
+      "view": {
+        "label": "View",
+        "cards": "Cards",
+        "table": "Table"
+      },
+      "table": {
+        "caption": "Your ascents, most recent first",
+        "peak": "Peak",
+        "altitude": "Altitude",
+        "date": "Date",
+        "visibility": "Visibility",
+        "actions": "Actions",
+        "view": "View",
+        "edit": "Edit"
+      },
+      "empty": {
+        "title": "You haven't logged any summit yet",
+        "body": "Every ascent you log shows up here, newest first.",
+        "action": "Log your first summit"
+      }
+    },
+    "detail": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "pendingPhotos": {
+        "title": "{count, plural, one {# photo couldn't be uploaded} other {# photos couldn't be uploaded}}",
+        "body": "The ascent was saved. You can add them again below."
+      },
+      "viewPublic": "See the public page"
+    },
+    "photos": {
+      "heading": "Photos",
+      "add": "Add photo",
+      "uploading": "Uploading…",
+      "full": "Maximum {max} photos.",
+      "delete": "Delete photo {index} of {total}",
+      "confirmTitle": "Delete this photo?",
+      "confirmBody": "It will be removed from the ascent and from our image storage. This can't be undone.",
+      "confirmAction": "Delete photo",
+      "deleted": "Photo deleted.",
+      "empty": "No photos yet. Add the ones you took on the summit.",
+      "takePhoto": "Take a photo",
+      "chooseFromGallery": "Choose from gallery",
+      "pickerDenied": "We couldn't open the camera or your gallery. Check the app permissions."
+    },
+    "danger": {
+      "heading": "Danger zone",
+      "body": "Deleting an ascent also deletes its photos. This can't be undone.",
+      "delete": "Delete ascent",
+      "confirmTitle": "Delete this ascent?",
+      "confirmBody": "{count, plural, =0 {The ascent will be deleted.} one {The ascent and its # photo will be deleted.} other {The ascent and its # photos will be deleted.}} This can't be undone.",
+      "deleted": "Ascent deleted.",
+      "saved": "Ascent updated."
+    },
+    "card": {
+      "accessibleName": "Ascent of {peak} on {date}",
+      "noPhoto": "No photo",
+      "altitude": "{value} m"
+    },
+    "public": {
+      "metaTitle": "{peak} — {climber}",
+      "breadcrumb": "Ascents",
+      "byClimber": "Logged by {name}",
+      "viewPeak": "See this peak"
+    },
+    "header": {
+      "date": "Climbed on {date}"
+    },
+    "gallery": {
+      "heading": "Photos",
+      "photoAlt": "Photo {index} of the ascent of {peak}",
+      "open": "Open photo {index}",
+      "close": "Close",
+      "previous": "Previous photo",
+      "next": "Next photo",
+      "counter": "{index} of {total}"
+    },
+    "notes": {
+      "routeHeading": "Route notes",
+      "companionsHeading": "Companions"
+    }
+  },
+  "collections": {
+    "title": "My collections",
+    "defaultName": "Want to climb",
+    "defaultBadge": "Default",
+    "new": "New collection",
+    "peakCount": "{count, plural, =0 {No peaks} one {# peak} other {# peaks}}",
+    "empty": {
+      "title": "You haven't created a collection yet",
+      "body": "Group the mountains you want to climb, or the ones you're ticking off a list."
+    },
+    "form": {
+      "name": "Name",
+      "nameHelp": "Up to {max} characters.",
+      "description": "Description",
+      "descriptionCounter": "{count} of {max} characters",
+      "nameRequired": "Enter a name."
+    },
+    "create": {
+      "title": "New collection",
+      "submit": "Create collection",
+      "created": "Collection created."
+    },
+    "edit": {
+      "action": "Edit",
+      "title": "Edit collection",
+      "submit": "Save changes",
+      "saved": "Collection saved."
+    },
+    "remove": {
+      "action": "Delete",
+      "title": "Delete this collection?",
+      "body": "The collection and its list of peaks will be deleted. Your ascents and the peak catalogue are not affected.",
+      "confirm": "Delete collection",
+      "deleted": "Collection deleted."
+    },
+    "detail": {
+      "peaks": "Peaks",
+      "addPeak": "Add a peak",
+      "empty": "This collection has no peaks yet.",
+      "peakColumn": "Peak",
+      "altitudeColumn": "Altitude",
+      "addedColumn": "Added",
+      "removePeak": "Remove {name} from the collection",
+      "peakAdded": "{name} added.",
+      "peakRemoved": "{name} removed."
+    },
+    "addPeak": {
+      "title": "Add a peak",
+      "label": "Search a peak",
+      "alreadyInCollection": "Already in this collection",
+      "close": "Done"
+    },
+    "picker": {
+      "title": "Add to a collection",
+      "empty": "You don't have any collection yet.",
+      "added": "Added to {collection}.",
+      "alreadyThere": "It was already in {collection}.",
+      "close": "Close"
+    }
+  },
+  "auth": {
+    "fields": {
+      "email": "Email address",
+      "emailHelp": "We'll send you a link to confirm it.",
+      "username": "Username",
+      "usernameHelp": "3 to 30 characters: letters, digits, dots, hyphens or underscores. It must start and end with a letter or digit, and can't have two separators in a row.",
+      "usernameCase": "Capitals are kept as you type them, but two usernames can't differ only in capitalisation.",
+      "password": "Password",
+      "passwordHelp": "At least {min} characters. Length beats complexity.",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "identifier": "Email or username",
+      "required": "This field is required."
+    },
+    "passwordStrength": {
+      "label": "Password strength",
+      "weak": "Weak",
+      "fair": "Fair",
+      "strong": "Strong",
+      "hint": "This is only a hint and never blocks you."
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Log the summits you reach, wherever they are.",
+      "submit": "Create account",
+      "submitting": "Creating account…",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "emailTaken": "That email address is already registered.",
+      "emailTakenAction": "Sign in instead",
+      "rateLimited": "Too many attempts. Wait a few minutes before trying again.",
+      "acceptTerms": "I confirm that I am at least 14 years old and I accept the <terms>Terms of use</terms> and the <privacy>Privacy policy</privacy>."
+    },
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Welcome back.",
+      "submit": "Sign in",
+      "submitting": "Signing in…",
+      "noAccount": "Don't have an account?",
+      "signUp": "Create one",
+      "registered": "Account created. Check your inbox for the confirmation link — it may take a moment to arrive.",
+      "failed": "Those credentials aren't valid.",
+      "rateLimited": "Too many attempts. Wait a minute before trying again."
+    },
+    "confirmEmail": {
+      "title": "Confirming your email",
+      "pending": "Confirming…",
+      "successTitle": "Your email is confirmed",
+      "successBody": "You can now log your ascents.",
+      "alreadyTitle": "Your email was already confirmed",
+      "alreadyBody": "Nothing else to do here.",
+      "errorTitle": "We couldn't confirm your email",
+      "errorBody": "This link isn't valid, has already been used, or has expired.",
+      "missingToken": "This link has no token. Open the most recent email we sent you.",
+      "goToDashboard": "Go to my activity",
+      "goToLogin": "Sign in",
+      "requestNew": "Request a new link",
+      "manual": {
+        "title": "Confirm it by hand",
+        "body": "If the link didn't open the app, paste it here — or paste just the token it carries.",
+        "label": "Confirmation link or token",
+        "help": "It's in the last email we sent you. It expires 24 hours after it was sent and works only once.",
+        "submit": "Confirm my email"
+      }
+    },
+    "resend": {
+      "title": "Confirm your email",
+      "body": "We've sent a link to your inbox. Open it to confirm your address.",
+      "warning": "Requesting a new link invalidates the previous ones: always use the most recent email.",
+      "submit": "Resend link",
+      "submitting": "Sending…",
+      "sent": "Link sent. Check your inbox.",
+      "cooldown": "You can ask for another link in <time>{value}</time>.",
+      "cooldownDisabled": "The button is disabled until the countdown ends.",
+      "alreadyConfirmed": "Your email is already confirmed.",
+      "goToDashboard": "Go to my activity",
+      "enterToken": "I already have the link: enter it"
+    }
+  },
+  "dashboard": {
+    "greeting": {
+      "title": "Your activity",
+      "titleNamed": "Hello, {name}",
+      "body": "Log the summits you reach and keep track of them.",
+      "logAscent": "Log a summit"
+    },
+    "unconfirmed": {
+      "message": "Confirm your email address to start logging ascents.",
+      "action": "Send me the link again"
+    },
+    "stats": {
+      "heading": "Your figures"
+    },
+    "profilePending": {
+      "title": "Preparing your profile…",
+      "body": "We're setting your account up. This takes a few seconds.",
+      "retry": "Reload"
+    },
+    "recent": {
+      "heading": "Latest ascents",
+      "seeAll": "See them all"
+    },
+    "empty": {
+      "title": "You haven't logged a summit yet",
+      "body": "Search for the mountain you climbed and log the date, the route and your photos.",
+      "action": "Log your first summit"
+    }
+  },
+  "ascentForm": {
+    "newTitle": "Log a summit",
+    "editTitle": "Edit ascent",
+    "steps": {
+      "peak": "Peak",
+      "date": "Date",
+      "photos": "Photos",
+      "details": "Details",
+      "visibility": "Visibility"
+    },
+    "peak": {
+      "label": "Which mountain did you climb?",
+      "placeholder": "Start typing a name…",
+      "change": "Change peak",
+      "empty": "No peaks match \"{query}\"",
+      "browse": "Browse the catalogue",
+      "results": "{count, plural, =0 {No results} one {# result} other {# results}}",
+      "selected": "Selected: {name}",
+      "locked": "The peak can't be changed",
+      "lockedHelp": "To correct the peak, delete this ascent and log it again."
+    },
+    "date": {
+      "label": "Ascent date",
+      "help": "It can't be in the future."
+    },
+    "photos": {
+      "label": "Photos",
+      "help": "Up to {max} photos, {size} MB each. JPEG, PNG or WebP.",
+      "add": "Add photos",
+      "counter": "{count} of {max}",
+      "remove": "Remove photo {index}",
+      "moveUp": "Move photo {index} earlier",
+      "moveDown": "Move photo {index} later",
+      "tooLarge": "{name} is over {size} MB.",
+      "unsupported": "{name} isn't a JPEG, PNG or WebP image.",
+      "tooMany": "You can only attach {max} photos.",
+      "takePhoto": "Take a photo",
+      "chooseFromGallery": "Choose from gallery",
+      "pickerDenied": "We couldn't open the camera or your gallery. Check the app permissions."
+    },
+    "companions": {
+      "label": "Companions",
+      "placeholder": "Ana, Luis…",
+      "counter": "{count} of {max} characters"
+    },
+    "notes": {
+      "label": "Route notes",
+      "placeholder": "Normal route from the hut…",
+      "counter": "{count} of {max} characters"
+    },
+    "visibility": {
+      "label": "Who can see this ascent?"
+    },
+    "progress": {
+      "label": "Saving",
+      "savingAscent": "Saving the ascent…",
+      "uploadingPhoto": "Uploading photo {current} of {total}…",
+      "done": "Done"
+    },
+    "submit": "Save ascent",
+    "submitting": "Saving…",
+    "cancel": "Cancel",
+    "unsavedChanges": "You have unsaved changes.",
+    "leaveTitle": "Leave without saving?",
+    "leaveConfirm": "Discard changes",
+    "emailNotConfirmed": {
+      "title": "Confirm your email before logging an ascent",
+      "body": "We've kept everything you typed. Confirm your address and try again.",
+      "resend": "Send me the link again",
+      "retry": "Try again"
+    },
+    "catalogueUnavailable": {
+      "title": "The peak catalogue isn't responding",
+      "retry": "Try again"
+    }
+  },
+  "errors": {
+    "unknown": "Something went wrong. Please try again.",
+    "status": {
+      "400": "Invalid request.",
+      "401": "Please sign in again.",
+      "403": "You don't have access to this.",
+      "404": "Not found.",
+      "409": "This conflicts with existing data.",
+      "429": "Too many attempts. Wait a moment.",
+      "500": "Server error. Please try again.",
+      "503": "Service temporarily unavailable."
+    },
+    "notFound": {
+      "code": "404",
+      "title": "This page doesn't exist",
+      "description": "The link may be broken or the content may have been removed.",
+      "goHome": "Back to home",
+      "searchPeaks": "Search peaks"
+    },
+    "generic": {
+      "title": "Something went wrong",
+      "description": "We couldn't load this page. You can retry or go back to the start.",
+      "retry": "Try again",
+      "goHome": "Back to home",
+      "reference": "Technical reference"
+    },
+    "User": {
+      "EmailEmpty": "Enter your email address.",
+      "EmailInvalid": "That email address isn't valid.",
+      "EmailTooLong": "That email address is too long.",
+      "UsernameEmpty": "Enter a username.",
+      "UsernameInvalid": "Use 3 to 30 characters: letters, digits, dots, hyphens or underscores. It must start and end with a letter or digit, and can't have two separators in a row.",
+      "PasswordHashMissing": "This account has no password set.",
+      "PasswordBreached": "This password appears in known data breaches. Choose a different one.",
+      "EmailAlreadyRegistered": "That email address is already registered.",
+      "UsernameAlreadyRegistered": "That username is already taken.",
+      "InvalidCredentials": "Those credentials aren't valid.",
+      "EmailAlreadyConfirmed": "Your email is already confirmed.",
+      "AlreadyDeleted": "This account has already been closed.",
+      "NotFound": "We couldn't find this account."
+    },
+    "RefreshToken": {
+      "InvalidOrExpired": "Your session has expired. Please sign in again."
+    },
+    "EmailConfirmation": {
+      "InvalidOrExpired": "This link isn't valid, has already been used, or has expired.",
+      "ResendTooSoon": "You asked for a link very recently. Wait a couple of minutes before trying again.",
+      "DeliveryFailed": "We couldn't send the email. Try again in a moment."
+    },
+    "Profile": {
+      "DisplayNameEmpty": "Enter a display name.",
+      "DisplayNameTooLong": "Your display name can't be longer than 60 characters.",
+      "BioTooLong": "Your bio can't be longer than 500 characters.",
+      "CountryCodeInvalid": "That country isn't valid.",
+      "SlugInvalid": "Use lowercase letters, digits and hyphens, up to 80 characters.",
+      "SlugAlreadyTaken": "That address is already taken.",
+      "AvatarTooLarge": "The image can't be larger than 5 MB.",
+      "AvatarFormatNotSupported": "Only JPEG, PNG and WebP images are supported.",
+      "AvatarUploadFailed": "We couldn't save the image. Try again later.",
+      "NotFound": "We couldn't find this profile.",
+      "AlreadyExists": "This profile already exists."
+    },
+    "Peak": {
+      "NotFound": "We couldn't find this peak.",
+      "LatitudeOutOfRange": "Latitude must be between -90 and 90.",
+      "LongitudeOutOfRange": "Longitude must be between -180 and 180.",
+      "RadiusOutOfRange": "The radius must be between 1 and 50 km.",
+      "AltitudeRangeInvalid": "The minimum altitude can't be higher than the maximum.",
+      "CountryCodeInvalid": "That country isn't valid.",
+      "RegionTooLong": "That region name is too long."
+    },
+    "Ascent": {
+      "DateInFuture": "The ascent date can't be in the future.",
+      "DateTooOld": "The ascent date can't be earlier than 1 January 1900.",
+      "CompanionsTooLong": "Companions can't be longer than 500 characters.",
+      "RouteNotesTooLong": "Route notes can't be longer than 2000 characters.",
+      "UnsupportedPhotoFormat": "Only JPEG, PNG and WebP images are supported.",
+      "PhotoTooLarge": "Each photo can't be larger than 10 MB.",
+      "PhotoLimitReached": "An ascent can have at most 3 photos.",
+      "EmailNotConfirmed": "Confirm your email address before logging an ascent.",
+      "NotOwned": "This ascent doesn't belong to you.",
+      "NotFound": "We couldn't find this ascent.",
+      "PhotoNotFound": "We couldn't find this photo.",
+      "PeakNotFound": "That peak is no longer in the catalogue.",
+      "ProfileNotVisible": "We couldn't find this ascent.",
+      "PhotoUploadFailed": "We couldn't save the image. Try again.",
+      "PeakCatalogUnavailable": "The peak catalogue isn't responding. Try again in a moment.",
+      "ProfileDirectoryUnavailable": "The profile service isn't responding. Try again in a moment."
+    },
+    "Collection": {
+      "NameRequired": "Enter a name for the collection.",
+      "NameTooLong": "The name can't be longer than 60 characters.",
+      "DescriptionTooLong": "The description can't be longer than 500 characters.",
+      "NameAlreadyUsed": "You already have a collection with that name.",
+      "DefaultNotEditable": "The default collection can't be renamed.",
+      "DefaultNotDeletable": "The default collection can't be deleted.",
+      "PeakAlreadyAdded": "That peak is already in this collection.",
+      "PeakLimitReached": "A collection cannot hold more than 1,000 peaks.",
+      "CollectionLimitReached": "You cannot have more than 100 collections.",
+      "PeakRequired": "Choose a peak.",
+      "PeakNameRequired": "That peak has no usable name in the catalogue.",
+      "PeakNameTooLong": "That peak's name is too long for a collection.",
+      "PeakCatalogUnavailable": "The peak catalogue isn't responding. Try again in a moment.",
+      "NotFound": "We couldn't find this collection.",
+      "PeakNotFound": "That peak is no longer in the catalogue.",
+      "PeakNotInCollection": "That peak isn't in this collection."
+    },
+    "Pagination": {
+      "PageOutOfRange": "That page doesn't exist.",
+      "SizeOutOfRange": "The page size must be between 1 and 100."
+    }
+  },
+  "settings": {
+    "profile": {
+      "title": "Profile",
+      "viewPublic": "See my public profile",
+      "avatar": {
+        "heading": "Photo",
+        "change": "Change photo",
+        "remove": "Remove photo",
+        "help": "JPEG, PNG or WebP, up to {size} MB.",
+        "alt": "{name}'s photo",
+        "empty": "No photo yet",
+        "tooLarge": "The image can't be larger than {size} MB.",
+        "unsupported": "Only JPEG, PNG and WebP images are supported.",
+        "confirmRemoveTitle": "Remove your photo?",
+        "confirmRemoveBody": "Your profile will show your initials instead. You can upload a new one whenever you want.",
+        "confirmRemoveAction": "Remove photo",
+        "removed": "Photo removed.",
+        "uploaded": "Photo updated.",
+        "takePhoto": "Take a photo",
+        "chooseFromGallery": "Choose from gallery",
+        "pickerDenied": "We couldn't open the camera or the gallery. Check the app permissions."
+      },
+      "data": {
+        "heading": "Your details",
+        "displayName": "Display name",
+        "displayNameHelp": "How other climbers see you. It doesn't have to be unique, and it isn't your username: that one can't be changed.",
+        "bio": "Bio",
+        "bioCounter": "{count} of {max} characters",
+        "country": "Country",
+        "countryPlaceholder": "No country",
+        "visibility": "Profile visibility",
+        "visibilityHelp": "A private profile returns a not-found page to any visitor, and your public ascents stop being visible.",
+        "confirmPrivateTitle": "Make your profile private?",
+        "confirmPrivateBody": "Anyone opening your public address will get a not-found page, and your public ascents will stop being visible. You can undo this whenever you want.",
+        "confirmPrivateAction": "Make it private",
+        "save": "Save details",
+        "saved": "Details saved."
+      },
+      "slug": {
+        "heading": "Public address",
+        "label": "Your address",
+        "preview": "This is where your public profile lives.",
+        "warning": "Changing it breaks every link you shared with the old address: there is no redirect.",
+        "help": "Lowercase letters, digits and hyphens, up to {max} characters.",
+        "save": "Save address",
+        "saved": "Address saved."
+      }
+    },
+    "account": {
+      "title": "Account",
+      "email": {
+        "heading": "Email",
+        "unconfirmed": "You haven't confirmed this address yet.",
+        "resend": "Send me the confirmation link"
+      },
+      "session": {
+        "heading": "Session",
+        "signOut": "Sign out",
+        "signOutAll": "Sign out on all devices"
+      },
+      "preferences": {
+        "heading": "Language and units",
+        "units": "Units",
+        "metric": "Metres"
+      },
+      "danger": {
+        "heading": "Danger zone",
+        "body": "Closing your account deletes everything you've logged.",
+        "close": "Close my account",
+        "confirmTitle": "Close your account?",
+        "consequences": {
+          "data": "Your profile, statistics, ascents and photos will be deleted.",
+          "identity": "Your email address and username will NOT be freed: you won't be able to sign up with them again.",
+          "irreversible": "This can't be undone.",
+          "sessions": "Every session will be closed on every device."
+        },
+        "confirmPrompt": "Type {name} to confirm.",
+        "confirmLabel": "Confirmation",
+        "confirmAction": "Close my account",
+        "deleted": "Your account is closed. Thanks for climbing with us.",
+        "passwordPrompt": "Enter your password to confirm."
+      }
+    }
+  },
+  "offline": {
+    "banner": "You're offline. New ascents are saved here and sent when you're back.",
+    "list": {
+      "pending": "Waiting to be sent",
+      "rejected": "Not sent",
+      "photos": "{count, plural, one {# photo} other {# photos}}"
+    },
+    "detail": {
+      "pending": {
+        "title": "Waiting for a connection",
+        "body": "This ascent is saved on your device and will be sent on its own as soon as you're back online."
+      },
+      "rejected": {
+        "title": "This ascent couldn't be sent",
+        "body": "The server turned it down, so it won't be retried. Check the details and log it again."
+      },
+      "photosDropped": "{count, plural, one {# photo couldn't be saved on your device} other {# photos couldn't be saved on your device}}. Add them again once the ascent has been sent.",
+      "discard": "Discard this ascent",
+      "photosPending": "{count, plural, one {# photo waiting to be uploaded} other {# photos waiting to be uploaded}}"
+    }
+  }
+}
