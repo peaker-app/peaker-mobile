@@ -1,49 +1,51 @@
 # Arte fuente de la marca
 
-`icon.svg` es el **único origen** del icono de la aplicación. Se construye con los dos trazos de
-`MountainSnowIcon` de [lucide](https://lucide.dev) (licencia ISC, redistribuible), el mismo icono
-que `Header.tsx` usa como marca en el portal, sobre el `--primary` de Peaker.
+`logo.png` es el **origen del icono de la aplicación**: la insignia circular de Peaker, 2816×1536
+con el círculo centrado sobre fondo transparente. El mismo fichero vive en
+`peaker-web/portal/src/app/assets/logo.png`, que es de donde lo lee el generador.
 
-El color `#005C41` es la conversión a sRGB de `oklch(0.42 0.09 165)`, el token `--primary` del modo
-claro de `src/styles/globals.css`. Queda fuera de la gama sRGB y se recorta: es el valor más
-cercano representable, no una elección estética independiente. Si el token cambia, este fichero y
-`android/app/src/main/res/values/ic_launcher_background.xml` cambian con él.
+## Los iconos se generan, no se editan a mano
 
-## Android no usa este fichero
+```bash
+cd ../../peaker-web/portal && npm run icons
+```
 
-En Android el icono y el splash son **`VectorDrawable`**, escritos a mano a partir de los mismos
-dos trazos:
+`scripts/generate-icons.mjs` localiza el círculo por su caja de píxeles opacos —así el recorte
+sigue saliendo bien si el logotipo cambia de márgenes—, lo recorta en cuadrado y escribe en los dos
+repositorios. Usa el `sharp` que Next ya arrastra como dependencia, de modo que no añade nada al
+árbol de móvil. Lo que escribe aquí:
 
 | Fichero | Para qué |
 |---|---|
-| `res/drawable/ic_launcher_foreground.xml` | Capa delantera del icono adaptativo (API 26+) |
+| `res/mipmap-*/ic_launcher.png` · `ic_launcher_round.png` | Lanzadores de API 24 y 25, anteriores al icono adaptativo |
+| `res/mipmap-*/ic_launcher_foreground.png` | Capa delantera del icono adaptativo (API 26+) |
+| `ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png` | Icono de iOS, 1024×1024 |
+
+**La capa delantera ocupa dos tercios del lienzo**, que es la zona segura de los 108 dp del icono
+adaptativo: la máscara circular del sistema cae justo sobre el borde del círculo azul. El fondo es
+`@color/ic_launcher_background`, hoy `#FFFFFF`, porque el logotipo trae su propio anillo blanco.
+
+**Los ficheros de iOS van sin canal alfa.** Se aplanan sobre blanco a propósito: la App Store
+rechaza un icono con transparencia (ITMS-90717).
+
+## Lo que sigue siendo vectorial
+
+| Fichero | Para qué |
+|---|---|
 | `res/drawable/ic_launcher_monochrome.xml` | Capa monocroma de los iconos temáticos (API 33+) |
-| `res/drawable/splash.xml` | Splash de arranque |
-| `res/drawable/splash_icon.xml` | Icono del splash del sistema de Android 12+ |
+| `res/drawable/splash.xml` · `splash_icon.xml` | Splash de arranque y el del sistema de Android 12+ |
 
-Son vectores porque el arte son dos trazos: se ven nítidos en cualquier densidad, no engordan el
-APK y no necesitan herramienta de generación. `@capacitor/assets` se evaluó y se descartó en B7a:
-arrastra 7 avisos de seguridad sin corrección disponible —`sharp` 0.32 con libvips vulnerable, un
-`@capacitor/cli` antiguo con `tar` crítico y `minimatch`— para un trabajo que aquí es un `<path>`.
+Son los dos trazos de `MountainSnowIcon` de [lucide](https://lucide.dev) (licencia ISC,
+redistribuible), el mismo icono que `Header.tsx` usa como marca en el portal, sobre `#005C41` —la
+conversión a sRGB de `oklch(0.42 0.09 165)`, el token `--primary` del modo claro de
+`src/styles/globals.css`, que queda fuera de gama y se recorta—. `icon.svg` es su origen.
 
-## De dónde salen los PNG
+**Deuda declarada:** el splash y la capa monocroma siguen mostrando la montaña verde, no la
+insignia azul. La monocroma tiene que ser una silueta de un solo tono y el splash, un vector nítido
+a cualquier densidad; ninguna de las dos se saca de un PNG con degradado sin redibujarla. Se deja
+como está antes que rasterizar mal.
 
-Solo hacen falta para los lanzadores de API 24 y 25, anteriores al icono adaptativo, y para iOS
-(B7). Se rasterizan desde `icon.svg` **fuera del proyecto**, para no meter un rasterizador en el
-árbol de dependencias:
-
-```bash
-mkdir /tmp/peaker-icons && cd /tmp/peaker-icons
-npm init -y && npm install sharp
-node -e "
-const sharp = require('sharp');
-const svg = require('fs').readFileSync('<ruta>/app/assets/icon.svg');
-for (const [dir, size] of [['mdpi',48],['hdpi',72],['xhdpi',96],['xxhdpi',144],['xxxhdpi',192]]) {
-  sharp(svg, { density: 600 }).resize(size, size)
-    .toFile(\`<ruta>/app/android/app/src/main/res/mipmap-\${dir}/ic_launcher.png\`);
-}
-"
-```
-
-El script completo, con la máscara circular de `ic_launcher_round.png`, está en el mensaje del
-commit de B7a.
+`@capacitor/assets` se evaluó y se descartó en B7a: arrastra 7 avisos de seguridad sin corrección
+disponible —`sharp` 0.32 con libvips vulnerable, un `@capacitor/cli` antiguo con `tar` crítico y
+`minimatch`—. El generador del portal no cambia ese razonamiento: usa el `sharp` 0.34 que Next ya
+trae, sin dependencia nueva en ninguno de los dos repositorios.
