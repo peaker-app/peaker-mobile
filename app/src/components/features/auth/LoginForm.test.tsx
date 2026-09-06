@@ -167,6 +167,35 @@ describe("LoginForm", () => {
     );
   });
 
+  it("loginForm_emptyFields_reportBothAsRequired", async () => {
+    render(<LoginForm />, { wrapper: IntlWrapper });
+
+    await userEvent.click(screen.getByRole("button", { name: "Sign in" }));
+
+    await waitFor(() =>
+      expect(screen.getAllByText("This field is required.")).toHaveLength(2),
+    );
+    expect(screen.getByLabelText("Email or username")).toHaveAttribute(
+      "aria-invalid",
+      "true",
+    );
+    expect(signInMock).not.toHaveBeenCalled();
+  });
+
+  it("loginForm_spanishLocale_translatesTheRequiredMessage", async () => {
+    render(<LoginForm />, {
+      wrapper: ({ children }) => (
+        <IntlWrapper locale="es">{children}</IntlWrapper>
+      ),
+    });
+
+    await userEvent.click(screen.getByRole("button", { name: "Entrar" }));
+
+    await waitFor(() =>
+      expect(screen.getAllByText("Este campo es obligatorio.")).toHaveLength(2),
+    );
+  });
+
   it("loginForm_serverError_showsTheStatusFallback", async () => {
     respondWith(503, {});
     render(<LoginForm />, { wrapper: IntlWrapper });
