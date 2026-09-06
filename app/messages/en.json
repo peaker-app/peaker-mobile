@@ -416,8 +416,7 @@
       "passwordHelp": "At least {min} characters. Length beats complexity.",
       "showPassword": "Show password",
       "hidePassword": "Hide password",
-      "identifier": "Email or username",
-      "required": "This field is required."
+      "identifier": "Email or username"
     },
     "passwordStrength": {
       "label": "Password strength",
@@ -615,6 +614,10 @@
       "goHome": "Back to home",
       "reference": "Technical reference"
     },
+    "field": {
+      "required": "This field is required.",
+      "passwordTooShort": "The password must be at least {min} characters long."
+    },
     "User": {
       "EmailEmpty": "Enter your email address.",
       "EmailInvalid": "That email address isn't valid.",
@@ -622,6 +625,7 @@
       "UsernameEmpty": "Enter a username.",
       "UsernameInvalid": "Use 3 to 30 characters: letters, digits, dots, hyphens or underscores. It must start and end with a letter or digit, and can't have two separators in a row.",
       "PasswordHashMissing": "This account has no password set.",
+      "TermsNotAccepted": "You must confirm that you are at least 14 years old and accept the Terms of use and the Privacy policy.",
       "PasswordBreached": "This password appears in known data breaches. Choose a different one.",
       "EmailAlreadyRegistered": "That email address is already registered.",
       "UsernameAlreadyRegistered": "That username is already taken.",

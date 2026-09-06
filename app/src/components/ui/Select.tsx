@@ -57,7 +57,7 @@ export const SelectItem = ({
 }: ComponentProps<typeof SelectPrimitive.Item>) => (
   <SelectPrimitive.Item
     className={cn(
-      "relative flex cursor-default select-none items-center gap-2 rounded-md py-2 pe-8 ps-2 text-sm text-start outline-none",
+      "relative flex cursor-pointer select-none items-center gap-2 rounded-md py-2 pe-8 ps-2 text-sm text-start outline-none",
       "focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}

@@ -416,8 +416,7 @@
       "passwordHelp": "Au moins {min} caractères. La longueur compte plus que la complexité.",
       "showPassword": "Afficher le mot de passe",
       "hidePassword": "Masquer le mot de passe",
-      "identifier": "E-mail ou nom d'utilisateur",
-      "required": "Ce champ est obligatoire."
+      "identifier": "E-mail ou nom d'utilisateur"
     },
     "passwordStrength": {
       "label": "Robustesse du mot de passe",
@@ -539,6 +538,10 @@
       "goHome": "Retour à l'accueil",
       "reference": "Référence technique"
     },
+    "field": {
+      "required": "Ce champ est obligatoire.",
+      "passwordTooShort": "Le mot de passe doit contenir au moins {min} caractères."
+    },
     "User": {
       "EmailEmpty": "Saisissez votre adresse e-mail.",
       "EmailInvalid": "Cette adresse e-mail n'est pas valide.",
@@ -546,6 +549,7 @@
       "UsernameEmpty": "Saisissez un nom d'utilisateur.",
       "UsernameInvalid": "Utilisez de 3 à 30 caractères : lettres, chiffres, points, tirets ou traits de soulignement. Il doit commencer et finir par une lettre ou un chiffre, sans deux séparateurs consécutifs.",
       "PasswordHashMissing": "Ce compte n'a pas de mot de passe défini.",
+      "TermsNotAccepted": "Vous devez confirmer avoir au moins 14 ans et accepter les Conditions d'utilisation et la Politique de confidentialité.",
       "PasswordBreached": "Ce mot de passe figure dans des fuites de données connues. Choisissez-en un autre.",
       "EmailAlreadyRegistered": "Cette adresse e-mail est déjà enregistrée.",
       "UsernameAlreadyRegistered": "Ce nom d'utilisateur est déjà pris.",
