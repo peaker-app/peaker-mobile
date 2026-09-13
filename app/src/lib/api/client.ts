@@ -1,4 +1,4 @@
-import { refreshSession } from "@/lib/auth/refresh";
+import { ensureFreshAccessToken, refreshSession } from "@/lib/auth/refresh";
 import { getAccessToken } from "@/lib/auth/tokenStore";
 import { correlationHeader, newCorrelationId } from "./correlation";
 import { gatewayUrl } from "./gateway";
@@ -46,6 +46,8 @@ const sendWithAuth = async (
   path: string,
   init: RequestInit,
 ): Promise<Response> => {
+  await ensureFreshAccessToken();
+
   const correlationId = newCorrelationId();
   const first = await send(path, init, correlationId);
 

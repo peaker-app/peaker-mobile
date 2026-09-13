@@ -42,6 +42,29 @@ describe("tokenStore", () => {
     await expect(tokenStore.readRefreshToken()).resolves.toBe("refresh-9");
   });
 
+  it("persistTokens_whenSecureStorageThrows_stillMarksTheSessionAuthenticated", async () => {
+    const { secureStorage, sessionStore, tokenStore } = await loadAuth();
+    vi.spyOn(secureStorage.secureStore, "set").mockRejectedValue(
+      new Error("keystore invalidated"),
+    );
+
+    await tokenStore.persistTokens(tokens());
+
+    expect(sessionStore.getSessionState().status).toBe("authenticated");
+  });
+
+  it("clearTokens_whenSecureStorageThrows_stillMarksAnonymous", async () => {
+    const { secureStorage, sessionStore, tokenStore } = await loadAuth();
+    await tokenStore.persistTokens(tokens());
+    vi.spyOn(secureStorage.secureStore, "remove").mockRejectedValue(
+      new Error("keystore invalidated"),
+    );
+
+    await tokenStore.clearTokens();
+
+    expect(sessionStore.getSessionState().status).toBe("anonymous");
+  });
+
   it("clearTokens_dropsBothTokensAndGoesAnonymous", async () => {
     const { sessionStore, tokenStore } = await loadAuth();
     await tokenStore.persistTokens(tokens());
