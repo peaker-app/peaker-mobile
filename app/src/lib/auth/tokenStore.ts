@@ -8,19 +8,34 @@ let accessToken: string | undefined;
 
 export const getAccessToken = (): string | undefined => accessToken;
 
-export const readRefreshToken = (): Promise<string | undefined> =>
-  secureStore.get(refreshTokenKey);
+export const readRefreshToken = async (): Promise<string | undefined> => {
+  try {
+    return await secureStore.get(refreshTokenKey);
+  } catch {
+    return undefined;
+  }
+};
 
 export const persistTokens = async (
   tokens: AuthTokensResponse,
 ): Promise<void> => {
   accessToken = tokens.accessToken;
-  await secureStore.set(refreshTokenKey, tokens.refreshToken);
   markAuthenticated(tokens.accessToken);
+
+  try {
+    await secureStore.set(refreshTokenKey, tokens.refreshToken);
+  } catch {
+    return;
+  }
 };
 
 export const clearTokens = async (): Promise<void> => {
   accessToken = undefined;
-  await secureStore.remove(refreshTokenKey);
   markAnonymous();
+
+  try {
+    await secureStore.remove(refreshTokenKey);
+  } catch {
+    return;
+  }
 };

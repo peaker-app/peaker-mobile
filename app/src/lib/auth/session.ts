@@ -77,7 +77,11 @@ export const signOutEverywhere = async (): Promise<void> => {
 };
 
 export const restoreSession = async (): Promise<SessionState> => {
-  if (!(await refreshSession())) {
+  try {
+    if (!(await refreshSession())) {
+      markAnonymous();
+    }
+  } catch {
     markAnonymous();
   }
 
