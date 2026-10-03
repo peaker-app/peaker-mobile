@@ -48,6 +48,7 @@ export const RegisterAscentForm = ({
   const errors = useTranslations("errors");
   const router = useRouter();
   const markUnconfirmed = useEmailConfirmation((state) => state.markUnconfirmed);
+  const clearUnconfirmed = useEmailConfirmation((state) => state.clear);
 
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [formError, setFormError] =
@@ -126,6 +127,10 @@ export const RegisterAscentForm = ({
         onProgress: setProgress,
         peak: values.peak,
       });
+
+      if (outcome.status === "submitted") {
+        clearUnconfirmed();
+      }
 
       router.replace(destinationOf(outcome));
     } catch (error) {

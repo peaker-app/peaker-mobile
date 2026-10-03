@@ -1,6 +1,6 @@
 import { screen, waitFor } from "@testing-library/react";
 import { StrictMode } from "react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { SessionState } from "@/lib/auth/sessionStore";
 import { renderWithProviders } from "@/test/renderWithProviders";
 
@@ -12,6 +12,7 @@ vi.mock("@/lib/auth/session", () => ({
 }));
 
 const { ConfirmEmailView } = await import("./ConfirmEmailView");
+const { useEmailConfirmation } = await import("@/stores/emailConfirmation");
 
 const confirmResponse = (status: number, body: unknown = {}) => ({
   ok: status < 400,
@@ -32,6 +33,10 @@ const stubFetch = (confirm: ReturnType<typeof confirmResponse>) => {
     confirmCalls: () => calls.filter((url) => url.includes("email/confirm")),
   };
 };
+
+beforeEach(() => {
+  useEmailConfirmation.setState({ unconfirmed: true });
+});
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -73,6 +78,38 @@ describe("ConfirmEmailView", () => {
       ).toBeInTheDocument(),
     );
     expect(screen.queryByText("We couldn't confirm your email")).toBeNull();
+  });
+
+  it("confirmEmailView_confirmed_takesTheDashboardBannerDown", async () => {
+    stubFetch(confirmResponse(204));
+    renderWithProviders(<ConfirmEmailView token="abc123" />);
+
+    await waitFor(() =>
+      expect(useEmailConfirmation.getState().unconfirmed).toBe(false),
+    );
+  });
+
+  it("confirmEmailView_alreadyConfirmed_takesTheDashboardBannerDown", async () => {
+    stubFetch(confirmResponse(409, { title: "User.EmailAlreadyConfirmed" }));
+    renderWithProviders(<ConfirmEmailView token="abc123" />);
+
+    await waitFor(() =>
+      expect(useEmailConfirmation.getState().unconfirmed).toBe(false),
+    );
+  });
+
+  it("confirmEmailView_expiredToken_keepsTheBannerBecauseNothingWasConfirmed", async () => {
+    stubFetch(
+      confirmResponse(400, { title: "EmailConfirmation.InvalidOrExpired" }),
+    );
+    renderWithProviders(<ConfirmEmailView token="abc123" />);
+
+    await waitFor(() =>
+      expect(
+        screen.getByText("We couldn't confirm your email"),
+      ).toBeInTheDocument(),
+    );
+    expect(useEmailConfirmation.getState().unconfirmed).toBe(true);
   });
 
   it("confirmEmailView_expiredToken_offersToRequestANewLink", async () => {

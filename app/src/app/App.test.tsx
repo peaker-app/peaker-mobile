@@ -16,6 +16,7 @@ vi.mock("@capacitor/device", () => ({
 
 vi.mock("@/lib/auth/refresh", () => ({
   refreshSession: () => restoreSession(),
+  ensureFreshAccessToken: () => Promise.resolve(),
 }));
 
 vi.mock("@/components/features/peaks/PeakMap", () => ({

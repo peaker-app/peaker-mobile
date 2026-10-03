@@ -126,9 +126,9 @@ describe("refreshSession", () => {
     await expect(tokenStore.readRefreshToken()).resolves.toBe("rotated");
   });
 
-  it("refreshSession_afterAFailure_doesNotRetryWithADeadToken", async () => {
+  it("refreshSession_serverError_keepsTheTokenForALaterRetry", async () => {
     const { refresh, tokenStore } = await loadAuth();
-    await tokenStore.persistTokens(tokens());
+    await tokenStore.persistTokens(tokens({ refreshToken: "still-valid" }));
     const fetchSpy = vi
       .spyOn(globalThis, "fetch")
       .mockResolvedValue(emptyResponse(500));
@@ -136,6 +136,56 @@ describe("refreshSession", () => {
     await refresh.refreshSession();
     await refresh.refreshSession();
 
-    expect(fetchSpy).toHaveBeenCalledOnce();
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
+    await expect(tokenStore.readRefreshToken()).resolves.toBe("still-valid");
   });
+
+  it.each([404, 408, 429, 502, 503])(
+    "refreshSession_status%i_keepsTheTokenBecauseItIsNotTheTokenThatFailed",
+    async (status) => {
+      const { refresh, tokenStore } = await loadAuth();
+      await tokenStore.persistTokens(tokens({ refreshToken: "still-valid" }));
+      vi.spyOn(globalThis, "fetch").mockResolvedValue(emptyResponse(status));
+
+      await refresh.refreshSession();
+
+      await expect(tokenStore.readRefreshToken()).resolves.toBe("still-valid");
+    },
+  );
+
+  it("refreshSession_whenSecureStorageThrowsOnRead_resolvesInsteadOfRejecting", async () => {
+    const { refresh, secureStorage } = await loadAuth();
+    vi.spyOn(secureStorage.secureStore, "get").mockRejectedValue(
+      new Error("keystore invalidated"),
+    );
+    const fetchSpy = vi.spyOn(globalThis, "fetch");
+
+    await expect(refresh.refreshSession()).resolves.toBeUndefined();
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it("refreshSession_whenSecureStorageThrowsOnWrite_stillReportsTheSessionAsAuthenticated", async () => {
+    const { refresh, secureStorage, sessionStore, tokenStore } = await loadAuth();
+    await tokenStore.persistTokens(tokens());
+    vi.spyOn(secureStorage.secureStore, "set").mockRejectedValue(
+      new Error("keystore invalidated"),
+    );
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(jsonResponse(tokens()));
+
+    await expect(refresh.refreshSession()).resolves.toBeDefined();
+    expect(sessionStore.getSessionState().status).toBe("authenticated");
+  });
+
+  it.each([401, 403])(
+    "refreshSession_status%i_clearsTheSessionBecauseTheTokenIsDead",
+    async (status) => {
+      const { refresh, tokenStore } = await loadAuth();
+      await tokenStore.persistTokens(tokens({ refreshToken: "dead" }));
+      vi.spyOn(globalThis, "fetch").mockResolvedValue(emptyResponse(status));
+
+      await refresh.refreshSession();
+
+      await expect(tokenStore.readRefreshToken()).resolves.toBeUndefined();
+    },
+  );
 });

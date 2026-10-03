@@ -1,9 +1,11 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  alwaysJson,
   emptyResponse,
   gatewayOrigin,
   headerOf,
   jsonResponse,
+  jwt,
   loadAuth,
   requestOf,
   tokens,
@@ -144,6 +146,63 @@ describe("apiFetch unauthorised handling", () => {
     expect(headerOf(replay.init, "Authorization")).toBe(
       `Bearer ${rotated.accessToken}`,
     );
+  });
+
+  it("apiFetch_withAnExpiredAccessToken_rotatesBeforeSendingSoTheGatewayNeverSeesA401", async () => {
+    const { client, tokenStore } = await loadAuth();
+    const expired = jwt({
+      sub: "u-1",
+      email: "ana@peaker.app",
+      exp: Math.floor(Date.now() / 1000) - 60,
+    });
+    await tokenStore.persistTokens(tokens({ accessToken: expired }));
+    const rotated = tokens({ accessToken: "header.e30.rotated" });
+    const fetchSpy = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(jsonResponse(rotated))
+      .mockResolvedValueOnce(jsonResponse({ id: "p-1" }));
+
+    await expect(client.apiFetch("profiles/me")).resolves.toEqual({ id: "p-1" });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(2);
+    const sent = requestOf(fetchSpy.mock.calls[1] as unknown[]);
+    expect(headerOf(sent.init, "Authorization")).toBe(
+      `Bearer ${rotated.accessToken}`,
+    );
+  });
+
+  it("apiFetch_parallelCallsWithAnExpiredToken_rotateOnlyOnce", async () => {
+    const { client, tokenStore } = await loadAuth();
+    const expired = jwt({
+      sub: "u-1",
+      email: "ana@peaker.app",
+      exp: Math.floor(Date.now() / 1000) - 60,
+    });
+    await tokenStore.persistTokens(tokens({ accessToken: expired }));
+    const fetchSpy = vi
+      .spyOn(globalThis, "fetch")
+      .mockImplementation(alwaysJson(tokens({ accessToken: "header.e30.new" })));
+
+    await Promise.all([
+      client.apiFetch("profiles/me"),
+      client.apiFetch("ascents"),
+      client.apiFetch("collections"),
+    ]);
+
+    const rotations = fetchSpy.mock.calls.filter((call) =>
+      String(call[0]).endsWith("/api/auth/refresh"),
+    );
+    expect(rotations).toHaveLength(1);
+  });
+
+  it("apiFetch_withoutASession_doesNotTouchSecureStorage", async () => {
+    const { client, secureStorage } = await loadAuth();
+    const readSpy = vi.spyOn(secureStorage.secureStore, "get");
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(jsonResponse({}));
+
+    await client.apiFetch("peaks");
+
+    expect(readSpy).not.toHaveBeenCalled();
   });
 
   it("apiFetch_401_withoutAUsableRefreshToken_propagatesTheOriginalError", async () => {

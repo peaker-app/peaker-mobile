@@ -14,6 +14,9 @@ vi.mock("@/i18n/navigation", () => ({
 
 const { RegisterForm } = await import("./RegisterForm");
 
+const termsRequired =
+  "You must confirm that you are at least 14 years old and accept the Terms of use and the Privacy policy.";
+
 const respondWith = (status: number, body: unknown = {}) =>
   vi.stubGlobal(
     "fetch",
@@ -80,6 +83,43 @@ describe("RegisterForm", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
+  it("registerForm_unacceptedTerms_explainsWhyTheFormDidNotSubmit", async () => {
+    vi.stubGlobal("fetch", vi.fn());
+    render(<RegisterForm />, { wrapper: IntlWrapper });
+
+    await userEvent.type(screen.getByLabelText("Email address"), "ruben@correo.es");
+    await userEvent.type(screen.getByLabelText("Username"), "ruben");
+    await userEvent.type(screen.getByLabelText("Password"), "montana2026segura");
+    await userEvent.click(
+      screen.getByRole("button", { name: "Create account" }),
+    );
+
+    const message = await screen.findByText(termsRequired);
+    const checkbox = screen.getByRole("checkbox");
+
+    expect(checkbox).toHaveAttribute("aria-invalid", "true");
+    expect(checkbox).toHaveAttribute("aria-describedby", message.id);
+  });
+
+  it("registerForm_acceptedTermsAfterFailing_clearsTheMessage", async () => {
+    respondWith(202);
+    render(<RegisterForm />, { wrapper: IntlWrapper });
+
+    await userEvent.type(screen.getByLabelText("Email address"), "ruben@correo.es");
+    await userEvent.type(screen.getByLabelText("Username"), "ruben");
+    await userEvent.type(screen.getByLabelText("Password"), "montana2026segura");
+    await userEvent.click(
+      screen.getByRole("button", { name: "Create account" }),
+    );
+    await screen.findByText(termsRequired);
+
+    await userEvent.click(screen.getByRole("checkbox"));
+
+    await waitFor(() =>
+      expect(screen.queryByText(termsRequired)).toBeNull(),
+    );
+  });
+
   it("registerForm_success_doesNotSignInAndSendsToLogin", async () => {
     respondWith(202);
     render(<RegisterForm />, { wrapper: IntlWrapper });
@@ -99,6 +139,9 @@ describe("RegisterForm", () => {
     await fillAndSubmit({ email: "ruben@correo" });
 
     await waitFor(() => expect(fetchMock).not.toHaveBeenCalled());
+    expect(
+      await screen.findByText("That email address isn't valid."),
+    ).toBeInTheDocument();
   });
 
   it("registerForm_usernameWithTwoSeparators_isRejectedBeforeCallingTheApi", async () => {
@@ -119,6 +162,49 @@ describe("RegisterForm", () => {
     await fillAndSubmit({ password: "corta" });
 
     await waitFor(() => expect(fetchMock).not.toHaveBeenCalled());
+    expect(
+      await screen.findByText(
+        "The password must be at least 10 characters long.",
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("registerForm_emptyFields_reportEachOneAsRequired", async () => {
+    vi.stubGlobal("fetch", vi.fn());
+    render(<RegisterForm />, { wrapper: IntlWrapper });
+
+    await userEvent.click(
+      screen.getByRole("button", { name: "Create account" }),
+    );
+
+    await waitFor(() =>
+      expect(screen.getAllByText("This field is required.")).toHaveLength(3),
+    );
+  });
+
+  it("registerForm_spanishLocale_translatesTheValidationMessages", async () => {
+    vi.stubGlobal("fetch", vi.fn());
+    render(<RegisterForm />, {
+      wrapper: ({ children }) => (
+        <IntlWrapper locale="es">{children}</IntlWrapper>
+      ),
+    });
+
+    await userEvent.type(
+      screen.getByLabelText("Correo electrónico"),
+      "ruben@correo",
+    );
+    await userEvent.type(screen.getByLabelText("Nombre de usuario"), "ruben");
+    await userEvent.type(screen.getByLabelText("Contraseña"), "corta");
+    await userEvent.click(screen.getByRole("button", { name: "Crear cuenta" }));
+
+    expect(
+      await screen.findByText("Ese correo electrónico no es válido."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("La contraseña debe tener al menos 10 caracteres."),
+    ).toBeInTheDocument();
+    expect(screen.queryByText(/Too small|Invalid input/)).toBeNull();
   });
 
   it("registerForm_takenEmail_marksTheFieldAndOffersToSignIn", async () => {
