@@ -129,6 +129,17 @@ describe("AccountCards", () => {
     expect(replace).toHaveBeenCalledWith("/");
   });
 
+  it("accountCards_signOut_forgetsTheUnconfirmedMark", async () => {
+    useEmailConfirmation.setState({ unconfirmed: true });
+    render(<AccountCards displayName="Rubén" />, { wrapper: Wrapper });
+
+    await userEvent.click(screen.getByRole("button", { name: "Sign out" }));
+
+    await waitFor(() =>
+      expect(useEmailConfirmation.getState().unconfirmed).toBe(false),
+    );
+  });
+
   it("accountCards_signOut_navigatesBeforeRevoking", async () => {
     const order: string[] = [];
     replace.mockImplementation(() => order.push("navigate"));

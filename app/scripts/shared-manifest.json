@@ -128,6 +128,9 @@
       "path": "src/hooks/useProblemToast.ts"
     },
     {
+      "path": "src/hooks/useFieldMessage.ts"
+    },
+    {
       "path": "src/hooks/useDebouncedValue.test.ts"
     },
     {
@@ -135,6 +138,9 @@
     },
     {
       "path": "src/hooks/useProblemToast.test.tsx"
+    },
+    {
+      "path": "src/hooks/useFieldMessage.test.tsx"
     },
     {
       "path": "src/types/api.ts",
@@ -153,27 +159,27 @@
     {
       "path": "messages/en.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "ec411c213c39461907caab088c012903e56a3d8cdc300c1411ea0494991613c8"
+      "sourceSha256": "e0b9f855e2c4da52c52a36da0d4f78aa86fd89f9d1d958bb71d62015c553908a"
     },
     {
       "path": "messages/es.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "e25ea33fc1b39e684787ce7b3e1da4286164db6836e4dfc1f1ebc3b8a4820072"
+      "sourceSha256": "e791f6a411bc45816259586a321ad67f4fa1c651e0ddd0705d5ac9c70a7aae0b"
     },
     {
       "path": "messages/zh.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "22fa65976ba282d61c65374dfce2e56e6e56d0fb767d63220f963bb1239a341b"
+      "sourceSha256": "539813f8a98e3a56c8bdcf849c9c0db92504e6372a6f8e0a9cf2cd32280064cc"
     },
     {
       "path": "messages/fr.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "af10656eab140f992688a5d99f4ea99f1094e67e8e25c870371ae645922407d6"
+      "sourceSha256": "f6d042837c3d13430897de64524bd034ddc54a8513e295d5ccaa52ec747c7a87"
     },
     {
       "path": "messages/ar.json",
       "divergence": "Claves propias de movil: auth.confirmEmail.manual.* y auth.resend.enterToken, para el pegado manual del token sin deep link (B3); takePhoto, chooseFromGallery y pickerDenied en ascentForm.photos y ascents.photos, mas ascents.detail.viewPublic (B5b); takePhoto, chooseFromGallery y pickerDenied en settings.profile.avatar, que el <input type=file> del portal no necesitaba (B6b). B7a anade peaks.nearby.servicesDisabled, ascentForm.leaveTitle, ascentForm.leaveConfirm y settings.account.danger.deleted. B8a anade el bloque offline.* completo: banner, list.pending, list.rejected y detail.* para la cola de ascensiones sin cobertura.",
-      "sourceSha256": "d8d9eaeda16e11f8afb881996e91f518f4b974f72507d133928216b3b4a3e6d5"
+      "sourceSha256": "432cd36568cfb3c8e80af7a973ffc9d134dc1c15a8abad246105dfd40c337f9b"
     },
     {
       "path": "scripts/check-messages.mjs"
@@ -280,12 +286,12 @@
     {
       "path": "src/components/features/auth/LoginForm.tsx",
       "divergence": "No hay route handler en movil: fetch('/api/auth/login') pasa a signIn() de lib/auth/session capturando ApiError, mas una rama para el fallo de red que el BFF no tenia (MOBILE.md §6 B3).",
-      "sourceSha256": "d791a5bb100ff98bde8c9071c3a0b9b5f2c70c6a20b0ab4d38fe3cf3bcfbba70"
+      "sourceSha256": "e8ce727b01c3d9415e773e0e2ffde3e6a0b8bd2e6f1cfb1432d290450439c64e"
     },
     {
       "path": "src/components/features/auth/LoginForm.test.tsx",
       "divergence": "Sigue a LoginForm: mock de @/lib/auth/session en lugar de stub de fetch, mas un caso de fallo de red.",
-      "sourceSha256": "f71bc5e46dd529fc3c897f0b2a3aecffaac7e9ef6d2150e28aafcae76c27f44e"
+      "sourceSha256": "9c9fd93750525e6922b413b08bdc2191699ccca78c902054b811708e37328475"
     },
     {
       "path": "src/components/features/auth/ConfirmEmailView.tsx",

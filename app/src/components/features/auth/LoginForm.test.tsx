@@ -20,6 +20,7 @@ vi.mock("@/lib/auth/session", () => ({
 }));
 
 const { LoginForm } = await import("./LoginForm");
+const { useEmailConfirmation } = await import("@/stores/emailConfirmation");
 
 const respondWith = (status: number, body: Record<string, unknown> = {}) =>
   signInMock.mockRejectedValue(new ApiError({ status, ...body }));
@@ -78,6 +79,29 @@ describe("LoginForm", () => {
     await signIn();
 
     await waitFor(() => expect(replace).toHaveBeenCalledWith("/dashboard"));
+  });
+
+  it("loginForm_success_dropsTheUnconfirmedMarkOfWhoeverUsedTheAppBefore", async () => {
+    useEmailConfirmation.setState({ unconfirmed: true });
+    accept();
+    render(<LoginForm />, { wrapper: IntlWrapper });
+
+    await signIn();
+
+    await waitFor(() =>
+      expect(useEmailConfirmation.getState().unconfirmed).toBe(false),
+    );
+  });
+
+  it("loginForm_rejectedCredentials_leavesTheUnconfirmedMarkAlone", async () => {
+    useEmailConfirmation.setState({ unconfirmed: true });
+    respondWith(401, { title: "User.InvalidCredentials" });
+    render(<LoginForm />, { wrapper: IntlWrapper });
+
+    await signIn();
+
+    await waitFor(() => expect(screen.getByRole("alert")).toBeInTheDocument());
+    expect(useEmailConfirmation.getState().unconfirmed).toBe(true);
   });
 
   it("loginForm_successWithSafeNext_honoursTheDestination", async () => {
@@ -140,6 +164,35 @@ describe("LoginForm", () => {
 
     await waitFor(() =>
       expect(screen.getByRole("button", { name: "Sign in" })).toBeDisabled(),
+    );
+  });
+
+  it("loginForm_emptyFields_reportBothAsRequired", async () => {
+    render(<LoginForm />, { wrapper: IntlWrapper });
+
+    await userEvent.click(screen.getByRole("button", { name: "Sign in" }));
+
+    await waitFor(() =>
+      expect(screen.getAllByText("This field is required.")).toHaveLength(2),
+    );
+    expect(screen.getByLabelText("Email or username")).toHaveAttribute(
+      "aria-invalid",
+      "true",
+    );
+    expect(signInMock).not.toHaveBeenCalled();
+  });
+
+  it("loginForm_spanishLocale_translatesTheRequiredMessage", async () => {
+    render(<LoginForm />, {
+      wrapper: ({ children }) => (
+        <IntlWrapper locale="es">{children}</IntlWrapper>
+      ),
+    });
+
+    await userEvent.click(screen.getByRole("button", { name: "Entrar" }));
+
+    await waitFor(() =>
+      expect(screen.getAllByText("Este campo es obligatorio.")).toHaveLength(2),
     );
   });
 

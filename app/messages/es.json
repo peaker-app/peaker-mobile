@@ -416,8 +416,7 @@
       "passwordHelp": "Mínimo {min} caracteres. La longitud importa más que la complejidad.",
       "showPassword": "Mostrar la contraseña",
       "hidePassword": "Ocultar la contraseña",
-      "identifier": "Correo o nombre de usuario",
-      "required": "Este campo es obligatorio."
+      "identifier": "Correo o nombre de usuario"
     },
     "passwordStrength": {
       "label": "Fortaleza de la contraseña",
@@ -539,6 +538,10 @@
       "goHome": "Volver al inicio",
       "reference": "Referencia técnica"
     },
+    "field": {
+      "required": "Este campo es obligatorio.",
+      "passwordTooShort": "La contraseña debe tener al menos {min} caracteres."
+    },
     "User": {
       "EmailEmpty": "Escribe tu correo electrónico.",
       "EmailInvalid": "Ese correo electrónico no es válido.",
@@ -546,6 +549,7 @@
       "UsernameEmpty": "Escribe un nombre de usuario.",
       "UsernameInvalid": "Usa de 3 a 30 caracteres: letras, dígitos, puntos, guiones o guiones bajos. Debe empezar y acabar en letra o dígito, y no puede llevar dos separadores seguidos.",
       "PasswordHashMissing": "Esta cuenta no tiene contraseña definida.",
+      "TermsNotAccepted": "Debes confirmar que tienes al menos 14 años y aceptar las Condiciones de uso y la Política de privacidad.",
       "PasswordBreached": "Esta contraseña aparece en filtraciones conocidas. Elige otra.",
       "EmailAlreadyRegistered": "Ese correo electrónico ya está registrado.",
       "UsernameAlreadyRegistered": "Ese nombre de usuario ya está en uso.",

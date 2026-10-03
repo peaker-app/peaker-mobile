@@ -8,6 +8,7 @@ import { z } from "zod";
 import { Alert, AlertDescription } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { useFieldMessage } from "@/hooks/useFieldMessage";
 import { useProblemMessage } from "@/hooks/useProblemToast";
 import { Link, useRouter } from "@/i18n/navigation";
 import { ApiError, apiFetch } from "@/lib/api/client";
@@ -26,10 +27,19 @@ import { PasswordStrengthMeter } from "./PasswordStrengthMeter";
 const rateLimitStatus = 429;
 
 const schema = z.object({
-  email: z.string().refine(isValidEmail),
-  username: z.string().refine(isValidUsername),
-  password: z.string().min(passwordMinLength),
-  acceptedTerms: z.literal(true),
+  email: z
+    .string()
+    .min(1, { error: "field.required" })
+    .refine(isValidEmail, { error: "User.EmailInvalid" }),
+  username: z
+    .string()
+    .min(1, { error: "field.required" })
+    .refine(isValidUsername, { error: "User.UsernameInvalid" }),
+  password: z
+    .string()
+    .min(1, { error: "field.required" })
+    .min(passwordMinLength, { error: "field.passwordTooShort" }),
+  acceptedTerms: z.literal(true, { error: "User.TermsNotAccepted" }),
 });
 
 type RegisterValues = z.infer<typeof schema>;
@@ -39,6 +49,7 @@ export const RegisterForm = () => {
   const fields = useTranslations("auth.fields");
   const errors = useTranslations("errors");
   const toMessage = useProblemMessage();
+  const fieldError = useFieldMessage();
   const router = useRouter();
   const [formError, setFormError] = useState<string | undefined>(undefined);
   const [emailTaken, setEmailTaken] = useState(false);
@@ -112,6 +123,7 @@ export const RegisterForm = () => {
   });
 
   const password = useWatch({ control: form.control, name: "password" });
+  const termsError = fieldError(form.formState.errors.acceptedTerms?.message);
 
   return (
     <form onSubmit={submit} noValidate className="flex flex-col gap-5">
@@ -125,7 +137,7 @@ export const RegisterForm = () => {
         id="email"
         label={fields("email")}
         help={fields("emailHelp")}
-        error={form.formState.errors.email?.message}
+        error={fieldError(form.formState.errors.email?.message)}
       >
         {({ describedBy, invalid }) => (
           <Input
@@ -153,7 +165,7 @@ export const RegisterForm = () => {
         id="username"
         label={fields("username")}
         help={`${fields("usernameHelp")} ${fields("usernameCase")}`}
-        error={form.formState.errors.username?.message}
+        error={fieldError(form.formState.errors.username?.message)}
       >
         {({ describedBy, invalid }) => (
           <Input
@@ -171,7 +183,7 @@ export const RegisterForm = () => {
         id="password"
         label={fields("password")}
         help={fields("passwordHelp", { min: passwordMinLength })}
-        error={form.formState.errors.password?.message}
+        error={fieldError(form.formState.errors.password?.message)}
       >
         {({ describedBy, invalid }) => (
           <PasswordField
@@ -186,31 +198,42 @@ export const RegisterForm = () => {
 
       <PasswordStrengthMeter value={password} />
 
-      <div className="flex items-start gap-3">
-        <input
-          id="acceptedTerms"
-          type="checkbox"
-          className="mt-1 size-4"
-          aria-invalid={form.formState.errors.acceptedTerms ? true : undefined}
-          {...form.register("acceptedTerms")}
-        />
-        <label
-          htmlFor="acceptedTerms"
-          className="text-sm leading-relaxed text-start"
-        >
-          {t.rich("acceptTerms", {
-            terms: (chunks) => (
-              <Link href="/legal/terms" className="font-medium underline">
-                {chunks}
-              </Link>
-            ),
-            privacy: (chunks) => (
-              <Link href="/legal/privacy" className="font-medium underline">
-                {chunks}
-              </Link>
-            ),
-          })}
-        </label>
+      <div className="flex flex-col gap-1.5">
+        <div className="flex items-start gap-3">
+          <input
+            id="acceptedTerms"
+            type="checkbox"
+            className="mt-1 size-4"
+            aria-invalid={termsError ? true : undefined}
+            aria-describedby={termsError ? "acceptedTerms-error" : undefined}
+            {...form.register("acceptedTerms")}
+          />
+          <label
+            htmlFor="acceptedTerms"
+            className="text-sm leading-relaxed text-start"
+          >
+            {t.rich("acceptTerms", {
+              terms: (chunks) => (
+                <Link href="/legal/terms" className="font-medium underline">
+                  {chunks}
+                </Link>
+              ),
+              privacy: (chunks) => (
+                <Link href="/legal/privacy" className="font-medium underline">
+                  {chunks}
+                </Link>
+              ),
+            })}
+          </label>
+        </div>
+        {termsError ? (
+          <p
+            id="acceptedTerms-error"
+            className="text-sm leading-relaxed text-destructive text-start"
+          >
+            {termsError}
+          </p>
+        ) : null}
       </div>
 
       <Button type="submit" disabled={form.formState.isSubmitting} aria-busy={form.formState.isSubmitting}>

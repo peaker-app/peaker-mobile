@@ -158,6 +158,15 @@ describe("restoreSession", () => {
     expect((await session.restoreSession()).status).toBe("anonymous");
   });
 
+  it("restoreSession_whenSecureStorageThrows_settlesAnonymousInsteadOfStayingUnknown", async () => {
+    const { secureStorage, session, sessionStore } = await loadAuth();
+    vi.spyOn(secureStorage.secureStore, "get").mockRejectedValue(
+      new Error("keystore invalidated"),
+    );
+
+    expect((await session.restoreSession()).status).toBe("anonymous");
+    expect(sessionStore.getSessionState().status).not.toBe("unknown");
+  });
   it("restoreSession_startingWithoutNetwork_doesNotThrowAwayTheStoredSession", async () => {
     const { session, tokenStore } = await loadAuth();
     await tokenStore.persistTokens(tokens({ refreshToken: "stored" }));
